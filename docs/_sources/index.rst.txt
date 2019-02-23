@@ -16,4 +16,5 @@ Contents
    :numbered:
 
    preface
+   reference
 
