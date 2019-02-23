@@ -4,9 +4,13 @@
 Preface
 =======
 
+.. |py| replace:: ``Python``
+.. |ds| replace:: ``Data Scientist``
+.. |da| replace:: ``Data Analysis``
+
 .. admonition:: Chinese proverb
 
-	Good tools are prerequisite to the successful execution of a job. – old Chinese proverb
+	The palest ink is better than the best memory. – old Chinese proverb
 
 
 About
@@ -15,14 +19,14 @@ About
 About this tutorial
 -------------------
 
-This document is a summary of my valueable experiences in using Python decumentation ``Sphinx`` with ``Github`` webpage. The PDF version can be downloaded from `HERE <sphinxgithub.pdf>`_. **You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.** 
+This document is a summary of my valueable experiences in using |py| for |ds| daily work. The PDF version can be downloaded from `HERE <sphinxgithub.pdf>`_. **You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.** 
 
-In this repository, I try to use the detailed demo code and 
-examples to show how to use ``Sphinx`` to generate the ``.html`` and ``.pdf`` documents and how to hookup them automatically on ``Github``. If you find your work wasn’t cited in this note, please feel free to let me know.
+In this repository, I try to use the detailed |ds| related demo code and 
+examples to share some useful python tips for Data Scientist work. If you find your work wasn’t cited in this note, please feel free to let me know.
 
-Although I am by no means a python programming and Sphinx expert, 
+Although I am by no means a python programming and Data Scientist expert, 
 I decided that it would be useful for me to share what I learned 
-about Sphinx in the form of easy tutorials with detailed example. 
+about Python in the form of easy tutorials with detailed example. 
 I hope those tutorials will be a valuable tool for your studies.
 
 The tutorials assume that the reader has a preliminary knowledge of ``python`` programing, ``LaTex`` and ``Linux``. And this document is generated automatically by using `sphinx`_.
@@ -53,23 +57,17 @@ About the authors
 
 Motivation for this tutorial 
 ++++++++++++++++++++++++++++
-``Sphinx`` is an awesome Python documentation package, and it has excellent facilities for the documentation of software projects in a range of languages. I have been using ``Sphinx`` for almost 4 years. I was impressed and attracted by Sphinx in the first using. And I foud that:
 
-* It supports **several popular output formats**: ``HTML`` (including Windows HTML Help), ``LaTeX`` (for printable PDF versions), ePub, Texinfo, manual pages, plain text.
 
-* It has **easy publishing routes**: Github.
+No matter you like it or not, Python has been one of the most popular programming languages.
+I have been using |py| for almost 4 years. Frankly speaking, I wasn't impressed and attracted 
+by |py| at the first using. After starting working in industry, I have to use |py|. Graduately
+I recognize the elegance of Python and use it as one of my main programming language. But I foud that:
 
-* Is has **extensive cross-references**: semantic markup and automatic links for functions, classes, citations, glossary terms and similar pieces of information
+* Most of the |py| books or tutorials which emphasize on programming will overwhelme the green hand. 
+* While most of the |py| books or tutorials |ds| or |da| didn't cover some essential skills from the engineer side.
 
-* It has **hierarchical structure**: easy definition of a document tree, with automatic links to siblings, parents and children.
-
-* It has **automatic indices**: general index as well as a language-specific module indices
-
-* It has awesome **code handling**: automatic highlighting using the Pygments highlighter
-
-* Is has abundant **extensions**: automatic testing of code snippets, inclusion of docstrings from Python modules (API docs), and more
-
-* It has abundant **contributed extensions**: more than 50 extensions contributed by users in a second repository; most of them installable from PyPI
+So I want to keep some of my valuable tips which are heavily applied in my daily work. 
 
 
 Feedback and suggestions
