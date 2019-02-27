@@ -3,7 +3,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{sphinxmanual}[2017/03/26 v1.5.4 Document class (Sphinx manual)]
+\ProvidesClass{sphinxmanual}[2018/12/22 v1.8.3 Document class (Sphinx manual)]
 
 % chapters starting at odd pages (overridden by 'openany' document option)
 \PassOptionsToClass{openright}{\sphinxdocclass}
@@ -33,20 +33,19 @@
 % Change the title page to look a bit better, and fit in with the fncychap
 % ``Bjarne'' style a bit better.
 %
-\renewcommand{\maketitle}{%
+\newcommand{\sphinxmaketitle}{%
   \let\spx@tempa\relax
   \ifHy@pageanchor\def\spx@tempa{\Hy@pageanchortrue}\fi
   \hypersetup{pageanchor=false}% avoid duplicate destination warnings
   \begin{titlepage}%
     \let\footnotesize\small
     \let\footnoterule\relax
-    \noindent\rule{\textwidth}{1pt}\ifsphinxpdfoutput\newline\null\fi\par
-    \ifsphinxpdfoutput
-      \begingroup
-       %\pdfstringdefDisableCommands{\def\\{, }\def\endgraf{ }\def\and{, }}%
-       %\hypersetup{pdfauthor={\@author}, pdftitle={\@title}}%
+    \noindent\rule{\textwidth}{1pt}\par
+      \begingroup % for PDF information dictionary
+       \def\endgraf{ }\def\and{\& }%
+       \pdfstringdefDisableCommands{\def\\{, }}% overwrite hyperref setup
+       \hypersetup{pdfauthor={\@author}, pdftitle={\@title}}%
       \endgroup
-    \fi
     \begin{flushright}%
       \sphinxlogo
       \py@HeaderFamily
@@ -70,13 +69,14 @@
   \setcounter{footnote}{0}%
   \let\thanks\relax\let\maketitle\relax
   %\gdef\@thanks{}\gdef\@author{}\gdef\@title{}
+  \clearpage
+  \ifdefined\sphinxbackoftitlepage\sphinxbackoftitlepage\fi
   \if@openright\cleardoublepage\else\clearpage\fi
   \spx@tempa
 }
 
 \newcommand{\sphinxtableofcontents}{%
   \pagenumbering{roman}%
-  \pagestyle{plain}%
   \begingroup
     \parskip \z@skip
     \tableofcontents
@@ -84,7 +84,6 @@
   % before resetting page counter, let's do the right thing.
   \if@openright\cleardoublepage\else\clearpage\fi
   \pagenumbering{arabic}%
-  \ifdefined\fancyhf\pagestyle{normal}\fi
 }
 
 % This is needed to get the width of the section # area wide enough in the
@@ -97,12 +96,10 @@
 % Contents.
 % For a report document class this environment is a chapter.
 %
-% Note: \phantomsection is required for TeXLive 2009
-% http://tex.stackexchange.com/questions/44088/when-do-i-need-to-invoke-phantomsection#comment166081_44091
 \newenvironment{sphinxthebibliography}[1]{%
   \if@openright\cleardoublepage\else\clearpage\fi
-  \phantomsection
-  \begin{thebibliography}{1}%
+  % \phantomsection % not needed here since TeXLive 2010's hyperref
+  \begin{thebibliography}{#1}%
   \addcontentsline{toc}{chapter}{\bibname}}{\end{thebibliography}}
 
 % Same for the indices.
@@ -112,6 +109,6 @@
  {\newenvironment{sphinxtheindex}{\begin{theindex}}{\end{theindex}}}
  {\newenvironment{sphinxtheindex}{%
     \if@openright\cleardoublepage\else\clearpage\fi
-    \phantomsection
+    \phantomsection % needed as no chapter, section, ... created
     \begin{theindex}%
     \addcontentsline{toc}{chapter}{\indexname}}{\end{theindex}}}

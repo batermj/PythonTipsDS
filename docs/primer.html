@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Python Language Primer &mdash; Python Tips for Data Scientist 1.00 documentation</title>
+  <title>4. Primer Functions &mdash; Python Tips for Data Scientist 1.00 documentation</title>
   
 
   
@@ -19,44 +19,37 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Python Tips for Data Scientist 1.00 documentation" href="index.html"/>
-        <link rel="next" title="4. Jupyter Notebook" href="ipynb.html"/>
-        <link rel="prev" title="2. Python Installation" href="install.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Data Structures" href="struct.html" />
+    <link rel="prev" title="3. Notebooks" href="nb.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -97,9 +90,24 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Python Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Python Language Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipynb.html">4. Jupyter Notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">5. Main Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb.html">3. Notebooks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Primer Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">4.1. <code class="docutils literal notranslate"><span class="pre">*</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#range">4.2. <code class="docutils literal notranslate"><span class="pre">range</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random">4.3. <code class="docutils literal notranslate"><span class="pre">random</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#random-random">4.3.1. <code class="docutils literal notranslate"><span class="pre">random.random</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#np-random">4.3.2. <code class="docutils literal notranslate"><span class="pre">np.random</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#round">4.4. <code class="docutils literal notranslate"><span class="pre">round</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todo">4.5. TODO..</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="struct.html">5. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.html">6. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rdd.html">7. <code class="docutils literal notranslate"><span class="pre">rdd.DataFrame</span></code> manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pack.html">8. Package Wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">9. Main Reference</a></li>
 </ul>
 
             
@@ -111,7 +119,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Python Tips for Data Scientist</a>
@@ -119,9 +127,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -144,7 +153,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>3. Python Language Primer</li>
+      <li>4. Primer Functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -165,28 +174,172 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="python-language-primer">
-<span id="primer"></span><h1>3. Python Language Primer<a class="headerlink" href="#python-language-primer" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="primer-functions">
+<span id="primer"></span><h1>4. Primer Functions<a class="headerlink" href="#primer-functions" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">This Chapter <a class="reference internal" href="#primer"><span class="std std-ref">Python Language Primer</span></a> is for beginner.  If you have some <code class="docutils literal"><span class="pre">Python</span></code> programming experience, you may skip this chapter.</p>
+<p class="last">This Chapter <a class="reference internal" href="#primer"><span class="std std-ref">Primer Functions</span></a> is for beginner.  If you have some <code class="docutils literal notranslate"><span class="pre">Python</span></code> programming experience, you may skip this chapter.</p>
+</div>
+<p>The following <code class="docutils literal notranslate"><span class="pre">functions</span></code> have been heavily used in my daily Data Scientist work.</p>
+<div class="section" id="id1">
+<h2>4.1. <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Single asterisk as used in function declaration allows variable number of arguments passed from calling environment. Inside the function it behaves as a tuple.</p>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="range">
+<h2>4.2. <code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#range" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span>
+<span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="random">
+<h2>4.3. <code class="docutils literal notranslate"><span class="pre">random</span></code><a class="headerlink" href="#random" title="Permalink to this headline">¶</a></h2>
+<p>More details can be found at:</p>
+<ol class="loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">random</span></code>: <a class="reference external" href="https://docs.python.org/3/library/random.html#random.randint">https://docs.python.org/3/library/random.html#random.randint</a></li>
+<li><code class="docutils literal notranslate"><span class="pre">np.random</span></code>: <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/routines.random.html">https://docs.scipy.org/doc/numpy/reference/routines.random.html</a></li>
+</ol>
+<div class="section" id="random-random">
+<h3>4.3.1. <code class="docutils literal notranslate"><span class="pre">random.random</span></code><a class="headerlink" href="#random-random" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+
+<span class="c1"># (b - a) * random() + a</span>
+<span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.33844051243073625</span>
+<span class="mf">7.772024014335885</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="np-random">
+<h3>4.3.2. <code class="docutils literal notranslate"><span class="pre">np.random</span></code><a class="headerlink" href="#np-random" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">()</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="c1"># (b - a) * random_sample() + a</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">+</span><span class="n">a</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">0.11919402208670005</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.07384755</span><span class="p">,</span> <span class="mf">0.9005251</span> <span class="p">,</span> <span class="mf">0.30030561</span><span class="p">,</span> <span class="mf">0.38221819</span><span class="p">])</span>
+<span class="n">array</span><span class="p">([[</span><span class="mf">0.76851156</span><span class="p">,</span> <span class="mf">0.56973309</span><span class="p">,</span> <span class="mf">0.47074505</span><span class="p">,</span> <span class="mf">0.7814957</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.5778028</span> <span class="p">,</span> <span class="mf">0.94653057</span><span class="p">,</span> <span class="mf">0.51193493</span><span class="p">,</span> <span class="mf">0.48693931</span><span class="p">]])</span>
+
+<span class="n">array</span><span class="p">([[</span><span class="mf">4.65799262</span><span class="p">,</span> <span class="mf">6.32702018</span><span class="p">,</span> <span class="mf">6.55545234</span><span class="p">,</span> <span class="mf">5.45877784</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">7.69941994</span><span class="p">,</span> <span class="mf">4.68709357</span><span class="p">,</span> <span class="mf">5.49790728</span><span class="p">,</span> <span class="mf">4.60913966</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="round">
+<h2>4.4. <code class="docutils literal notranslate"><span class="pre">round</span></code><a class="headerlink" href="#round" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, we really do not need the scientific decimals for <code class="docutils literal notranslate"><span class="pre">output</span></code> results. So you can use this function to round an array to the given number of decimals.</p>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]),</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.4</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">,</span> <span class="mf">0.84</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="todo">
+<h2>4.5. TODO..<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ipynb.html" class="btn btn-neutral float-right" title="4. Jupyter Notebook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="struct.html" class="btn btn-neutral float-right" title="5. Data Structures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install.html" class="btn btn-neutral" title="2. Python Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="nb.html" class="btn btn-neutral float-left" title="3. Notebooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -195,12 +348,14 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Wenqiang Feng.
-      Last updated on Feb 23, 2019.
+        &copy; Copyright 2019, Wenqiang Feng
+      <span class="lastupdated">
+        Last updated on Feb 27, 2019.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -213,36 +368,15 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.00',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

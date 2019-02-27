@@ -19,43 +19,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Python Tips for Data Scientist 1.00 documentation" href="#"/>
-        <link rel="next" title="1. Preface" href="preface.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Preface" href="preface.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -96,9 +89,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Python Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="primer.html">3. Python Language Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipynb.html">4. Jupyter Notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">5. Main Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb.html">3. Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primer.html">4. Primer Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="struct.html">5. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.html">6. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rdd.html">7. <code class="docutils literal notranslate"><span class="pre">rdd.DataFrame</span></code> manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pack.html">8. Package Wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">9. Main Reference</a></li>
 </ul>
 
             
@@ -110,7 +107,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="#">Python Tips for Data Scientist</a>
@@ -118,9 +115,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -185,18 +183,54 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Python Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="primer.html">3. Python Language Primer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipynb.html">4. Jupyter Notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">5. Main Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb.html">3. Notebooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nb.html#apache-zeppelin">3.1. Apache Zeppelin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nb.html#jupyter-notebook">3.2. Jupyter Notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="primer.html">4. Primer Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="primer.html#id1">4.1. <code class="docutils literal notranslate"><span class="pre">*</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="primer.html#range">4.2. <code class="docutils literal notranslate"><span class="pre">range</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="primer.html#random">4.3. <code class="docutils literal notranslate"><span class="pre">random</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="primer.html#random-random">4.3.1. <code class="docutils literal notranslate"><span class="pre">random.random</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="primer.html#np-random">4.3.2. <code class="docutils literal notranslate"><span class="pre">np.random</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="primer.html#round">4.4. <code class="docutils literal notranslate"><span class="pre">round</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="primer.html#todo">4.5. TODO..</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="struct.html">5. Data Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="struct.html#list">5.1. List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="struct.html#create-list">5.1.1. Create list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="struct.html#unpack-list">5.1.2. Unpack list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="struct.html#tuple">5.2. Tuple</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pd.html">6. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> manipulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pd.html#todo">6.1. TODO..</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rdd.html">7. <code class="docutils literal notranslate"><span class="pre">rdd.DataFrame</span></code> manipulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rdd.html#todo">7.1. TODO..</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pack.html">8. Package Wrapper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pack.html#hierarchical-structure">8.1. Hierarchical Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pack.html#set-up">8.2. Set Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pack.html#readme">8.3. ReadMe</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">9. Main Reference</a></li>
 </ul>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -212,12 +246,14 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Wenqiang Feng.
-      Last updated on Feb 23, 2019.
+        &copy; Copyright 2019, Wenqiang Feng
+      <span class="lastupdated">
+        Last updated on Feb 27, 2019.
+      </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -230,36 +266,15 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.00',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

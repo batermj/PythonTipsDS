@@ -17,7 +17,11 @@ Contents
 
    preface
    install
+   nb
    primer
-   ipynb
+   struct
+   pd
+   rdd
+   pack
    reference
 

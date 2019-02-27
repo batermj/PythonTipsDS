@@ -5,23 +5,28 @@
    \let\sphinxpxdimen\pdfpxdimen\else\newdimen\sphinxpxdimen
 \fi \sphinxpxdimen=.75bp\relax
 
+\PassOptionsToPackage{warn}{textcomp}
 \usepackage[utf8]{inputenc}
 \ifdefined\DeclareUnicodeCharacter
- \ifdefined\DeclareUnicodeCharacterAsOptional\else
-  \DeclareUnicodeCharacter{00A0}{\nobreakspace}
-\fi\fi
+% support both utf8 and utf8x syntaxes
+\edef\sphinxdqmaybe{\ifdefined\DeclareUnicodeCharacterAsOptional\string"\fi}
+  \DeclareUnicodeCharacter{\sphinxdqmaybe00A0}{\nobreakspace}
+  \DeclareUnicodeCharacter{\sphinxdqmaybe2500}{\sphinxunichar{2500}}
+  \DeclareUnicodeCharacter{\sphinxdqmaybe2502}{\sphinxunichar{2502}}
+  \DeclareUnicodeCharacter{\sphinxdqmaybe2514}{\sphinxunichar{2514}}
+  \DeclareUnicodeCharacter{\sphinxdqmaybe251C}{\sphinxunichar{251C}}
+  \DeclareUnicodeCharacter{\sphinxdqmaybe2572}{\textbackslash}
+\fi
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amstext}
 \usepackage{babel}
 \usepackage{times}
 \usepackage[Bjarne]{fncychap}
-\usepackage{longtable}
 \usepackage{sphinx}
 
+\fvset{fontsize=\small}
 \usepackage{geometry}
-\usepackage{multirow}
-\usepackage{eqparbox}
 
 % Include hyperref last.
 \usepackage{hyperref}
@@ -30,9 +35,21 @@
 % Set up styles of URL: it should be placed after hyperref.
 \urlstyle{same}
 
-\addto\captionsenglish{\renewcommand{\figurename}{Fig.}}
-\addto\captionsenglish{\renewcommand{\tablename}{Table}}
+\addto\captionsenglish{\renewcommand{\figurename}{Fig.\@ }}
+\makeatletter
+\def\fnum@figure{\figurename\thefigure{}}
+\makeatother
+\addto\captionsenglish{\renewcommand{\tablename}{Table }}
+\makeatletter
+\def\fnum@table{\tablename\thetable{}}
+\makeatother
 \addto\captionsenglish{\renewcommand{\literalblockname}{Listing}}
+
+\addto\captionsenglish{\renewcommand{\literalblockcontinuedname}{continued from previous page}}
+\addto\captionsenglish{\renewcommand{\literalblockcontinuesname}{continues on next page}}
+\addto\captionsenglish{\renewcommand{\sphinxnonalphabeticalgroupname}{Non-alphabetical}}
+\addto\captionsenglish{\renewcommand{\sphinxsymbolsname}{Symbols}}
+\addto\captionsenglish{\renewcommand{\sphinxnumbersname}{Numbers}}
 
 \addto\extrasenglish{\def\pageautorefname{page}}
 
@@ -74,23 +91,26 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{February 23, 2019}
+\date{February 27, 2019}
 \release{1.00}
 \author{Wenqiang Feng}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
 \renewcommand{\releasename}{Release}
 \makeindex
-
 \begin{document}
 
-\maketitle
+\pagestyle{empty}
+\sphinxmaketitle
+\pagestyle{plain}
 \sphinxtableofcontents
-\phantomsection\label{\detokenize{index::doc}}\phantomsection\label{\detokenize{index:index}}\begin{quote}
-\phantomsection\label{\detokenize{index:fig-logo}}\begin{figure}[htbp]
+\pagestyle{normal}
+\phantomsection\label{\detokenize{index::doc}}\begin{quote}
+
+\begin{figure}[htbp]
 \centering
 
 \noindent\sphinxincludegraphics{{logo}.png}
-\label{\detokenize{index:fig-logo}}\end{figure}
+\end{figure}
 \end{quote}
 
 Welcome to my \sphinxstylestrong{Python Tips for Data Scientist} notes! In those notes, you will learn some useful tips for Data Scientist daily work. The PDF version can be downloaded from \sphinxhref{pythonTipsDS.pdf}{HERE}.
@@ -99,7 +119,7 @@ Welcome to my \sphinxstylestrong{Python Tips for Data Scientist} notes! In those
 
 
 \chapter{Preface}
-\label{\detokenize{preface:id1}}\label{\detokenize{preface::doc}}\label{\detokenize{preface:contents}}\label{\detokenize{preface:preface}}
+\label{\detokenize{preface:preface}}\label{\detokenize{preface:id1}}\label{\detokenize{preface::doc}}
 \begin{sphinxadmonition}{note}{Chinese proverb}
 
 The palest ink is better than the best memory. \textendash{} old Chinese proverb
@@ -111,9 +131,9 @@ The palest ink is better than the best memory. \textendash{} old Chinese proverb
 
 \subsection{About this tutorial}
 \label{\detokenize{preface:about-this-tutorial}}
-This document is a summary of my valueable experiences in using \sphinxcode{Python} for \sphinxcode{Data Scientist} daily work. The PDF version can be downloaded from \sphinxhref{sphinxgithub.pdf}{HERE}. \sphinxstylestrong{You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.}
+This document is a summary of my valueable experiences in using \sphinxcode{\sphinxupquote{Python}} for \sphinxcode{\sphinxupquote{Data Scientist}} daily work. The PDF version can be downloaded from \sphinxhref{sphinxgithub.pdf}{HERE}. \sphinxstylestrong{You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.}
 
-In this repository, I try to use the detailed \sphinxcode{Data Scientist} related demo code and
+In this repository, I try to use the detailed \sphinxcode{\sphinxupquote{Data Scientist}} related demo code and
 examples to share some useful python tips for Data Scientist work. If you find your work wasn’t cited in this note, please feel free to let me know.
 
 Although I am by no means a python programming and Data Scientist expert,
@@ -121,11 +141,11 @@ I decided that it would be useful for me to share what I learned
 about Python in the form of easy tutorials with detailed example.
 I hope those tutorials will be a valuable tool for your studies.
 
-The tutorials assume that the reader has a preliminary knowledge of \sphinxcode{python} programing, \sphinxcode{LaTex} and \sphinxcode{Linux}. And this document is generated automatically by using \sphinxhref{http://sphinx.pocoo.org}{sphinx}.
+The tutorials assume that the reader has a preliminary knowledge of \sphinxcode{\sphinxupquote{python}} programing, \sphinxcode{\sphinxupquote{LaTex}} and \sphinxcode{\sphinxupquote{Linux}}. And this document is generated automatically by using \sphinxhref{http://sphinx.pocoo.org}{sphinx}.
 
 
 \subsection{About the authors}
-\label{\detokenize{preface:sphinx}}\label{\detokenize{preface:about-the-authors}}\begin{itemize}
+\label{\detokenize{preface:about-the-authors}}\begin{itemize}
 \item {} 
 \sphinxstylestrong{Wenqiang Feng}
 \begin{itemize}
@@ -160,15 +180,15 @@ The work of Wenqiang Feng was supported by the IMA, while working at IMA. Howeve
 \section{Motivation for this tutorial}
 \label{\detokenize{preface:motivation-for-this-tutorial}}
 No matter you like it or not, Python has been one of the most popular programming languages.
-I have been using \sphinxcode{Python} for almost 4 years. Frankly speaking, I wasn't impressed and attracted
-by \sphinxcode{Python} at the first using. After starting working in industry, I have to use \sphinxcode{Python}. Graduately
+I have been using \sphinxcode{\sphinxupquote{Python}} for almost 4 years. Frankly speaking, I wasn’t impressed and attracted
+by \sphinxcode{\sphinxupquote{Python}} at the first using. After starting working in industry, I have to use \sphinxcode{\sphinxupquote{Python}}. Graduately
 I recognize the elegance of Python and use it as one of my main programming language. But I foud that:
 \begin{itemize}
 \item {} 
-Most of the \sphinxcode{Python} books or tutorials which emphasize on programming will overwhelme the green hand.
+Most of the \sphinxcode{\sphinxupquote{Python}} books or tutorials which emphasize on programming will overwhelme the green hand.
 
 \item {} 
-While most of the \sphinxcode{Python} books or tutorials \sphinxcode{Data Scientist} or \sphinxcode{Data Analysis} didn't cover some essential skills from the engineer side.
+While most of the \sphinxcode{\sphinxupquote{Python}} books or tutorials \sphinxcode{\sphinxupquote{Data Scientist}} or \sphinxcode{\sphinxupquote{Data Analysis}} didn’t cover some essential skills from the engineer side.
 
 \end{itemize}
 
@@ -182,40 +202,455 @@ corrections, suggestions or feedbacks through email (Wenqiang Feng: \sphinxhref{
 
 
 \chapter{Python Installation}
-\label{\detokenize{install:python-installation}}\label{\detokenize{install::doc}}\label{\detokenize{install:install}}
+\label{\detokenize{install:python-installation}}\label{\detokenize{install:install}}\label{\detokenize{install::doc}}
 \begin{sphinxadmonition}{note}{Note:}
-This Chapter {\hyperref[\detokenize{install:install}]{\sphinxcrossref{\DUrole{std,std-ref}{Python Installation}}}} is for beginner.  If you have some \sphinxcode{Python} programming experience, you may skip this chapter.
+This Chapter {\hyperref[\detokenize{install:install}]{\sphinxcrossref{\DUrole{std,std-ref}{Python Installation}}}} is for beginner.  If you have some \sphinxcode{\sphinxupquote{Python}} programming experience, you may skip this chapter.
+\end{sphinxadmonition}
+
+No matter what operator system is, I will strongly recommend you to install \sphinxcode{\sphinxupquote{Anaconda}} which contains \sphinxcode{\sphinxupquote{Python}}, \sphinxcode{\sphinxupquote{Jupyter}}, \sphinxcode{\sphinxupquote{spyder}}, \sphinxcode{\sphinxupquote{Numpy}}, \sphinxcode{\sphinxupquote{Scipy}}, \sphinxcode{\sphinxupquote{Numba}}, \sphinxcode{\sphinxupquote{pandas}}, \sphinxcode{\sphinxupquote{DASK}},
+\sphinxcode{\sphinxupquote{Bokeh}}, \sphinxcode{\sphinxupquote{HoloViews}}, \sphinxcode{\sphinxupquote{Datashader}}, \sphinxcode{\sphinxupquote{matplotlib}}, \sphinxcode{\sphinxupquote{scikit-learn}}, \sphinxcode{\sphinxupquote{H2O.ai}}, \sphinxcode{\sphinxupquote{TensorFlow}}, \sphinxcode{\sphinxupquote{CONDA}} and more.
+
+Download link: \sphinxurl{https://www.anaconda.com/distribution/}
+
+\begin{figure}[htbp]
+\centering
+
+\noindent\sphinxincludegraphics{{anaconda}.png}
+\end{figure}
+
+
+\chapter{Notebooks}
+\label{\detokenize{nb:notebooks}}\label{\detokenize{nb:nb}}\label{\detokenize{nb::doc}}
+\begin{sphinxadmonition}{note}{Note:}
+This Chapter {\hyperref[\detokenize{nb:nb}]{\sphinxcrossref{\DUrole{std,std-ref}{Notebooks}}}} is for beginner.  If you have some \sphinxcode{\sphinxupquote{Python}} programming experience, you may skip this chapter.
 \end{sphinxadmonition}
 
 
-\chapter{Python Language Primer}
-\label{\detokenize{primer:primer}}\label{\detokenize{primer::doc}}\label{\detokenize{primer:python-language-primer}}
+\section{Apache Zeppelin}
+\label{\detokenize{nb:apache-zeppelin}}
+The \sphinxcode{\sphinxupquote{Zeppelin}} (Apache Zeppelin) is an open-source Web-based notebook that enables data-driven,
+interactive data analytics and collaborative documents with \sphinxcode{\sphinxupquote{Python}}, \sphinxcode{\sphinxupquote{PySpark}}, \sphinxcode{\sphinxupquote{SQL}}, \sphinxcode{\sphinxupquote{Scala}} and more.
+
+\begin{figure}[htbp]
+\centering
+
+\noindent\sphinxincludegraphics{{zep}.png}
+\end{figure}
+
+
+\section{Jupyter Notebook}
+\label{\detokenize{nb:jupyter-notebook}}
+The \sphinxcode{\sphinxupquote{Jupyter Notebook}} (Ipython Notebook) is an open-source web application that allows you to create and share documents that contain \sphinxcode{\sphinxupquote{live code}}, \sphinxcode{\sphinxupquote{equations}}, \sphinxcode{\sphinxupquote{visualizations}} and \sphinxcode{\sphinxupquote{narrative text}}. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+
+\begin{figure}[htbp]
+\centering
+
+\noindent\sphinxincludegraphics{{ipynb}.png}
+\end{figure}
+
+
+\chapter{Primer Functions}
+\label{\detokenize{primer:primer-functions}}\label{\detokenize{primer:primer}}\label{\detokenize{primer::doc}}
 \begin{sphinxadmonition}{note}{Note:}
-This Chapter {\hyperref[\detokenize{primer:primer}]{\sphinxcrossref{\DUrole{std,std-ref}{Python Language Primer}}}} is for beginner.  If you have some \sphinxcode{Python} programming experience, you may skip this chapter.
+This Chapter {\hyperref[\detokenize{primer:primer}]{\sphinxcrossref{\DUrole{std,std-ref}{Primer Functions}}}} is for beginner.  If you have some \sphinxcode{\sphinxupquote{Python}} programming experience, you may skip this chapter.
+\end{sphinxadmonition}
+
+The following \sphinxcode{\sphinxupquote{functions}} have been heavily used in my daily Data Scientist work.
+
+
+\section{\sphinxstyleliteralintitle{\sphinxupquote{*}}}
+\label{\detokenize{primer:id1}}
+Single asterisk as used in function declaration allows variable number of arguments passed from calling environment. Inside the function it behaves as a tuple.
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{]}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{o}{*}\PYG{n}{my\PYGZus{}list}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{]}
+\PYG{l+m+mi}{1} \PYG{l+m+mi}{2} \PYG{l+m+mi}{3}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\section{\sphinxstyleliteralintitle{\sphinxupquote{range}}}
+\label{\detokenize{primer:range}}
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{print}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{o}{*}\PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{o}{*}\PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}
+\PYG{l+m+mi}{0} \PYG{l+m+mi}{1} \PYG{l+m+mi}{2} \PYG{l+m+mi}{3} \PYG{l+m+mi}{4}
+\PYG{l+m+mi}{3} \PYG{l+m+mi}{4} \PYG{l+m+mi}{5} \PYG{l+m+mi}{6} \PYG{l+m+mi}{7}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\section{\sphinxstyleliteralintitle{\sphinxupquote{random}}}
+\label{\detokenize{primer:random}}
+More details can be found at:
+\begin{enumerate}
+\def\theenumi{\alph{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+\sphinxcode{\sphinxupquote{random}}: \sphinxurl{https://docs.python.org/3/library/random.html\#random.randint}
+
+\item {} 
+\sphinxcode{\sphinxupquote{np.random}}: \sphinxurl{https://docs.scipy.org/doc/numpy/reference/routines.random.html}
+
+\end{enumerate}
+
+
+\subsection{\sphinxstyleliteralintitle{\sphinxupquote{random.random}}}
+\label{\detokenize{primer:random-random}}
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+\PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} (b \PYGZhy{} a) * random() + a}
+\PYG{n}{random}\PYG{o}{.}\PYG{n}{uniform}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{l+m+mf}{0.33844051243073625}
+\PYG{l+m+mf}{7.772024014335885}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\subsection{\sphinxstyleliteralintitle{\sphinxupquote{np.random}}}
+\label{\detokenize{primer:np-random}}
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random\PYGZus{}sample}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random\PYGZus{}sample}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random\PYGZus{}sample}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} (b \PYGZhy{} a) * random\PYGZus{}sample() + a}
+\PYG{n}{a} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{;} \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mi}{8}
+\PYG{p}{(}\PYG{n}{b}\PYG{o}{\PYGZhy{}}\PYG{n}{a}\PYG{p}{)}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random\PYGZus{}sample}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{)}\PYG{o}{+}\PYG{n}{a}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{l+m+mf}{0.11919402208670005}
+\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mf}{0.07384755}\PYG{p}{,} \PYG{l+m+mf}{0.9005251} \PYG{p}{,} \PYG{l+m+mf}{0.30030561}\PYG{p}{,} \PYG{l+m+mf}{0.38221819}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{l+m+mf}{0.76851156}\PYG{p}{,} \PYG{l+m+mf}{0.56973309}\PYG{p}{,} \PYG{l+m+mf}{0.47074505}\PYG{p}{,} \PYG{l+m+mf}{0.7814957} \PYG{p}{]}\PYG{p}{,}
+       \PYG{p}{[}\PYG{l+m+mf}{0.5778028} \PYG{p}{,} \PYG{l+m+mf}{0.94653057}\PYG{p}{,} \PYG{l+m+mf}{0.51193493}\PYG{p}{,} \PYG{l+m+mf}{0.48693931}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{l+m+mf}{4.65799262}\PYG{p}{,} \PYG{l+m+mf}{6.32702018}\PYG{p}{,} \PYG{l+m+mf}{6.55545234}\PYG{p}{,} \PYG{l+m+mf}{5.45877784}\PYG{p}{]}\PYG{p}{,}
+       \PYG{p}{[}\PYG{l+m+mf}{7.69941994}\PYG{p}{,} \PYG{l+m+mf}{4.68709357}\PYG{p}{,} \PYG{l+m+mf}{5.49790728}\PYG{p}{,} \PYG{l+m+mf}{4.60913966}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\section{\sphinxstyleliteralintitle{\sphinxupquote{round}}}
+\label{\detokenize{primer:round}}
+Sometimes, we really do not need the scientific decimals for \sphinxcode{\sphinxupquote{output}} results. So you can use this function to round an array to the given number of decimals.
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random\PYGZus{}sample}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{l+m+mf}{0.76}\PYG{p}{,} \PYG{l+m+mf}{0.06}\PYG{p}{,} \PYG{l+m+mf}{0.41}\PYG{p}{,} \PYG{l+m+mf}{0.4} \PYG{p}{]}\PYG{p}{,}
+       \PYG{p}{[}\PYG{l+m+mf}{0.07}\PYG{p}{,} \PYG{l+m+mf}{0.51}\PYG{p}{,} \PYG{l+m+mf}{0.84}\PYG{p}{,} \PYG{l+m+mf}{0.76}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\section{TODO..}
+\label{\detokenize{primer:todo}}
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+
+\chapter{Data Structures}
+\label{\detokenize{struct:data-structures}}\label{\detokenize{struct:struct}}\label{\detokenize{struct::doc}}
+\begin{sphinxadmonition}{note}{Note:}
+This Chapter {\hyperref[\detokenize{struct:struct}]{\sphinxcrossref{\DUrole{std,std-ref}{Data Structures}}}} is for beginner.  If you have some \sphinxcode{\sphinxupquote{Python}} programming experience, you may skip this chapter.
 \end{sphinxadmonition}
 
 
-\chapter{Jupyter Notebook}
-\label{\detokenize{ipynb::doc}}\label{\detokenize{ipynb:ipynb}}\label{\detokenize{ipynb:jupyter-notebook}}
+\section{List}
+\label{\detokenize{struct:list}}
+\sphinxcode{\sphinxupquote{List}} is one of data sctructures which is heavily using in my daily work.
+
+
+\subsection{Create list}
+\label{\detokenize{struct:create-list}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+Create empty list
+
+\end{enumerate}
+
+The empty list is used to initialize a list.
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+\PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{list}
+\end{sphinxVerbatim}
+\end{quote}
+
+I applied the empty list to initialize my \sphinxcode{\sphinxupquote{silhouette score}} list when I try to find the
+optimal number of the clusters.
+
+\sphinxcode{\sphinxupquote{:: Example:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{min\PYGZus{}cluster} \PYG{o}{=} \PYG{l+m+mi}{3}
+\PYG{n}{max\PYGZus{}cluster} \PYG{o}{=}\PYG{l+m+mi}{8}
+
+\PYG{c+c1}{\PYGZsh{} silhouette\PYGZus{}score}
+\PYG{n}{scores} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{min\PYGZus{}cluster}\PYG{p}{,} \PYG{n}{max\PYGZus{}cluster}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{score} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random\PYGZus{}sample}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)}
+    \PYG{n}{scores}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{score}\PYG{p}{)}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{scores}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{[}\PYG{l+m+mf}{0.16}\PYG{p}{,} \PYG{l+m+mf}{0.2}\PYG{p}{,} \PYG{l+m+mf}{0.3}\PYG{p}{,} \PYG{l+m+mf}{0.87}\PYG{p}{,} \PYG{l+m+mf}{0.59}\PYG{p}{]}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\subsection{Unpack list}
+\label{\detokenize{struct:unpack-list}}
+
+\section{Tuple}
+\label{\detokenize{struct:tuple}}
+A tuple is an assortment of data, separated by commas, which makes it similar to the Python list, but a tuple is fundamentally different in that a tuple is “immutable.” This means that it cannot be changed, modified, or manipulated.
+
+\sphinxcite{reference:vanderplas2016} \sphinxcite{reference:mckinney2013} \sphinxcite{reference:georg2018}
+
+
+\chapter{\sphinxstyleliteralintitle{\sphinxupquote{pd.DataFrame}} manipulation}
+\label{\detokenize{pd:pd-dataframe-manipulation}}\label{\detokenize{pd:pd}}\label{\detokenize{pd::doc}}
 \begin{sphinxadmonition}{note}{Note:}
-This Chapter {\hyperref[\detokenize{ipynb:ipynb}]{\sphinxcrossref{\DUrole{std,std-ref}{Jupyter Notebook}}}} is for beginner.  If you have some \sphinxcode{Python} programming experience, you may skip this chapter.
+This Chapter {\hyperref[\detokenize{nb:nb}]{\sphinxcrossref{\DUrole{std,std-ref}{Notebooks}}}} is for beginner.  If you have some \sphinxcode{\sphinxupquote{Python}} programming experience, you may skip this chapter.
 \end{sphinxadmonition}
 
-The \sphinxcode{Jupyter Notebook} (Ipython Notebook) is an open-source web application that allows you to create and share documents that contain \sphinxcode{live code}, \sphinxcode{equations}, \sphinxcode{visualizations} and \sphinxcode{narrative text}. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+
+\section{TODO..}
+\label{\detokenize{pd:todo}}
+
+\chapter{\sphinxstyleliteralintitle{\sphinxupquote{rdd.DataFrame}} manipulation}
+\label{\detokenize{rdd:rdd-dataframe-manipulation}}\label{\detokenize{rdd:rdd}}\label{\detokenize{rdd::doc}}
+\begin{sphinxadmonition}{note}{Note:}
+This Chapter {\hyperref[\detokenize{nb:nb}]{\sphinxcrossref{\DUrole{std,std-ref}{Notebooks}}}} is for beginner.  If you have some \sphinxcode{\sphinxupquote{Python}} programming experience, you may skip this chapter.
+\end{sphinxadmonition}
+
+
+\section{TODO..}
+\label{\detokenize{rdd:todo}}
+
+\chapter{Package Wrapper}
+\label{\detokenize{pack:package-wrapper}}\label{\detokenize{pack:pack}}\label{\detokenize{pack::doc}}
+It’s super easy to wrap your own package in Python. I packed some functions which I frequently
+used in my daily work. You can download and install it from \sphinxhref{https://github.com/runawayhorse001/PySparkTools}{My PySpark Package}. The hierarchical
+structure and the directory structure of this package are as follows.
+
+
+\section{Hierarchical Structure}
+\label{\detokenize{pack:hierarchical-structure}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+PySparkTools/
+├── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
+├── PySparkTools
+│   ├── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
+│   ├── Manipulation
+│   │   ├── DataManipulation.py
+│   │   └── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
+│   └── Visualization
+│       ├── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
+│       ├── PyPlots.py
+│       └── PyPlots.pyc
+├── README.md
+├── requirements.txt
+├── setup.py
+└── \PYG{n+nb}{test}
+    ├── spark\PYGZhy{}warehouse
+    ├── test1.py
+    └── test2.py
+\end{sphinxVerbatim}
+
+From the above hierarchical structure, you will find that you have to have \sphinxcode{\sphinxupquote{\_\_init\_\_.py}} in each directory. I will explain the \sphinxcode{\sphinxupquote{\_\_init\_\_.py}} file with the example below:
+
+
+\section{Set Up}
+\label{\detokenize{pack:set-up}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{setuptools} \PYG{k+kn}{import} \PYG{n}{setup}\PYG{p}{,} \PYG{n}{find\PYGZus{}packages}
+
+\PYG{k}{try}\PYG{p}{:}
+    \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{README.md}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+        \PYG{n}{long\PYGZus{}description} \PYG{o}{=} \PYG{n}{f}\PYG{o}{.}\PYG{n}{read}\PYG{p}{(}\PYG{p}{)}
+\PYG{k}{except} \PYG{n+ne}{IOError}\PYG{p}{:}
+    \PYG{n}{long\PYGZus{}description} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZdq{}}
+
+\PYG{k}{try}\PYG{p}{:}
+    \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{requirements.txt}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+        \PYG{n}{requirements} \PYG{o}{=} \PYG{p}{[}\PYG{n}{x}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{p}{)} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{f}\PYG{o}{.}\PYG{n}{read}\PYG{p}{(}\PYG{p}{)}\PYG{o}{.}\PYG{n}{splitlines}\PYG{p}{(}\PYG{p}{)} \PYG{k}{if} \PYG{n}{x}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}
+\PYG{k}{except} \PYG{n+ne}{IOError}\PYG{p}{:}
+    \PYG{n}{requirements} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+
+\PYG{n}{setup}\PYG{p}{(}\PYG{n}{name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{PySParkTools}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+          \PYG{n}{install\PYGZus{}requires}\PYG{o}{=}\PYG{n}{requirements}\PYG{p}{,}
+      \PYG{n}{version}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{1.0}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+      \PYG{n}{description}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Python Spark Tools}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+      \PYG{n}{author}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Wenqiang Feng}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+      \PYG{n}{author\PYGZus{}email}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{von198@gmail.com}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+      \PYG{n}{url}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{https://github.com/runawayhorse001/PySparkTools}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+      \PYG{n}{packages}\PYG{o}{=}\PYG{n}{find\PYGZus{}packages}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}
+      \PYG{n}{long\PYGZus{}description}\PYG{o}{=}\PYG{n}{long\PYGZus{}description}
+     \PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\section{ReadMe}
+\label{\detokenize{pack:readme}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} PySparkTools}
+
+This is my PySpark Tools. If you want to colne and install it, you can use
+
+\PYGZhy{} clone
+
+\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{o}{\PYGZob{}}bash\PYG{o}{\PYGZcb{}}
+git clone git@github.com:runawayhorse001/PySparkTools.git
+\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}
+\PYGZhy{} install
+
+\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{o}{\PYGZob{}}bash\PYG{o}{\PYGZcb{}}
+\PYG{n+nb}{cd} PySparkTools
+pip install \PYGZhy{}r requirements.txt
+python setup.py install
+\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}
+
+\PYGZhy{} \PYG{n+nb}{test}
+
+\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{o}{\PYGZob{}}bash\PYG{o}{\PYGZcb{}}
+\PYG{n+nb}{cd} PySparkTools/test
+python test1.py
+\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}
+\end{sphinxVerbatim}
 
 
 \chapter{Main Reference}
-\label{\detokenize{reference:main-reference}}\label{\detokenize{reference::doc}}\label{\detokenize{reference:reference}}
-\begin{sphinxthebibliography}{VanderPlas2016}
-\bibitem[VanderPlas2016]{\detokenize{VanderPlas2016}}{\phantomsection\label{\detokenize{reference:vanderplas2016}} 
+\label{\detokenize{reference:main-reference}}\label{\detokenize{reference:reference}}\label{\detokenize{reference::doc}}
+\begin{sphinxthebibliography}{VanderPl}
+\bibitem[VanderPlas2016]{reference:vanderplas2016}
 Jake VanderPlas. \sphinxhref{https://tanthiamhuat.files.wordpress.com/2018/04/pythondatasciencehandbook.pdf}{Python Data Science Handbook: Essential Tools for Working with Data, 2016.}
-}
-\bibitem[McKinney2013]{\detokenize{McKinney2013}}{\phantomsection\label{\detokenize{reference:mckinney2013}} 
+\bibitem[McKinney2013]{reference:mckinney2013}
 Wes McKinney. \sphinxhref{http://bedford-computing.co.uk/learning/wp-content/uploads/2015/10/Python-for-Data-Analysis.pdf}{Python for Data Analysis, 2013.}
-}
-\bibitem[Georg2018]{\detokenize{Georg2018}}{\phantomsection\label{\detokenize{reference:georg2018}} 
+\bibitem[Georg2018]{reference:georg2018}
 Georg Brandl. \sphinxhref{https://media.readthedocs.org/pdf/sphinx/1.7/sphinx.pdf}{Sphinx Documentation, Release 1.7.10+, 2018.}
-}
 \end{sphinxthebibliography}
 
 
