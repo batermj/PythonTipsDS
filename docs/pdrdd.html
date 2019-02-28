@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. pd.DataFrame vs pd.DataFrame &mdash; Python Tips for Data Scientist 1.00 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Package Wrapper" href="pack.html" />
+    <link rel="prev" title="7. rdd.DataFrame manipulation" href="rdd.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tips for Data Scientist
+          
+
+          
+            
+            <img src="_static/logo_h.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.00
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Python Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nb.html">3. Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primer.html">4. Primer Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="struct.html">5. Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.html">6. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rdd.html">7. <code class="docutils literal notranslate"><span class="pre">rdd.DataFrame</span></code> manipulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-dataframe">8.1. Create DataFrame</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#from-list">8.1.1. From List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-dict">8.1.2. From Dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#load-dataframe">8.2. Load DataFrame</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#from-csv">8.2.1. From <code class="docutils literal notranslate"><span class="pre">.csv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-json">8.2.2. From <code class="docutils literal notranslate"><span class="pre">.json</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-database">8.2.3. From DataBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#todo">8.2.4. TODO..</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pack.html">9. Package Wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">10. Main Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tips for Data Scientist</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>8. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/runawayhorse001/PythonTipsDS/blob/master/doc/pdrdd.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pd-dataframe-vs-pd-dataframe">
+<span id="pdrdd"></span><h1>8. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code><a class="headerlink" href="#pd-dataframe-vs-pd-dataframe" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-dataframe">
+<h2>8.1. Create DataFrame<a class="headerlink" href="#create-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="from-list">
+<h3>8.1.1. From List<a class="headerlink" href="#from-list" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">col_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># caution for the columns=</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span> <span class="n">col_name</span><span class="p">)</span>
+
+<span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Comparison:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>                  <span class="o">+---+---+---+</span>
+                  <span class="o">|</span>  <span class="n">A</span><span class="o">|</span>  <span class="n">B</span><span class="o">|</span>  <span class="n">C</span><span class="o">|</span>
+   <span class="n">A</span>  <span class="n">B</span>  <span class="n">C</span>        <span class="o">+---+---+---+</span>
+<span class="mi">0</span>  <span class="n">a</span>  <span class="mi">1</span>  <span class="mi">2</span>        <span class="o">|</span>  <span class="n">a</span><span class="o">|</span>  <span class="mi">1</span><span class="o">|</span>  <span class="mi">2</span><span class="o">|</span>
+<span class="mi">1</span>  <span class="n">b</span>  <span class="mi">2</span>  <span class="mi">3</span>        <span class="o">|</span>  <span class="n">b</span><span class="o">|</span>  <span class="mi">2</span><span class="o">|</span>  <span class="mi">3</span><span class="o">|</span>
+<span class="mi">2</span>  <span class="n">c</span>  <span class="mi">3</span>  <span class="mi">4</span>        <span class="o">|</span>  <span class="n">c</span><span class="o">|</span>  <span class="mi">3</span><span class="o">|</span>  <span class="mi">4</span><span class="o">|</span>
+                  <span class="o">+---+---+---+</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p>Pay attentation to the parameter <code class="docutils literal notranslate"><span class="pre">columns=</span></code> in <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>. Since the default value will make the list as rows.</p>
+<blockquote class="last">
+<div><p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># caution for the columns=</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span> <span class="n">col_name</span><span class="p">)</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Comparison:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>   <span class="n">A</span>  <span class="n">B</span>  <span class="n">C</span>             <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">2</span>
+<span class="mi">0</span>  <span class="n">a</span>  <span class="mi">1</span>  <span class="mi">2</span>          <span class="n">A</span>  <span class="n">a</span>  <span class="mi">1</span>  <span class="mi">2</span>
+<span class="mi">1</span>  <span class="n">b</span>  <span class="mi">2</span>  <span class="mi">3</span>          <span class="n">B</span>  <span class="n">b</span>  <span class="mi">2</span>  <span class="mi">3</span>
+<span class="mi">2</span>  <span class="n">c</span>  <span class="mi">3</span>  <span class="mi">4</span>          <span class="n">C</span>  <span class="n">c</span>  <span class="mi">3</span>  <span class="mi">4</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="from-dict">
+<h3>8.1.2. From Dict<a class="headerlink" href="#from-dict" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+     <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="k">for</span>
+<span class="c1"># Tedious for PySpark</span>
+<span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span><span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Comparison:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>                   <span class="o">+---+---+---+</span>
+                   <span class="o">|</span>  <span class="n">A</span><span class="o">|</span>  <span class="n">B</span><span class="o">|</span>  <span class="n">C</span><span class="o">|</span>
+   <span class="n">A</span>  <span class="n">B</span>  <span class="n">C</span>         <span class="o">+---+---+---+</span>
+<span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">1</span>         <span class="o">|</span>  <span class="mi">0</span><span class="o">|</span>  <span class="mi">1</span><span class="o">|</span>  <span class="mi">1</span><span class="o">|</span>
+<span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>         <span class="o">|</span>  <span class="mi">1</span><span class="o">|</span>  <span class="mi">0</span><span class="o">|</span>  <span class="mi">0</span><span class="o">|</span>
+<span class="mi">2</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>         <span class="o">|</span>  <span class="mi">0</span><span class="o">|</span>  <span class="mi">1</span><span class="o">|</span>  <span class="mi">0</span><span class="o">|</span>
+                   <span class="o">+---+---+---+</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="load-dataframe">
+<h2>8.2. Load DataFrame<a class="headerlink" href="#load-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="from-csv">
+<h3>8.2.1. From <code class="docutils literal notranslate"><span class="pre">.csv</span></code><a class="headerlink" href="#from-csv" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="from-json">
+<h3>8.2.2. From <code class="docutils literal notranslate"><span class="pre">.json</span></code><a class="headerlink" href="#from-json" title="Permalink to this headline">¶</a></h3>
+<p>Data from: <a class="reference external" href="http://api.luftdaten.info/static/v1/data.json">http://api.luftdaten.info/static/v1/data.json</a></p>
+</div>
+<div class="section" id="from-database">
+<h3>8.2.3. From DataBase<a class="headerlink" href="#from-database" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;data/data.json&quot;</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="s1">&#39;data/data.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dp</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ds</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Comparison:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>                                                <span class="o">+----------+-------------------+</span>
+                                                <span class="o">|</span>        <span class="nb">id</span><span class="o">|</span>          <span class="n">timestamp</span><span class="o">|</span>
+            <span class="nb">id</span>  <span class="n">timestamp</span>                       <span class="o">+----------+-------------------+</span>
+<span class="mi">0</span>   <span class="mi">2994551481</span>  <span class="mi">2019</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span> <span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">52</span>             <span class="o">|</span><span class="mi">2994551481</span><span class="o">|</span><span class="mi">2019</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span> <span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">52</span><span class="o">|</span>
+<span class="mi">1</span>   <span class="mi">2994551482</span>  <span class="mi">2019</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span> <span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">52</span>             <span class="o">|</span><span class="mi">2994551482</span><span class="o">|</span><span class="mi">2019</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span> <span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">52</span><span class="o">|</span>
+<span class="mi">2</span>   <span class="mi">2994551483</span>  <span class="mi">2019</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span> <span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">52</span>             <span class="o">|</span><span class="mi">2994551483</span><span class="o">|</span><span class="mi">2019</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span> <span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">52</span><span class="o">|</span>
+<span class="mi">3</span>   <span class="mi">2994551484</span>  <span class="mi">2019</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span> <span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">52</span>             <span class="o">|</span><span class="mi">2994551484</span><span class="o">|</span><span class="mi">2019</span><span class="o">-</span><span class="mo">02</span><span class="o">-</span><span class="mi">28</span> <span class="mi">17</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">52</span><span class="o">|</span>
+                                                <span class="o">+----------+-------------------+</span>
+                                                <span class="n">only</span> <span class="n">showing</span> <span class="n">top</span> <span class="mi">4</span> <span class="n">rows</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="todo">
+<h3>8.2.4. TODO..<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Comparison:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pack.html" class="btn btn-neutral float-right" title="9. Package Wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rdd.html" class="btn btn-neutral float-left" title="7. rdd.DataFrame manipulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Wenqiang Feng
+      <span class="lastupdated">
+        Last updated on Feb 28, 2019.
+      </span>
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

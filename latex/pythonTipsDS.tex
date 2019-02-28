@@ -91,7 +91,7 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{February 27, 2019}
+\date{February 28, 2019}
 \release{1.00}
 \author{Wenqiang Feng}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
@@ -549,6 +549,153 @@ This Chapter {\hyperref[\detokenize{nb:nb}]{\sphinxcrossref{\DUrole{std,std-ref}
 
 \section{TODO..}
 \label{\detokenize{rdd:todo}}
+
+\chapter{\sphinxstyleliteralintitle{\sphinxupquote{pd.DataFrame}} vs \sphinxstyleliteralintitle{\sphinxupquote{pd.DataFrame}}}
+\label{\detokenize{pdrdd:pd-dataframe-vs-pd-dataframe}}\label{\detokenize{pdrdd:pdrdd}}\label{\detokenize{pdrdd::doc}}
+
+\section{Create DataFrame}
+\label{\detokenize{pdrdd:create-dataframe}}
+
+\subsection{From List}
+\label{\detokenize{pdrdd:from-list}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{a}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{c}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{]}\PYG{p}{]}
+\PYG{n}{col\PYGZus{}name} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{B}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{C}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} caution for the columns=}
+\PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{,}\PYG{n}{columns}\PYG{o}{=} \PYG{n}{col\PYGZus{}name}\PYG{p}{)}
+
+\PYG{n}{spark}\PYG{o}{.}\PYG{n}{createDataFrame}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{,} \PYG{n}{col\PYGZus{}name}\PYG{p}{)}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Comparison:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+                  \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+                  \PYG{o}{\textbar{}}  \PYG{n}{A}\PYG{o}{\textbar{}}  \PYG{n}{B}\PYG{o}{\textbar{}}  \PYG{n}{C}\PYG{o}{\textbar{}}
+   \PYG{n}{A}  \PYG{n}{B}  \PYG{n}{C}        \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+\PYG{l+m+mi}{0}  \PYG{n}{a}  \PYG{l+m+mi}{1}  \PYG{l+m+mi}{2}        \PYG{o}{\textbar{}}  \PYG{n}{a}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{1}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{2}\PYG{o}{\textbar{}}
+\PYG{l+m+mi}{1}  \PYG{n}{b}  \PYG{l+m+mi}{2}  \PYG{l+m+mi}{3}        \PYG{o}{\textbar{}}  \PYG{n}{b}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{2}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{3}\PYG{o}{\textbar{}}
+\PYG{l+m+mi}{2}  \PYG{n}{c}  \PYG{l+m+mi}{3}  \PYG{l+m+mi}{4}        \PYG{o}{\textbar{}}  \PYG{n}{c}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{3}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{4}\PYG{o}{\textbar{}}
+                  \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{attention}{Attention:}
+Pay attentation to the parameter \sphinxcode{\sphinxupquote{columns=}} in \sphinxcode{\sphinxupquote{pd.DataFrame}}. Since the default value will make the list as rows.
+\begin{quote}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} caution for the columns=}
+\PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{,} \PYG{n}{columns}\PYG{o}{=} \PYG{n}{col\PYGZus{}name}\PYG{p}{)}
+
+\PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{,} \PYG{n}{col\PYGZus{}name}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Comparison:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+   \PYG{n}{A}  \PYG{n}{B}  \PYG{n}{C}             \PYG{l+m+mi}{0}  \PYG{l+m+mi}{1}  \PYG{l+m+mi}{2}
+\PYG{l+m+mi}{0}  \PYG{n}{a}  \PYG{l+m+mi}{1}  \PYG{l+m+mi}{2}          \PYG{n}{A}  \PYG{n}{a}  \PYG{l+m+mi}{1}  \PYG{l+m+mi}{2}
+\PYG{l+m+mi}{1}  \PYG{n}{b}  \PYG{l+m+mi}{2}  \PYG{l+m+mi}{3}          \PYG{n}{B}  \PYG{n}{b}  \PYG{l+m+mi}{2}  \PYG{l+m+mi}{3}
+\PYG{l+m+mi}{2}  \PYG{n}{c}  \PYG{l+m+mi}{3}  \PYG{l+m+mi}{4}          \PYG{n}{C}  \PYG{n}{c}  \PYG{l+m+mi}{3}  \PYG{l+m+mi}{4}
+\end{sphinxVerbatim}
+\end{quote}
+\end{sphinxadmonition}
+
+
+\subsection{From Dict}
+\label{\detokenize{pdrdd:from-dict}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{d} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,}
+     \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{B}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,}
+     \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{C}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)}\PYG{k}{for}
+\PYG{c+c1}{\PYGZsh{} Tedious for PySpark}
+\PYG{n}{spark}\PYG{o}{.}\PYG{n}{createDataFrame}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{d}\PYG{o}{.}\PYG{n}{values}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{T}\PYG{o}{.}\PYG{n}{tolist}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{d}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Comparison:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+                   \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+                   \PYG{o}{\textbar{}}  \PYG{n}{A}\PYG{o}{\textbar{}}  \PYG{n}{B}\PYG{o}{\textbar{}}  \PYG{n}{C}\PYG{o}{\textbar{}}
+   \PYG{n}{A}  \PYG{n}{B}  \PYG{n}{C}         \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+\PYG{l+m+mi}{0}  \PYG{l+m+mi}{0}  \PYG{l+m+mi}{1}  \PYG{l+m+mi}{1}         \PYG{o}{\textbar{}}  \PYG{l+m+mi}{0}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{1}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{1}\PYG{o}{\textbar{}}
+\PYG{l+m+mi}{1}  \PYG{l+m+mi}{1}  \PYG{l+m+mi}{0}  \PYG{l+m+mi}{0}         \PYG{o}{\textbar{}}  \PYG{l+m+mi}{1}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{0}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{0}\PYG{o}{\textbar{}}
+\PYG{l+m+mi}{2}  \PYG{l+m+mi}{0}  \PYG{l+m+mi}{1}  \PYG{l+m+mi}{0}         \PYG{o}{\textbar{}}  \PYG{l+m+mi}{0}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{1}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{0}\PYG{o}{\textbar{}}
+                   \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+\end{sphinxVerbatim}
+
+
+\section{Load DataFrame}
+\label{\detokenize{pdrdd:load-dataframe}}
+
+\subsection{From \sphinxstyleliteralintitle{\sphinxupquote{.csv}}}
+\label{\detokenize{pdrdd:from-csv}}
+
+\subsection{From \sphinxstyleliteralintitle{\sphinxupquote{.json}}}
+\label{\detokenize{pdrdd:from-json}}
+Data from: \sphinxurl{http://api.luftdaten.info/static/v1/data.json}
+
+
+\subsection{From DataBase}
+\label{\detokenize{pdrdd:from-database}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{dp} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}json}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{data/data.json}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{spark}\PYG{o}{.}\PYG{n}{read}\PYG{o}{.}\PYG{n}{json}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{data/data.json}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{dp}\PYG{p}{[}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{timestamp}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{]}\PYG{o}{.}\PYG{n}{head}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}
+\PYG{n}{ds}\PYG{p}{[}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{id}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{timestamp}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{]}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Comparison:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+                                                \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+                                                \PYG{o}{\textbar{}}        \PYG{n+nb}{id}\PYG{o}{\textbar{}}          \PYG{n}{timestamp}\PYG{o}{\textbar{}}
+            \PYG{n+nb}{id}  \PYG{n}{timestamp}                       \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+\PYG{l+m+mi}{0}   \PYG{l+m+mi}{2994551481}  \PYG{l+m+mi}{2019}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{02}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{28} \PYG{l+m+mi}{17}\PYG{p}{:}\PYG{l+m+mi}{23}\PYG{p}{:}\PYG{l+m+mi}{52}             \PYG{o}{\textbar{}}\PYG{l+m+mi}{2994551481}\PYG{o}{\textbar{}}\PYG{l+m+mi}{2019}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{02}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{28} \PYG{l+m+mi}{17}\PYG{p}{:}\PYG{l+m+mi}{23}\PYG{p}{:}\PYG{l+m+mi}{52}\PYG{o}{\textbar{}}
+\PYG{l+m+mi}{1}   \PYG{l+m+mi}{2994551482}  \PYG{l+m+mi}{2019}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{02}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{28} \PYG{l+m+mi}{17}\PYG{p}{:}\PYG{l+m+mi}{23}\PYG{p}{:}\PYG{l+m+mi}{52}             \PYG{o}{\textbar{}}\PYG{l+m+mi}{2994551482}\PYG{o}{\textbar{}}\PYG{l+m+mi}{2019}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{02}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{28} \PYG{l+m+mi}{17}\PYG{p}{:}\PYG{l+m+mi}{23}\PYG{p}{:}\PYG{l+m+mi}{52}\PYG{o}{\textbar{}}
+\PYG{l+m+mi}{2}   \PYG{l+m+mi}{2994551483}  \PYG{l+m+mi}{2019}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{02}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{28} \PYG{l+m+mi}{17}\PYG{p}{:}\PYG{l+m+mi}{23}\PYG{p}{:}\PYG{l+m+mi}{52}             \PYG{o}{\textbar{}}\PYG{l+m+mi}{2994551483}\PYG{o}{\textbar{}}\PYG{l+m+mi}{2019}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{02}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{28} \PYG{l+m+mi}{17}\PYG{p}{:}\PYG{l+m+mi}{23}\PYG{p}{:}\PYG{l+m+mi}{52}\PYG{o}{\textbar{}}
+\PYG{l+m+mi}{3}   \PYG{l+m+mi}{2994551484}  \PYG{l+m+mi}{2019}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{02}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{28} \PYG{l+m+mi}{17}\PYG{p}{:}\PYG{l+m+mi}{23}\PYG{p}{:}\PYG{l+m+mi}{52}             \PYG{o}{\textbar{}}\PYG{l+m+mi}{2994551484}\PYG{o}{\textbar{}}\PYG{l+m+mi}{2019}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{02}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{28} \PYG{l+m+mi}{17}\PYG{p}{:}\PYG{l+m+mi}{23}\PYG{p}{:}\PYG{l+m+mi}{52}\PYG{o}{\textbar{}}
+                                                \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+                                                \PYG{n}{only} \PYG{n}{showing} \PYG{n}{top} \PYG{l+m+mi}{4} \PYG{n}{rows}
+\end{sphinxVerbatim}
+
+
+\subsection{TODO..}
+\label{\detokenize{pdrdd:todo}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Comparison:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
 
 \chapter{Package Wrapper}
 \label{\detokenize{pack:package-wrapper}}\label{\detokenize{pack:pack}}\label{\detokenize{pack::doc}}
