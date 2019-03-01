@@ -38,7 +38,7 @@ From List
 
 	# caution for the columns=
 	pd.DataFrame(my_list,columns= col_name)
-
+	#
 	spark.createDataFrame(my_list, col_name).show()
 
 
@@ -65,7 +65,7 @@ From List
 
 		# caution for the columns=
 		pd.DataFrame(my_list, columns= col_name)
-
+		#
 		pd.DataFrame(my_list, col_name)
 
 
@@ -122,8 +122,6 @@ Data from: http://api.luftdaten.info/static/v1/data.json
 From DataBase
 -------------
 
-..
-
 .. code-block:: python
 
 	dp = pd.read_json("data/data.json")
@@ -134,6 +132,7 @@ From DataBase
 .. code-block:: python
 
 	dp[['id','timestamp']].head(4)
+	#
 	ds[['id','timestamp']].show(4)
 
 |comp|
@@ -151,31 +150,636 @@ From DataBase
                                                     only showing top 4 rows
 
 
-TODO..
-------
-
-
-
-
-
-
-
-
-.. ###################
-
-.. code-block:: python
-
+First ``n`` Rows
+++++++++++++++++
 
 
 |pyc|
 
 .. code-block:: python
 
+	dp.head(4) 
+	# 
+	ds.show(4)
 
 |comp|
 
 .. code-block:: python
 
+	                                        +-----+-----+---------+-----+
+	                                        |   TV|Radio|Newspaper|Sales|
+	      TV  Radio  Newspaper  Sales       +-----+-----+---------+-----+
+	0  230.1   37.8       69.2   22.1       |230.1| 37.8|     69.2| 22.1|
+	1   44.5   39.3       45.1   10.4       | 44.5| 39.3|     45.1| 10.4|
+	2   17.2   45.9       69.3    9.3       | 17.2| 45.9|     69.3|  9.3|
+	3  151.5   41.3       58.5   18.5       |151.5| 41.3|     58.5| 18.5|
+	                                        +-----+-----+---------+-----+
+	                                        only showing top 4 rows
+
+Column Names
+++++++++++++
+
+|pyc|
+
+.. code-block:: python
+
+	dp.columns
+	#
+	ds.columns
+
+|comp|
+
+.. code-block:: python
+
+	Index(['TV', 'Radio', 'Newspaper', 'Sales'], dtype='object')
+	['TV', 'Radio', 'Newspaper', 'Sales']
+
+
+Data types
+++++++++++
+
+|pyc|
+
+.. code-block:: python
+
+	dp.dtypes
+	#
+	ds.dtypes
+
+|comp|
+
+.. code-block:: python
+
+	TV           float64			[('TV', 'double'),
+	Radio        float64			 ('Radio', 'double'),
+	Newspaper    float64			 ('Newspaper', 'double'),
+	Sales        float64			 ('Sales', 'double')]
+	dtype: object
+
+Fill Null
++++++++++
+
+.. code-block:: python
+
+	my_list = [['a', 1, None], ['b', 2, 3],['c', 3, 4]]
+	dp = pd.DataFrame(my_list,columns=['A', 'B', 'C'])
+	ds = spark.createDataFrame(my_list, ['A', 'B', 'C'])
+	#
+	dp.head()
+	ds.show()
+
+|comp|
+
+.. code-block:: python
+
+	                  			+------+---+----+
+	                  			|     A|  B|   C|
+	        A  B    C 			+------+---+----+
+	0    male  1  NaN 			|  male|  1|null|
+	1  female  2  3.0 			|female|  2|   3|
+	2    male  3  4.0 			|  male|  3|   4|
+	                  			+------+---+----+
+
+
+|pyc|
+
+.. code-block:: python
+
+	dp.fillna(-99)
+	#
+	ds.fillna(-99).show()
+
+|comp|
+
+.. code-block:: python
+
+	                  			+------+---+----+
+	                  			|     A|  B|   C|
+	        A  B    C 			+------+---+----+
+	0    male  1  -99 			|  male|  1| -99|
+	1  female  2  3.0 			|female|  2|   3|
+	2    male  3  4.0 			|  male|  3|   4|
+	                  			+------+---+----+
+
+Replace Values
+++++++++++++++
+
+|pyc|
+
+.. code-block:: python
+
+	# caution: you need to chose specific col
+	dp.A.replace(['male', 'female'],[1, 0], inplace=True)
+	dp
+	#caution: Mixed type replacements are not supported
+	ds.na.replace(['male','female'],['1','0']).show()
+
+
+|comp|
+
+.. code-block:: python
+
+	             			+---+---+----+
+	             			|  A|  B|   C|
+	   A  B    C 			+---+---+----+
+	0  1  1  NaN 			|  1|  1|null|
+	1  0  2  3.0 			|  0|  2|   3|
+	2  1  3  4.0 			|  1|  3|   4|
+	             			+---+---+----+
+
+Rename Columns
+++++++++++++++
+
+Rename all columns
+------------------
+
+|pyc|
+
+.. code-block:: python
+
+	dp.columns = ['a','b','c','d']
+	dp.head(4)
+	#
+	ds.toDF('a','b','c','d').show(4)
+
+
+|comp|
+
+.. code-block:: python
+
+	                           			+-----+----+----+----+
+	                           			|    a|   b|   c|   d|
+	       a     b     c     d 			+-----+----+----+----+
+	0  230.1  37.8  69.2  22.1 			|230.1|37.8|69.2|22.1| 
+	1   44.5  39.3  45.1  10.4 			| 44.5|39.3|45.1|10.4|
+	2   17.2  45.9  69.3   9.3 			| 17.2|45.9|69.3| 9.3|
+	3  151.5  41.3  58.5  18.5 			|151.5|41.3|58.5|18.5|
+	                           			+-----+----+----+----+
+	                           			only showing top 4 rows
+
+Rename one or more columns
+--------------------------
+
+.. code-block:: python
+
+	mapping = {'Newspaper':'C','Sales':'D'}
+
+
+|pyc|
+
+.. code-block:: python
+
+	dp.rename(columns=mapping).head(4)
+	#
+	new_names = [mapping.get(col,col) for col in ds.columns]
+	ds.toDF(*new_names).show(4)
+
+|comp|
+
+.. code-block:: python
+
+	                            		+-----+-----+----+----+
+	                            		|   TV|Radio|   C|   D|
+	      TV  Radio     C     D 		+-----+-----+----+----+
+	0  230.1   37.8  69.2  22.1 		|230.1| 37.8|69.2|22.1|
+	1   44.5   39.3  45.1  10.4 		| 44.5| 39.3|45.1|10.4|
+	2   17.2   45.9  69.3   9.3 		| 17.2| 45.9|69.3| 9.3|
+	3  151.5   41.3  58.5  18.5 		|151.5| 41.3|58.5|18.5|
+	                            		+-----+-----+----+----+
+	                            		only showing top 4 rows
+
+.. note::
+
+	You can also use ``withColumnRenamed`` to rename one column in PySpark.
+
+	|pyc|
+
+	.. code-block:: python
+
+		ds.withColumnRenamed('Newspaper','Paper').show(4
+
+	|comp|
+
+	.. code-block:: python
+
+		+-----+-----+-----+-----+
+		|   TV|Radio|Paper|Sales|
+		+-----+-----+-----+-----+
+		|230.1| 37.8| 69.2| 22.1|
+		| 44.5| 39.3| 45.1| 10.4|
+		| 17.2| 45.9| 69.3|  9.3|
+		|151.5| 41.3| 58.5| 18.5|
+		+-----+-----+-----+-----+
+		only showing top 4 rows
+
+Drop Columns
+++++++++++++
+
+.. code-block:: python
+
+	drop_name = ['Newspaper','Sales']
+
+
+|pyc|
+
+.. code-block:: python
+
+	dp.drop(drop_name,axis=1).head(4)
+	#
+	ds.drop(*drop_name).show(4)
+
+|comp|
+
+.. code-block:: python
+
+	                		+-----+-----+
+	                		|   TV|Radio|
+	      TV  Radio 		+-----+-----+
+	0  230.1   37.8 		|230.1| 37.8|
+	1   44.5   39.3 		| 44.5| 39.3|
+	2   17.2   45.9 		| 17.2| 45.9|
+	3  151.5   41.3 		|151.5| 41.3|
+	                		+-----+-----+
+	                		only showing top 4 rows
+
+Filter
+++++++
+
+.. code-block:: python
+
+	dp = pd.read_csv('Advertising.csv')
+	#
+	ds = spark.read.csv(path='Advertising.csv',
+	                    header=True, 
+	                    inferSchema=True)
+
+|pyc|
+
+.. code-block:: python
+
+	dp[dp.Newspaper<20].head(4)
+	#
+	ds[ds.Newspaper<20].show(4)
+
+
+|comp|
+
+.. code-block:: python
+
+	                                		+-----+-----+---------+-----+
+	                                		|   TV|Radio|Newspaper|Sales|
+	       TV  Radio  Newspaper  Sales		+-----+-----+---------+-----+
+	7   120.2   19.6       11.6   13.2		|120.2| 19.6|     11.6| 13.2|		 
+	8     8.6    2.1        1.0    4.8		|  8.6|  2.1|      1.0|  4.8|
+	11  214.7   24.0        4.0   17.4		|214.7| 24.0|      4.0| 17.4|
+	13   97.5    7.6        7.2    9.7		| 97.5|  7.6|      7.2|  9.7|
+	                                		+-----+-----+---------+-----+
+	                                		only showing top 4 rows
+
+|pyc|
+
+.. code-block:: python
+
+	dp[(dp.Newspaper<20)&(dp.TV>100)].head(4)
+	#
+	ds[(ds.Newspaper<20)&(ds.TV>100)].show(4)
+
+|comp|
+
+.. code-block:: python
+
+	                                		+-----+-----+---------+-----+
+	                                		|   TV|Radio|Newspaper|Sales|
+	       TV  Radio  Newspaper  Sales		+-----+-----+---------+-----+
+	7   120.2   19.6       11.6   13.2		|120.2| 19.6|     11.6| 13.2|
+	11  214.7   24.0        4.0   17.4		|214.7| 24.0|      4.0| 17.4|
+	19  147.3   23.9       19.1   14.6		|147.3| 23.9|     19.1| 14.6|
+	25  262.9    3.5       19.5   12.0		|262.9|  3.5|     19.5| 12.0|
+	                                		+-----+-----+---------+-----+
+	                                		only showing top 4 rows
+
+
+With New Column
+++++++++++++++++
+
+|pyc|
+
+.. code-block:: python
+
+	dp['tv_norm'] = dp.TV/sum(dp.TV)
+	dp.head(4)
+	#
+	ds.withColumn('tv_norm', ds.TV/ds.groupBy().agg(F.sum("TV")).collect()[0][0]).show(4)
+
+|comp|
+
+.. code-block:: python
+
+	                                        	+-----+-----+---------+-----+--------------------+
+	                                        	|   TV|Radio|Newspaper|Sales|             tv_norm|
+	      TV  Radio  Newspaper  Sales   tv_norm	+-----+-----+---------+-----+--------------------+
+	0  230.1   37.8       69.2   22.1  0.007824	|230.1| 37.8|     69.2| 22.1|0.007824268493802813|
+	1   44.5   39.3       45.1   10.4  0.001513	| 44.5| 39.3|     45.1| 10.4|0.001513167961643...|
+	2   17.2   45.9       69.3    9.3  0.000585	| 17.2| 45.9|     69.3|  9.3|5.848649200061207E-4|
+	3  151.5   41.3       58.5   18.5  0.005152	|151.5| 41.3|     58.5| 18.5|0.005151571824472517|
+	                                        	+-----+-----+---------+-----+--------------------+
+	                                        	only showing top 4 rows
+
+|pyc|
+
+.. code-block:: python
+
+	dp['cond'] = dp.apply(lambda c: 1 if ((c.TV>100)&(c.Radio<40)) else 2 if c.Sales> 10 else 3,axis=1)
+	#
+	ds.withColumn('cond',F.when((ds.TV>100)&(ds.Radio<40),1)\
+	                      .when(ds.Sales>10, 2)\
+	                      .otherwise(3)).show(4)
+
+|comp|
+
+.. code-block:: python
+
+	                                        	+-----+-----+---------+-----+----+
+	                                        	|   TV|Radio|Newspaper|Sales|cond|
+	      TV  Radio  Newspaper  Sales  cond 	+-----+-----+---------+-----+----+
+	0  230.1   37.8       69.2   22.1     1 	|230.1| 37.8|     69.2| 22.1|   1|	
+	1   44.5   39.3       45.1   10.4     2 	| 44.5| 39.3|     45.1| 10.4|   2|	
+	2   17.2   45.9       69.3    9.3     3 	| 17.2| 45.9|     69.3|  9.3|   3|	
+	3  151.5   41.3       58.5   18.5     2 	|151.5| 41.3|     58.5| 18.5|   2|	
+	                                        	+-----+-----+---------+-----+----+
+	                                        	only showing top 4 rows
+
+|pyc|
+
+.. code-block:: python
+
+	dp['log_tv'] = np.log(dp.TV)
+	dp.head(4)
+	#
+	ds.withColumn('log_tv',F.log(ds.TV)).show(4)
+
+|comp|
+
+.. code-block:: python
+
+	                                            	+-----+-----+---------+-----+------------------+
+	                                            	|   TV|Radio|Newspaper|Sales|            log_tv|
+	      TV  Radio  Newspaper  Sales    log_tv 	+-----+-----+---------+-----+------------------+
+	0  230.1   37.8       69.2   22.1  5.438514 	|230.1| 37.8|     69.2| 22.1|  5.43851399704132|
+	1   44.5   39.3       45.1   10.4  3.795489 	| 44.5| 39.3|     45.1| 10.4|3.7954891891721947|
+	2   17.2   45.9       69.3    9.3  2.844909 	| 17.2| 45.9|     69.3|  9.3|2.8449093838194073|
+	3  151.5   41.3       58.5   18.5  5.020586 	|151.5| 41.3|     58.5| 18.5| 5.020585624949423|
+	                                            	+-----+-----+---------+-----+------------------+
+	                                            	only showing top 4 rows
+
+|pyc|
+
+.. code-block:: python
+
+	dp['tv+10'] = dp.TV.apply(lambda x: x+10)
+	dp.head(4)
+	#
+	ds.withColumn('tv+10', ds.TV+10).show(4)
+
+|comp|
+
+.. code-block:: python
+
+	                                         	+-----+-----+---------+-----+-----+
+	                                         	|   TV|Radio|Newspaper|Sales|tv+10|
+	      TV  Radio  Newspaper  Sales  tv+10 	+-----+-----+---------+-----+-----+
+	0  230.1   37.8       69.2   22.1  240.1 	|230.1| 37.8|     69.2| 22.1|240.1|
+	1   44.5   39.3       45.1   10.4   54.5 	| 44.5| 39.3|     45.1| 10.4| 54.5|
+	2   17.2   45.9       69.3    9.3   27.2 	| 17.2| 45.9|     69.3|  9.3| 27.2|
+	3  151.5   41.3       58.5   18.5  161.5 	|151.5| 41.3|     58.5| 18.5|161.5|
+	                                         	+-----+-----+---------+-----+-----+
+	                                         	only showing top 4 rows
+
+Join
+++++
+
+.. code-block:: python
+
+	leftp = pd.DataFrame({'A': ['A0', 'A1', 'A2', 'A3'],
+	                    'B': ['B0', 'B1', 'B2', 'B3'],
+	                    'C': ['C0', 'C1', 'C2', 'C3'],
+	                    'D': ['D0', 'D1', 'D2', 'D3']},
+	                    index=[0, 1, 2, 3])
+	                    
+	rightp = pd.DataFrame({'A': ['A0', 'A1', 'A6', 'A7'],
+	                       'F': ['B4', 'B5', 'B6', 'B7'],
+	                       'G': ['C4', 'C5', 'C6', 'C7'],
+	                       'H': ['D4', 'D5', 'D6', 'D7']},
+	                       index=[4, 5, 6, 7])
+
+	lefts = spark.createDataFrame(leftp)  
+	rights = spark.createDataFrame(rightp)
+
+.. code-block:: python
+
+	    A   B   C   D 		    A   F   G   H
+	0  A0  B0  C0  D0 		4  A0  B4  C4  D4
+	1  A1  B1  C1  D1 		5  A1  B5  C5  D5
+	2  A2  B2  C2  D2 		6  A6  B6  C6  D6
+	3  A3  B3  C3  D3 		7  A7  B7  C7  D7
+
+Left Join
+---------
+
+|pyc|
+
+.. code-block:: python
+
+	leftp.merge(rightp,on='A',how='left')
+	#
+	lefts.join(rights,on='A',how='left')
+	     .orderBy('A',ascending=True).show()
+
+|comp|
+
+.. code-block:: python
+
+	                                	+---+---+---+---+----+----+----+
+	                                	|  A|  B|  C|  D|   F|   G|   H|
+	    A   B   C   D    F    G    H 	+---+---+---+---+----+----+----+
+	0  A0  B0  C0  D0   B4   C4   D4 	| A0| B0| C0| D0|  B4|  C4|  D4|
+	1  A1  B1  C1  D1   B5   C5   D5 	| A1| B1| C1| D1|  B5|  C5|  D5|
+	2  A2  B2  C2  D2  NaN  NaN  NaN 	| A2| B2| C2| D2|null|null|null|
+	3  A3  B3  C3  D3  NaN  NaN  NaN 	| A3| B3| C3| D3|null|null|null|
+	                                	+---+---+---+---+----+----+----+
+
+Right Join
+----------
+
+|pyc|
+
+.. code-block:: python
+
+	leftp.merge(rightp,on='A',how='right')
+	#
+	lefts.join(rights,on='A',how='right')
+	     .orderBy('A',ascending=True).show()
+
+
+|comp|
+
+.. code-block:: python
+
+	                                	+---+----+----+----+---+---+---+
+	                                	|  A|   B|   C|   D|  F|  G|  H|
+	    A    B    C    D   F   G   H 	+---+----+----+----+---+---+---+
+	0  A0   B0   C0   D0  B4  C4  D4 	| A0|  B0|  C0|  D0| B4| C4| D4|
+	1  A1   B1   C1   D1  B5  C5  D5 	| A1|  B1|  C1|  D1| B5| C5| D5|
+	2  A6  NaN  NaN  NaN  B6  C6  D6 	| A6|null|null|null| B6| C6| D6|
+	3  A7  NaN  NaN  NaN  B7  C7  D7 	| A7|null|null|null| B7| C7| D7|
+	                                	+---+----+----+----+---+---+---+
+
+Inner Join
+----------
+
+|pyc|
+
+.. code-block:: python
+
+	leftp.merge(rightp,on='A',how='inner')
+	#
+	lefts.join(rights,on='A',how='inner')
+	     .orderBy('A',ascending=True).show()
+
+|comp|
+
+.. code-block:: python
+
+	                            	+---+---+---+---+---+---+---+
+	                            	|  A|  B|  C|  D|  F|  G|  H|
+	    A   B   C   D   F   G   H 	+---+---+---+---+---+---+---+
+	0  A0  B0  C0  D0  B4  C4  D4 	| A0| B0| C0| D0| B4| C4| D4|
+	1  A1  B1  C1  D1  B5  C5  D5 	| A1| B1| C1| D1| B5| C5| D5|
+	                            	+---+---+---+---+---+---+---+
+
+Full Join
+----------
+
+|pyc|
+
+.. code-block:: python
+
+	leftp.merge(rightp,on='A',how='full')
+	#
+	lefts.join(rights,on='A',how='full')
+	     .orderBy('A',ascending=True).show()
+
+|comp|
+
+.. code-block:: python
+
+	                                    	+---+----+----+----+----+----+----+
+	                                    	|  A|   B|   C|   D|   F|   G|   H|
+	    A    B    C    D    F    G    H 	+---+----+----+----+----+----+----+
+	0  A0   B0   C0   D0   B4   C4   D4 	| A0|  B0|  C0|  D0|  B4|  C4|  D4|
+	1  A1   B1   C1   D1   B5   C5   D5 	| A1|  B1|  C1|  D1|  B5|  C5|  D5|
+	2  A2   B2   C2   D2  NaN  NaN  NaN 	| A2|  B2|  C2|  D2|null|null|null|
+	3  A3   B3   C3   D3  NaN  NaN  NaN 	| A3|  B3|  C3|  D3|null|null|null|
+	4  A6  NaN  NaN  NaN   B6   C6   D6 	| A6|null|null|null|  B6|  C6|  D6|
+	5  A7  NaN  NaN  NaN   B7   C7   D7 	| A7|null|null|null|  B7|  C7|  D7|
+	                                    	+---+----+----+----+----+----+----+
+
+
+Concat Columns
+++++++++++++++
+
+.. code-block:: python
+
+	my_list = [('a', 2, 3),
+	           ('b', 5, 6),
+	           ('c', 8, 9),
+	           ('a', 2, 3),
+	           ('b', 5, 6),
+	           ('c', 8, 9)]
+	col_name = ['col1', 'col2', 'col3']
+	#
+	dp = pd.DataFrame(my_list,columns=col_name)
+	ds = spark.createDataFrame(my_list,schema=col_name)
+
+.. code-block:: python
+
+	  col1  col2  col3
+	0    a     2     3
+	1    b     5     6
+	2    c     8     9
+	3    a     2     3
+	4    b     5     6
+	5    c     8     9
+
+|pyc|
+
+.. code-block:: python
+
+	dp['concat'] = dp.apply(lambda x:'%s%s'%(x['col1'],x['col2']),axis=1)
+	dp
+	#
+	ds.withColumn('concat',F.concat('col1','col2')).show()
+
+|comp|
+
+.. code-block:: python
+
+	                        		+----+----+----+------+
+	                        		|col1|col2|col3|concat|
+	  col1  col2  col3 concat 		+----+----+----+------+
+	0    a     2     3     a2 		|   a|   2|   3|    a2|
+	1    b     5     6     b5 		|   b|   5|   6|    b5|
+	2    c     8     9     c8 		|   c|   8|   9|    c8|
+	3    a     2     3     a2 		|   a|   2|   3|    a2|
+	4    b     5     6     b5 		|   b|   5|   6|    b5|
+	5    c     8     9     c8 		|   c|   8|   9|    c8|
+	                        		+----+----+----+------+
+
+GroupBy
++++++++
+
+|pyc|
+
+.. code-block:: python
+
+	dp.groupby(['col1']).agg({'col2':'min','col3':'mean'})
+	#
+	ds.groupBy(['col1']).agg({'col2': 'min', 'col3': 'avg'}).show()
+
+|comp|
+
+.. code-block:: python
+
+	                			+----+---------+---------+
+	      col2  col3 			|col1|min(col2)|avg(col3)|
+	col1             			+----+---------+---------+
+	a        2     3 			|   c|        8|      9.0|
+	b        5     6 			|   b|        5|      6.0|
+	c        8     9 			|   a|        2|      3.0|
+	                			+----+---------+---------+
+
+Pivot
++++++
+
+|pyc|
+
+.. code-block:: python
+
+	pd.pivot_table(dp, values='col3', index='col1', columns='col2', aggfunc=np.sum)
+	#
+	ds.groupBy(['col1']).pivot('col2').sum('col3').show()
+
+|comp|
+
+.. code-block:: python
+
+	                    		+----+----+----+----+
+	col2    2     5     8 		|col1|   2|   5|   8|	
+	col1                  		+----+----+----+----+
+	a     6.0   NaN   NaN 		|   c|null|null|  18|
+	b     NaN  12.0   NaN 		|   b|null|  12|null|
+	c     NaN   NaN  18.0 		|   a|   6|null|null|
+	                    		+----+----+----+----+
 
 
 
