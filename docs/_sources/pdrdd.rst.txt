@@ -24,6 +24,47 @@
 Create DataFrame
 ++++++++++++++++
 
+From DataBase
+-------------
+
+.. code-block:: python
+
+	#User Information
+	try: 
+	    login = pd.read_csv(r'login.txt', header=None)
+	    user = login[0][0]
+	    pw = login[0][1]
+	    print('User information is ready!')
+	except:
+	    print('Login information is not avaliable!!!')
+
+	#Database information
+	host = '##.###.###.##'
+	db_name = 'db_name' 
+	table_name = 'table_name'
+
+|comp|
+
+.. code-block:: python
+
+	conn = psycopg2.connect(host=host, database=db_name, user=user, password=pw)
+	cur = conn.cursor()
+
+	sql = """
+	      select *
+	      from {table_name}
+	      """.format(table_name=table_name)
+	dp = pd.read_sql(sql, conn)
+
+.. code-block:: python
+
+	# connect to database
+	url = 'jdbc:postgresql://'+host+':5432/'+db_name+'?user='+user+'&password='+pw
+	properties ={'driver': 'org.postgresql.Driver', 'password': pw,'user': user}
+	ds = spark.read.jdbc(url=url, table=table_name, properties=properties)
+
+
+
 From List
 ---------
 

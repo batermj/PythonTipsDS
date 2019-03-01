@@ -100,14 +100,15 @@
 <li class="toctree-l1"><a class="reference internal" href="rdd.html">7. <code class="docutils literal notranslate"><span class="pre">rdd.DataFrame</span></code> manipulation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">8. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#create-dataframe">8.1. Create DataFrame</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#from-list">8.1.1. From List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#from-dict">8.1.2. From Dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-database">8.1.1. From DataBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-list">8.1.2. From List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-dict">8.1.3. From Dict</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#load-dataframe">8.2. Load DataFrame</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#from-csv">8.2.1. From <code class="docutils literal notranslate"><span class="pre">.csv</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#from-json">8.2.2. From <code class="docutils literal notranslate"><span class="pre">.json</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#from-database">8.2.3. From DataBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">8.2.3. From DataBase</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#first-n-rows">8.3. First <code class="docutils literal notranslate"><span class="pre">n</span></code> Rows</a></li>
@@ -207,8 +208,43 @@
 <span id="pdrdd"></span><h1>8. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code><a class="headerlink" href="#pd-dataframe-vs-pd-dataframe" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="create-dataframe">
 <h2>8.1. Create DataFrame<a class="headerlink" href="#create-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="from-database">
+<h3>8.1.1. From DataBase<a class="headerlink" href="#from-database" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#User Information</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">login</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;login.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">login</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pw</span> <span class="o">=</span> <span class="n">login</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;User information is ready!&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Login information is not avaliable!!!&#39;</span><span class="p">)</span>
+
+<span class="c1">#Database information</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;##.###.###.##&#39;</span>
+<span class="n">db_name</span> <span class="o">=</span> <span class="s1">&#39;db_name&#39;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s1">&#39;table_name&#39;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Comparison:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">db_name</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pw</span><span class="p">)</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">      select *</span>
+<span class="s2">      from {table_name}</span>
+<span class="s2">      &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="n">table_name</span><span class="p">)</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect to database</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;jdbc:postgresql://&#39;</span><span class="o">+</span><span class="n">host</span><span class="o">+</span><span class="s1">&#39;:5432/&#39;</span><span class="o">+</span><span class="n">db_name</span><span class="o">+</span><span class="s1">&#39;?user=&#39;</span><span class="o">+</span><span class="n">user</span><span class="o">+</span><span class="s1">&#39;&amp;password=&#39;</span><span class="o">+</span><span class="n">pw</span>
+<span class="n">properties</span> <span class="o">=</span><span class="p">{</span><span class="s1">&#39;driver&#39;</span><span class="p">:</span> <span class="s1">&#39;org.postgresql.Driver&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">pw</span><span class="p">,</span><span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="n">user</span><span class="p">}</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">jdbc</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">table</span><span class="o">=</span><span class="n">table_name</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">properties</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="from-list">
-<h3>8.1.1. From List<a class="headerlink" href="#from-list" title="Permalink to this headline">¶</a></h3>
+<h3>8.1.2. From List<a class="headerlink" href="#from-list" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
 <span class="n">col_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>
 </pre></div>
@@ -252,7 +288,7 @@
 </div>
 </div>
 <div class="section" id="from-dict">
-<h3>8.1.2. From Dict<a class="headerlink" href="#from-dict" title="Permalink to this headline">¶</a></h3>
+<h3>8.1.3. From Dict<a class="headerlink" href="#from-dict" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
      <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
      <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]}</span>
@@ -285,8 +321,8 @@
 <h3>8.2.2. From <code class="docutils literal notranslate"><span class="pre">.json</span></code><a class="headerlink" href="#from-json" title="Permalink to this headline">¶</a></h3>
 <p>Data from: <a class="reference external" href="http://api.luftdaten.info/static/v1/data.json">http://api.luftdaten.info/static/v1/data.json</a></p>
 </div>
-<div class="section" id="from-database">
-<h3>8.2.3. From DataBase<a class="headerlink" href="#from-database" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>8.2.3. From DataBase<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;data/data.json&quot;</span><span class="p">)</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="s1">&#39;data/data.json&#39;</span><span class="p">)</span>
 </pre></div>

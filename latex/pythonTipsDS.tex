@@ -556,6 +556,45 @@ This Chapter {\hyperref[\detokenize{nb:nb}]{\sphinxcrossref{\DUrole{std,std-ref}
 \section{Create DataFrame}
 \label{\detokenize{pdrdd:create-dataframe}}
 
+\subsection{From DataBase}
+\label{\detokenize{pdrdd:from-database}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}User Information}
+\PYG{k}{try}\PYG{p}{:}
+    \PYG{n}{login} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{login.txt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{header}\PYG{o}{=}\PYG{n+nb+bp}{None}\PYG{p}{)}
+    \PYG{n}{user} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{pw} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{User information is ready!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{except}\PYG{p}{:}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Login information is not avaliable!!!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}Database information}
+\PYG{n}{host} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{db\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{db\PYGZus{}name}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{table\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{table\PYGZus{}name}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Comparison:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{conn} \PYG{o}{=} \PYG{n}{psycopg2}\PYG{o}{.}\PYG{n}{connect}\PYG{p}{(}\PYG{n}{host}\PYG{o}{=}\PYG{n}{host}\PYG{p}{,} \PYG{n}{database}\PYG{o}{=}\PYG{n}{db\PYGZus{}name}\PYG{p}{,} \PYG{n}{user}\PYG{o}{=}\PYG{n}{user}\PYG{p}{,} \PYG{n}{password}\PYG{o}{=}\PYG{n}{pw}\PYG{p}{)}
+\PYG{n}{cur} \PYG{o}{=} \PYG{n}{conn}\PYG{o}{.}\PYG{n}{cursor}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{sql} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+s2}{      select *}
+\PYG{l+s+s2}{      from \PYGZob{}table\PYGZus{}name\PYGZcb{}}
+\PYG{l+s+s2}{      }\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{table\PYGZus{}name}\PYG{o}{=}\PYG{n}{table\PYGZus{}name}\PYG{p}{)}
+\PYG{n}{dp} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}sql}\PYG{p}{(}\PYG{n}{sql}\PYG{p}{,} \PYG{n}{conn}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} connect to database}
+\PYG{n}{url} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{jdbc:postgresql://}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n}{host}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{:5432/}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n}{db\PYGZus{}name}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{?user=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n}{user}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZam{}password=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n}{pw}
+\PYG{n}{properties} \PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{driver}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{org.postgresql.Driver}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{password}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{pw}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{user}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{user}\PYG{p}{\PYGZcb{}}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{spark}\PYG{o}{.}\PYG{n}{read}\PYG{o}{.}\PYG{n}{jdbc}\PYG{p}{(}\PYG{n}{url}\PYG{o}{=}\PYG{n}{url}\PYG{p}{,} \PYG{n}{table}\PYG{o}{=}\PYG{n}{table\PYGZus{}name}\PYG{p}{,} \PYG{n}{properties}\PYG{o}{=}\PYG{n}{properties}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
 \subsection{From List}
 \label{\detokenize{pdrdd:from-list}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -650,7 +689,7 @@ Data from: \sphinxurl{http://api.luftdaten.info/static/v1/data.json}
 
 
 \subsection{From DataBase}
-\label{\detokenize{pdrdd:from-database}}
+\label{\detokenize{pdrdd:id1}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{dp} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}json}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{data/data.json}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 \PYG{n}{ds} \PYG{o}{=} \PYG{n}{spark}\PYG{o}{.}\PYG{n}{read}\PYG{o}{.}\PYG{n}{json}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{data/data.json}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
