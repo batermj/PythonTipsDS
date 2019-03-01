@@ -27,13 +27,15 @@ Create DataFrame
 From DataBase
 -------------
 
-login.txt:
+Most of time, you need to share your code with your colleagues or release your code for Code Review or Quality assurance(QA). You will definitely do not want to have your ``User Information`` in the code. So you can save them
+in login.txt:
 
 .. code-block:: rst
 
 	runawayhorse001
 	PythonTips
 
+and use the following code to import your ``User Information``:
 
 .. code-block:: python
 
