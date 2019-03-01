@@ -24,60 +24,6 @@
 Create DataFrame
 ++++++++++++++++
 
-From DataBase
--------------
-
-Most of time, you need to share your code with your colleagues or release your code for Code Review or Quality assurance(QA). You will definitely do not want to have your ``User Information`` in the code. So you can save them
-in login.txt:
-
-.. code-block:: rst
-
-	runawayhorse001
-	PythonTips
-
-and use the following code to import your ``User Information``:
-
-.. code-block:: python
-
-	#User Information
-	try: 
-	    login = pd.read_csv(r'login.txt', header=None)
-	    user = login[0][0]
-	    pw = login[0][1]
-	    print('User information is ready!')
-	except:
-	    print('Login information is not avaliable!!!')
-
-	#Database information
-	host = '##.###.###.##'
-	db_name = 'db_name' 
-	table_name = 'table_name'
-
-|comp|
-
-.. code-block:: python
-
-	conn = psycopg2.connect(host=host, database=db_name, user=user, password=pw)
-	cur = conn.cursor()
-
-	sql = """
-	      select *
-	      from {table_name}
-	      """.format(table_name=table_name)
-	dp = pd.read_sql(sql, conn)
-
-.. code-block:: python
-
-	# connect to database
-	url = 'jdbc:postgresql://'+host+':5432/'+db_name+'?user='+user+'&password='+pw
-	properties ={'driver': 'org.postgresql.Driver', 'password': pw,'user': user}
-	ds = spark.read.jdbc(url=url, table=table_name, properties=properties)
-
-
-.. attention::
-
-	Reading tables from Database with PySpark needs the proper drive for the corresponding Database. For example, the above demo needs org.postgresql.Driver and you need to download it and put it in ``jars`` folder of your spark installation path. I download postgresql-42.1.1.jar from the official website and put it in jars folder.
-
 From List
 ---------
 
@@ -164,6 +110,60 @@ From Dict
 Load DataFrame
 ++++++++++++++
 
+From DataBase
+-------------
+
+Most of time, you need to share your code with your colleagues or release your code for Code Review or Quality assurance(QA). You will definitely do not want to have your ``User Information`` in the code. So you can save them
+in login.txt:
+
+.. code-block:: rst
+
+	runawayhorse001
+	PythonTips
+
+and use the following code to import your ``User Information``:
+
+.. code-block:: python
+
+	#User Information
+	try: 
+	    login = pd.read_csv(r'login.txt', header=None)
+	    user = login[0][0]
+	    pw = login[0][1]
+	    print('User information is ready!')
+	except:
+	    print('Login information is not avaliable!!!')
+
+	#Database information
+	host = '##.###.###.##'
+	db_name = 'db_name' 
+	table_name = 'table_name'
+
+|comp|
+
+.. code-block:: python
+
+	conn = psycopg2.connect(host=host, database=db_name, user=user, password=pw)
+	cur = conn.cursor()
+
+	sql = """
+	      select *
+	      from {table_name}
+	      """.format(table_name=table_name)
+	dp = pd.read_sql(sql, conn)
+
+.. code-block:: python
+
+	# connect to database
+	url = 'jdbc:postgresql://'+host+':5432/'+db_name+'?user='+user+'&password='+pw
+	properties ={'driver': 'org.postgresql.Driver', 'password': pw,'user': user}
+	ds = spark.read.jdbc(url=url, table=table_name, properties=properties)
+
+
+.. attention::
+
+	Reading tables from Database with PySpark needs the proper drive for the corresponding Database. For example, the above demo needs org.postgresql.Driver and you need to download it and put it in ``jars`` folder of your spark installation path. I download postgresql-42.1.1.jar from the official website and put it in jars folder.
+
 From ``.csv``
 -------------
 
@@ -186,9 +186,6 @@ From ``.json``
 --------------
 
 Data from: http://api.luftdaten.info/static/v1/data.json
-
-From DataBase
--------------
 
 .. code-block:: python
 
