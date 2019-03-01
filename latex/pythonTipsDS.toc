@@ -34,11 +34,11 @@
 \contentsline {section}{\numberline {8.2}Load DataFrame}{25}{section.8.2}
 \contentsline {subsection}{\numberline {8.2.1}From \sphinxstyleliteralintitle {\sphinxupquote {.csv}}}{25}{subsection.8.2.1}
 \contentsline {subsection}{\numberline {8.2.2}From \sphinxstyleliteralintitle {\sphinxupquote {.json}}}{25}{subsection.8.2.2}
-\contentsline {subsection}{\numberline {8.2.3}From DataBase}{25}{subsection.8.2.3}
+\contentsline {subsection}{\numberline {8.2.3}From DataBase}{26}{subsection.8.2.3}
 \contentsline {section}{\numberline {8.3}First \sphinxstyleliteralintitle {\sphinxupquote {n}} Rows}{26}{section.8.3}
-\contentsline {section}{\numberline {8.4}Column Names}{26}{section.8.4}
+\contentsline {section}{\numberline {8.4}Column Names}{27}{section.8.4}
 \contentsline {section}{\numberline {8.5}Data types}{27}{section.8.5}
-\contentsline {section}{\numberline {8.6}Fill Null}{27}{section.8.6}
+\contentsline {section}{\numberline {8.6}Fill Null}{28}{section.8.6}
 \contentsline {section}{\numberline {8.7}Replace Values}{28}{section.8.7}
 \contentsline {section}{\numberline {8.8}Rename Columns}{29}{section.8.8}
 \contentsline {subsection}{\numberline {8.8.1}Rename all columns}{29}{subsection.8.8.1}
@@ -46,12 +46,12 @@
 \contentsline {section}{\numberline {8.9}Drop Columns}{30}{section.8.9}
 \contentsline {section}{\numberline {8.10}Filter}{31}{section.8.10}
 \contentsline {section}{\numberline {8.11}With New Column}{32}{section.8.11}
-\contentsline {section}{\numberline {8.12}Join}{34}{section.8.12}
+\contentsline {section}{\numberline {8.12}Join}{35}{section.8.12}
 \contentsline {subsection}{\numberline {8.12.1}Left Join}{35}{subsection.8.12.1}
 \contentsline {subsection}{\numberline {8.12.2}Right Join}{36}{subsection.8.12.2}
 \contentsline {subsection}{\numberline {8.12.3}Inner Join}{36}{subsection.8.12.3}
 \contentsline {subsection}{\numberline {8.12.4}Full Join}{37}{subsection.8.12.4}
-\contentsline {section}{\numberline {8.13}Concat Columns}{37}{section.8.13}
+\contentsline {section}{\numberline {8.13}Concat Columns}{38}{section.8.13}
 \contentsline {section}{\numberline {8.14}GroupBy}{38}{section.8.14}
 \contentsline {section}{\numberline {8.15}Pivot}{39}{section.8.15}
 \contentsline {chapter}{\numberline {9}Package Wrapper}{41}{chapter.9}
