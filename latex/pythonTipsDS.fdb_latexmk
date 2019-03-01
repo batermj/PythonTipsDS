@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex pythonTipsDS.idx"] 1551282069 "pythonTipsDS.idx" "pythonTipsDS.ind" "pythonTipsDS" 1551406017
-  "pythonTipsDS.idx" 1551406015 0 d41d8cd98f00b204e9800998ecf8427e ""
+["makeindex pythonTipsDS.idx"] 1551282069 "pythonTipsDS.idx" "pythonTipsDS.ind" "pythonTipsDS" 1551406962
+  "pythonTipsDS.idx" 1551406961 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "pythonTipsDS.ilg"
   "pythonTipsDS.ind"
-["pdflatex"] 1551406015 "pythonTipsDS.tex" "pythonTipsDS.pdf" "pythonTipsDS" 1551406017
+  "pythonTipsDS.ilg"
+["pdflatex"] 1551406960 "pythonTipsDS.tex" "pythonTipsDS.pdf" "pythonTipsDS" 1551406962
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrb8r.tfm" 1480098688 1292 3059476c50a24578715759f22652f3d0 ""
@@ -12,6 +12,7 @@
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr8c.tfm" 1480098688 1268 8bd405dc5751cfed76cb6fb2db78cb50 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm" 1480098688 1292 bd42be2f344128bff6d35d98474adfe3 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr8t.tfm" 1480098688 1384 4632f5e54900a7dadbb83f555bc61e56 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrro8c.tfm" 1480098688 1344 dab2eee300fafcab19064bcc62d66daa ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrro8r.tfm" 1480098688 1544 4fb84cf2931ec523c2c6a08d939088ba ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrro8t.tfm" 1480098688 1596 04a657f277f0401ba37d66e716627ac4 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1480098688 4484 b828043cbd581d289d955903c1339981 ""
@@ -59,6 +60,7 @@
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/courier/pcrb8t.vf" 1480098757 2184 5d20c8b00cd914e50251116c274e2d0b ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/courier/pcrr8c.vf" 1480098757 3552 6a7911d0b338a7c32cbfc3a9e985ccca ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/courier/pcrr8t.vf" 1480098757 2184 8475af1b9cfa983db5f46f5ed4b8f9f7 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/courier/pcrro8c.vf" 1480098757 3560 a297982f0907d62e9886d9e2666bf30b ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/courier/pcrro8t.vf" 1480098757 2280 d7cd083c724c9449e1d12731253966f7 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf" 1480098757 2340 0efed6a948c3c37d870e4e7ddb85c7c3 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/helvetic/phvbo8t.vf" 1480098757 2344 88834f8322177295b0266ecc4b0754c3 ""
@@ -165,20 +167,20 @@
   "ipynb.png" 1551292141 260075 3513fe151f2982ad0c8af2e42ab5a02d ""
   "logo.png" 1551282050 124038 e907e383266bce4b3db11046450f7647 ""
   "needspace.sty" 1551282050 852 0e34dbb72efc69fa07602405ad95585e ""
-  "pythonTipsDS.aux" 1551406017 14506 89de6c1599400b01a713022cc0339ce5 ""
+  "pythonTipsDS.aux" 1551406962 14506 51621ceff5b52e8f00680d733dc49aef ""
   "pythonTipsDS.ind" 1551282070 0 d41d8cd98f00b204e9800998ecf8427e "makeindex pythonTipsDS.idx"
-  "pythonTipsDS.out" 1551406017 7231 3cf9124a15e751a888e8c36adfb6d836 ""
-  "pythonTipsDS.tex" 1551406013 139027 62f59de194af78220537f4a366b7e2ea ""
-  "pythonTipsDS.toc" 1551406017 5156 ed50701ca71ba9f4a57868d3ddb26d9d ""
+  "pythonTipsDS.out" 1551406962 7231 3cf9124a15e751a888e8c36adfb6d836 ""
+  "pythonTipsDS.tex" 1551406958 139953 b469df588108ba5fcc1c2064ada26b0d ""
+  "pythonTipsDS.toc" 1551406962 5156 684c7b9c39b4501a143c084fe03b4a19 ""
   "sphinx.sty" 1549203133 76220 63a32157b97240a297c69d4d077e82ab ""
-  "sphinxhighlight.sty" 1551406012 8137 38a433148fcb7611515a989ff1750dd5 ""
+  "sphinxhighlight.sty" 1551406958 8137 38a433148fcb7611515a989ff1750dd5 ""
   "sphinxmanual.cls" 1549203133 3606 fe67088d27cb5a0826fd3cdce3caff30 ""
   "sphinxmulticell.sty" 1549075244 14618 0defbdc8536ad2e67f1eac6a1431bc55 ""
   "zep.png" 1551292186 272768 a82e9edd317fba0535554a4a4bddf6ad ""
   (generated)
   "pythonTipsDS.out"
+  "pythonTipsDS.toc"
+  "pythonTipsDS.log"
   "pythonTipsDS.aux"
   "pythonTipsDS.pdf"
-  "pythonTipsDS.log"
   "pythonTipsDS.idx"
-  "pythonTipsDS.toc"

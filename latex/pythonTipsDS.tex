@@ -696,6 +696,20 @@ Pay attentation to the parameter \sphinxcode{\sphinxupquote{columns=}} in \sphin
 
 \subsection{From \sphinxstyleliteralintitle{\sphinxupquote{.csv}}}
 \label{\detokenize{pdrdd:from-csv}}
+\sphinxcode{\sphinxupquote{:: Comparison:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} pd.DataFrame dp: DataFrame pandas}
+\PYG{n}{dp} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Advertising.csv}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}rdd.DataFrame. dp: DataFrame spark}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{spark}\PYG{o}{.}\PYG{n}{read}\PYG{o}{.}\PYG{n}{csv}\PYG{p}{(}\PYG{n}{path}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Advertising.csv}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+\PYG{c+c1}{\PYGZsh{}                sep=\PYGZsq{},\PYGZsq{},}
+\PYG{c+c1}{\PYGZsh{}                encoding=\PYGZsq{}UTF\PYGZhy{}8\PYGZsq{},}
+\PYG{c+c1}{\PYGZsh{}                comment=None,}
+               \PYG{n}{header}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{,}
+               \PYG{n}{inferSchema}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{)}
+\end{sphinxVerbatim}
+
 
 \subsection{From \sphinxstyleliteralintitle{\sphinxupquote{.json}}}
 \label{\detokenize{pdrdd:from-json}}

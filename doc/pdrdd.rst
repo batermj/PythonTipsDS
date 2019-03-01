@@ -167,6 +167,20 @@ Load DataFrame
 From ``.csv``
 -------------
 
+|comp|
+
+.. code-block:: python
+
+	# pd.DataFrame dp: DataFrame pandas
+	dp = pd.read_csv('Advertising.csv')
+	#rdd.DataFrame. dp: DataFrame spark 
+	ds = spark.read.csv(path='Advertising.csv',
+	#                sep=',',
+	#                encoding='UTF-8',
+	#                comment=None,
+	               header=True, 
+	               inferSchema=True)
+
 
 From ``.json``
 --------------
