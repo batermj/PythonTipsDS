@@ -604,6 +604,10 @@ and use the following code to import your \sphinxcode{\sphinxupquote{User Inform
 \PYG{n}{ds} \PYG{o}{=} \PYG{n}{spark}\PYG{o}{.}\PYG{n}{read}\PYG{o}{.}\PYG{n}{jdbc}\PYG{p}{(}\PYG{n}{url}\PYG{o}{=}\PYG{n}{url}\PYG{p}{,} \PYG{n}{table}\PYG{o}{=}\PYG{n}{table\PYGZus{}name}\PYG{p}{,} \PYG{n}{properties}\PYG{o}{=}\PYG{n}{properties}\PYG{p}{)}
 \end{sphinxVerbatim}
 
+\begin{sphinxadmonition}{attention}{Attention:}
+Reading tables from Database with PySpark needs the proper drive for the corresponding Database. For example, the above demo needs org.postgresql.Driver and you need to download it and put it in \sphinxcode{\sphinxupquote{jars}} folder of your spark installation path. I download postgresql-42.1.1.jar from the official website and put it in jars folder.
+\end{sphinxadmonition}
+
 
 \subsection{From List}
 \label{\detokenize{pdrdd:from-list}}

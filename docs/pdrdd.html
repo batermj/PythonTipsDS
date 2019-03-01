@@ -249,6 +249,10 @@ PythonTips
 <span class="n">ds</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">jdbc</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">table</span><span class="o">=</span><span class="n">table_name</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">properties</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Reading tables from Database with PySpark needs the proper drive for the corresponding Database. For example, the above demo needs org.postgresql.Driver and you need to download it and put it in <code class="docutils literal notranslate"><span class="pre">jars</span></code> folder of your spark installation path. I download postgresql-42.1.1.jar from the official website and put it in jars folder.</p>
+</div>
 </div>
 <div class="section" id="from-list">
 <h3>8.1.2. From List<a class="headerlink" href="#from-list" title="Permalink to this headline">¶</a></h3>

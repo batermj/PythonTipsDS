@@ -74,6 +74,9 @@ and use the following code to import your ``User Information``:
 	ds = spark.read.jdbc(url=url, table=table_name, properties=properties)
 
 
+.. attention::
+
+	Reading tables from Database with PySpark needs the proper drive for the corresponding Database. For example, the above demo needs org.postgresql.Driver and you need to download it and put it in ``jars`` folder of your spark installation path. I download postgresql-42.1.1.jar from the official website and put it in jars folder.
 
 From List
 ---------
