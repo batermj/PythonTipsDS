@@ -107,13 +107,13 @@ Methods of list objects:
 
    Shallow copy:
 
-   .. figure:: images/shal.png 
+   	.. figure:: images/shal.png 
     
    The variables A and B refer to different areas of memory, when B is assigned to A the two variables refer to the same area of memory. Later modifications to the contents of either are instantly reflected in the contents of other, as they share contents.
 
    Deep Copy:    
 
-   .. figure:: images/deep.png 
+   	.. figure:: images/deep.png 
 
    The variables A and B refer to different areas of memory, when B is assigned to A the values in the memory area which A points to are copied into the memory area to which B points. Later modifications to the contents of either remain unique to A or B; the contents are not shared. 
 

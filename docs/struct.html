@@ -289,14 +289,18 @@ optimal number of the clusters.</p>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><p class="first">Shallow Copy vs Deep Copy Reference: <a class="reference external" href="https://stackoverflow.com/posts/184780/revisions">https://stackoverflow.com/posts/184780/revisions</a></p>
 <p>Shallow copy:</p>
-<div class="figure">
+<blockquote>
+<div><div class="figure">
 <img alt="_images/shal.png" src="_images/shal.png" />
 </div>
+</div></blockquote>
 <p>The variables A and B refer to different areas of memory, when B is assigned to A the two variables refer to the same area of memory. Later modifications to the contents of either are instantly reflected in the contents of other, as they share contents.</p>
 <p>Deep Copy:</p>
-<div class="figure">
+<blockquote>
+<div><div class="figure">
 <img alt="_images/deep.png" src="_images/deep.png" />
 </div>
+</div></blockquote>
 <p class="last">The variables A and B refer to different areas of memory, when B is assigned to A the values in the memory area which A points to are copied into the memory area to which B points. Later modifications to the contents of either remain unique to A or B; the contents are not shared.</p>
 </td></tr>
 </tbody>
