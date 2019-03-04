@@ -75,31 +75,31 @@ Methods of list objects
 
 Methods of list objects:
 
-+-----------------------+-------------------------------------+
-| Name                  |                      Description    |
-+=======================+=====================================+
-| list.append(x)        | Add an item to the end of the list  |
-+-----------------------+-------------------------------------+
-| list.extend(iterable) | Extend the list by appending all    |
-+-----------------------+-------------------------------------+
-| list.insert(i, x)     | Insert an item at a given position  |
-+-----------------------+-------------------------------------+
-| list.remove(x)        | Remove the first item               |
-+-----------------------+-------------------------------------+
-| list.pop([i])         | Remove the item at given position   |
-+-----------------------+-------------------------------------+
-| list.clear()          | Remove all items from the list      |
-+-----------------------+-------------------------------------+
-| list.index(x[,s[,e]]) | Return zero-based index in the list |
-+-----------------------+-------------------------------------+
-| list.count(x)         | Return the number of times x        |
-+-----------------------+-------------------------------------+
-| list.sort(key,reverse)| Sort the items of the list          |
-+-----------------------+-------------------------------------+
-| list.reverse()        | Reverse the elements of the list    |
-+-----------------------+-------------------------------------+
-| list.copy()           | Return a shallow copy [#f1]_ of list|
-+-----------------------+-------------------------------------+
++-----------------------------+-------------------------------------+
+| Name                        |                      Description    |
++=============================+=====================================+
+| list. ``append(x)``         | Add an item to the end of the list  |
++-----------------------------+-------------------------------------+
+| list. ``extend(iterable)``  | Extend the list by appending all    |
++-----------------------------+-------------------------------------+
+| list. ``insert(i, x)``      | Insert an item at a given position  |
++-----------------------------+-------------------------------------+
+| list. ``remove(x)``         | Remove the first item               |
++-----------------------------+-------------------------------------+
+| list. ``pop([i])``          | Remove the item at given position   |
++-----------------------------+-------------------------------------+
+| list. ``clear()``           | Remove all items from the list      |
++-----------------------------+-------------------------------------+
+| list. ``index(x[,s[,e]])``  | Return zero-based index in the list |
++-----------------------------+-------------------------------------+
+| list. ``count(x)``          | Return the number of times x        |
++-----------------------------+-------------------------------------+
+| list. ``sort(key,reverse)`` | Sort the items of the list          |
++-----------------------------+-------------------------------------+
+| list. ``reverse()``         | Reverse the elements of the list    |
++-----------------------------+-------------------------------------+
+| list. ``copy()``            | Return a shallow copy [#f1]_ of list|
++-----------------------------+-------------------------------------+
 
 .. rubric:: Footnotes
 
