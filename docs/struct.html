@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Data Structures &mdash; Python Tips for Data Scientist 1.00 documentation</title>
+  <title>6. Data Structures &mdash; Python Tips for Data Scientist 1.00 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. pd.DataFrame manipulation" href="pd.html" />
-    <link rel="prev" title="4. Primer Functions" href="primer.html" /> 
+    <link rel="next" title="7. pd.DataFrame manipulation" href="pd.html" />
+    <link rel="prev" title="5. Primer Functions" href="primer.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,21 +94,22 @@
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Python Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nb.html">3. Notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="primer.html">4. Primer Functions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Data Structures</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#list">5.1. List</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#create-list">5.1.1. Create list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unpack-list">5.1.2. Unpack list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="confi.html">4. Confidential Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primer.html">5. Primer Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Data Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list">6.1. List</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-list">6.1.1. Create list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unpack-list">6.1.2. Unpack list</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#tuple">5.2. Tuple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tuple">6.2. Tuple</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pd.html">6. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> manipulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rdd.html">7. <code class="docutils literal notranslate"><span class="pre">rdd.DataFrame</span></code> manipulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pdrdd.html">8. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="pack.html">9. Package Wrapper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">10. Main Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pd.html">7. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rdd.html">8. <code class="docutils literal notranslate"><span class="pre">rdd.DataFrame</span></code> manipulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pdrdd.html">9. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="pack.html">10. Package Wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">11. Main Reference</a></li>
 </ul>
 
             
@@ -154,7 +155,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>5. Data Structures</li>
+      <li>6. Data Structures</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -176,16 +177,16 @@
            <div itemprop="articleBody">
             
   <div class="section" id="data-structures">
-<span id="struct"></span><h1>5. Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h1>
+<span id="struct"></span><h1>6. Data Structures<a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This Chapter <a class="reference internal" href="#struct"><span class="std std-ref">Data Structures</span></a> is for beginner.  If you have some <code class="docutils literal notranslate"><span class="pre">Python</span></code> programming experience, you may skip this chapter.</p>
 </div>
 <div class="section" id="list">
-<h2>5.1. List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<h2>6.1. List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">List</span></code> is one of data sctructures which is heavily using in my daily work.</p>
 <div class="section" id="create-list">
-<h3>5.1.1. Create list<a class="headerlink" href="#create-list" title="Permalink to this headline">¶</a></h3>
+<h3>6.1.1. Create list<a class="headerlink" href="#create-list" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Create empty list</li>
 </ol>
@@ -229,11 +230,11 @@ optimal number of the clusters.</p>
 </div></blockquote>
 </div>
 <div class="section" id="unpack-list">
-<h3>5.1.2. Unpack list<a class="headerlink" href="#unpack-list" title="Permalink to this headline">¶</a></h3>
+<h3>6.1.2. Unpack list<a class="headerlink" href="#unpack-list" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="tuple">
-<h2>5.2. Tuple<a class="headerlink" href="#tuple" title="Permalink to this headline">¶</a></h2>
+<h2>6.2. Tuple<a class="headerlink" href="#tuple" title="Permalink to this headline">¶</a></h2>
 <p>A tuple is an assortment of data, separated by commas, which makes it similar to the Python list, but a tuple is fundamentally different in that a tuple is “immutable.” This means that it cannot be changed, modified, or manipulated.</p>
 <p><a class="reference internal" href="reference.html#vanderplas2016" id="id1">[VanderPlas2016]</a> <a class="reference internal" href="reference.html#mckinney2013" id="id2">[McKinney2013]</a> <a class="reference internal" href="reference.html#georg2018" id="id3">[Georg2018]</a></p>
 </div>
@@ -247,10 +248,10 @@ optimal number of the clusters.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pd.html" class="btn btn-neutral float-right" title="6. pd.DataFrame manipulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pd.html" class="btn btn-neutral float-right" title="7. pd.DataFrame manipulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="primer.html" class="btn btn-neutral float-left" title="4. Primer Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="primer.html" class="btn btn-neutral float-left" title="5. Primer Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -261,7 +262,7 @@ optimal number of the clusters.</p>
     <p>
         &copy; Copyright 2019, Wenqiang Feng
       <span class="lastupdated">
-        Last updated on Mar 01, 2019.
+        Last updated on Mar 04, 2019.
       </span>
 
     </p>

@@ -132,7 +132,7 @@ and use the following code to import your ``User Information``:
 	    pw = login[0][1]
 	    print('User information is ready!')
 	except:
-	    print('Login information is not avaliable!!!')
+	    print('Login information is not available!!!')
 
 	#Database information
 	host = '##.###.###.##'

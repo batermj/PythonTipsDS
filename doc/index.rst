@@ -18,6 +18,7 @@ Contents
    preface
    install
    nb
+   confi
    primer
    struct
    pd

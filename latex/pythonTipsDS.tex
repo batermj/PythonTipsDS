@@ -91,7 +91,7 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{March 01, 2019}
+\date{March 04, 2019}
 \release{1.00}
 \author{Wenqiang Feng}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
@@ -264,6 +264,48 @@ The \sphinxcode{\sphinxupquote{Jupyter Notebook}} (Ipython Notebook) is an open-
 
 \noindent\sphinxincludegraphics{{ipynb}.png}
 \end{figure}
+
+
+\chapter{Confidential Information}
+\label{\detokenize{confi:confidential-information}}\label{\detokenize{confi:confi}}\label{\detokenize{confi::doc}}
+\begin{sphinxadmonition}{note}{Chinese proverb}
+
+Be mindful of guarding against harm from others, and stay away from placing harming upon others.
+\end{sphinxadmonition}
+
+If you are a real Data Scientist, you have to share your code with your colleagues or release your code for Code Review or Quality assurance(QA). You will definitely do not want to have your \sphinxcode{\sphinxupquote{User Information}} in the code. So you can save them in login.txt:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+runawayhorse001
+PythonTips
+\end{sphinxVerbatim}
+
+and use the following code to import your \sphinxcode{\sphinxupquote{User Information}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}User Information}
+\PYG{k}{try}\PYG{p}{:}
+    \PYG{n}{login} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{login.txt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{header}\PYG{o}{=}\PYG{n+nb+bp}{None}\PYG{p}{)}
+    \PYG{n}{user} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{pw} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{User information is ready!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{except}\PYG{p}{:}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Login information is not available!!!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+You may also want to get the \sphinxcode{\sphinxupquote{User Information}} by using \sphinxcode{\sphinxupquote{os.environ}} in \sphinxcode{\sphinxupquote{Python}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{try}\PYG{p}{:}
+    \PYG{n}{user} \PYG{o}{=} \PYG{n}{os}\PYG{o}{.}\PYG{n}{environ}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{LOGNAME}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+\PYG{k}{except} \PYG{n+ne}{OSError}\PYG{p}{:}
+    \PYG{n}{user} \PYG{o}{=} \PYG{n}{os}\PYG{o}{.}\PYG{n}{environ}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{USER}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+\PYG{k}{except} \PYG{n+ne}{OSError}\PYG{p}{:}
+    \PYG{n}{user} \PYG{o}{=} \PYG{n}{os}\PYG{o}{.}\PYG{n}{environ}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{USERNAME}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+    \PYG{k}{print}\PYG{p}{(}\PYG{n}{err}\PYG{p}{)}
+\PYG{k}{except} \PYG{n+ne}{OSError} \PYG{k}{as} \PYG{n}{err}\PYG{p}{:}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{The user information is not available!!!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
 
 
 \chapter{Primer Functions}
@@ -678,7 +720,7 @@ and use the following code to import your \sphinxcode{\sphinxupquote{User Inform
     \PYG{n}{pw} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
     \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{User information is ready!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{k}{except}\PYG{p}{:}
-    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Login information is not avaliable!!!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Login information is not available!!!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 
 \PYG{c+c1}{\PYGZsh{}Database information}
 \PYG{n}{host} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}}\PYG{l+s+s1}{\PYGZsq{}}
