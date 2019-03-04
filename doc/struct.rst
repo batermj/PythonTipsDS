@@ -70,10 +70,62 @@ optimal number of the clusters.
 Unpack list
 -----------
 
+Methods of list objects
+-----------------------
+
+Methods of list objects:
+
++-----------------------+-------------------------------------+
+| Name                  |                      Description    |
++=======================+=====================================+
+| list.append(x)        | Add an item to the end of the list  |
++-----------------------+-------------------------------------+
+| list.extend(iterable) | Extend the list by appending all    |
++-----------------------+-------------------------------------+
+| list.insert(i, x)     | Insert an item at a given position  |
++-----------------------+-------------------------------------+
+| list.remove(x)        | Remove the first item               |
++-----------------------+-------------------------------------+
+| list.pop([i])         | Remove the item at given position   |
++-----------------------+-------------------------------------+
+| list.clear()          | Remove all items from the list      |
++-----------------------+-------------------------------------+
+| list.index(x[,s[,e]]) | Return zero-based index in the list |
++-----------------------+-------------------------------------+
+| list.count(x)         | Return the number of times x        |
++-----------------------+-------------------------------------+
+| list.sort(key,reverse)| Sort the items of the list          |
++-----------------------+-------------------------------------+
+| list.reverse()        | Reverse the elements of the list    |
++-----------------------+-------------------------------------+
+| list.copy()           | Return a shallow copy [#f1]_ of list|
++-----------------------+-------------------------------------+
+
+.. rubric:: Footnotes
+
+.. [#f1] Shallow Copy vs Deep Copy Reference: https://stackoverflow.com/posts/184780/revisions
+
+   Shallow copy:
+
+   .. figure:: images/shal.png 
+    
+   The variables A and B refer to different areas of memory, when B is assigned to A the two variables refer to the same area of memory. Later modifications to the contents of either are instantly reflected in the contents of other, as they share contents.
+
+   Deep Copy:    
+
+   .. figure:: images/deep.png 
+
+   The variables A and B refer to different areas of memory, when B is assigned to A the values in the memory area which A points to are copied into the memory area to which B points. Later modifications to the contents of either remain unique to A or B; the contents are not shared. 
+
+
+
+
 Tuple
 +++++
 
 A tuple is an assortment of data, separated by commas, which makes it similar to the Python list, but a tuple is fundamentally different in that a tuple is "immutable." This means that it cannot be changed, modified, or manipulated.
 
 
+Dictionary
+++++++++++
 [VanderPlas2016]_ [McKinney2013]_ [Georg2018]_

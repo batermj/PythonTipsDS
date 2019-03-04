@@ -582,10 +582,110 @@ optimal number of the clusters.
 \subsection{Unpack list}
 \label{\detokenize{struct:unpack-list}}
 
+\subsection{Methods of list objects}
+\label{\detokenize{struct:methods-of-list-objects}}
+Methods of list objects:
+
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|}
+\hline
+\sphinxstyletheadfamily 
+Name
+&\sphinxstyletheadfamily 
+Description
+\\
+\hline
+list.append(x)
+&
+Add an item to the end of the list
+\\
+\hline
+list.extend(iterable)
+&
+Extend the list by appending all
+\\
+\hline
+list.insert(i, x)
+&
+Insert an item at a given position
+\\
+\hline
+list.remove(x)
+&
+Remove the first item
+\\
+\hline
+list.pop({[}i{]})
+&
+Remove the item at given position
+\\
+\hline
+list.clear()
+&
+Remove all items from the list
+\\
+\hline
+list.index(x{[},s{[},e{]}{]})
+&
+Return zero-based index in the list
+\\
+\hline
+list.count(x)
+&
+Return the number of times x
+\\
+\hline
+list.sort(key,reverse)
+&
+Sort the items of the list
+\\
+\hline
+list.reverse()
+&
+Reverse the elements of the list
+\\
+\hline
+list.copy()
+&
+Return a shallow copy %
+\begin{footnote}[1]\sphinxAtStartFootnote
+Shallow Copy vs Deep Copy Reference: \sphinxurl{https://stackoverflow.com/posts/184780/revisions}
+
+Shallow copy:
+\begin{sphinxfigure-in-table}
+\centering
+
+\noindent\sphinxincludegraphics{{shal}.png}
+\end{sphinxfigure-in-table}\relax
+
+The variables A and B refer to different areas of memory, when B is assigned to A the two variables refer to the same area of memory. Later modifications to the contents of either are instantly reflected in the contents of other, as they share contents.
+
+Deep Copy:
+\begin{sphinxfigure-in-table}
+\centering
+
+\noindent\sphinxincludegraphics{{deep}.png}
+\end{sphinxfigure-in-table}\relax
+
+The variables A and B refer to different areas of memory, when B is assigned to A the values in the memory area which A points to are copied into the memory area to which B points. Later modifications to the contents of either remain unique to A or B; the contents are not shared.
+%
+\end{footnote} of list
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
+
+
 \section{Tuple}
 \label{\detokenize{struct:tuple}}
 A tuple is an assortment of data, separated by commas, which makes it similar to the Python list, but a tuple is fundamentally different in that a tuple is “immutable.” This means that it cannot be changed, modified, or manipulated.
 
+
+\section{Dictionary}
+\label{\detokenize{struct:dictionary}}
 \sphinxcite{reference:vanderplas2016} \sphinxcite{reference:mckinney2013} \sphinxcite{reference:georg2018}
 
 

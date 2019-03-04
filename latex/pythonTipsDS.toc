@@ -23,41 +23,43 @@
 \contentsline {section}{\numberline {6.1}List}{19}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}Create list}{19}{subsection.6.1.1}
 \contentsline {subsection}{\numberline {6.1.2}Unpack list}{20}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Methods of list objects}{20}{subsection.6.1.3}
 \contentsline {section}{\numberline {6.2}Tuple}{20}{section.6.2}
-\contentsline {chapter}{\numberline {7}\sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}} manipulation}{21}{chapter.7}
-\contentsline {section}{\numberline {7.1}TODO..}{21}{section.7.1}
-\contentsline {chapter}{\numberline {8}\sphinxstyleliteralintitle {\sphinxupquote {rdd.DataFrame}} manipulation}{23}{chapter.8}
-\contentsline {section}{\numberline {8.1}TODO..}{23}{section.8.1}
-\contentsline {chapter}{\numberline {9}\sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}} vs \sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}}}{25}{chapter.9}
-\contentsline {section}{\numberline {9.1}Create DataFrame}{25}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}From List}{25}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}From Dict}{26}{subsection.9.1.2}
-\contentsline {section}{\numberline {9.2}Load DataFrame}{26}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}From DataBase}{26}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}From \sphinxstyleliteralintitle {\sphinxupquote {.csv}}}{27}{subsection.9.2.2}
-\contentsline {subsection}{\numberline {9.2.3}From \sphinxstyleliteralintitle {\sphinxupquote {.json}}}{28}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}First \sphinxstyleliteralintitle {\sphinxupquote {n}} Rows}{29}{section.9.3}
-\contentsline {section}{\numberline {9.4}Column Names}{29}{section.9.4}
-\contentsline {section}{\numberline {9.5}Data types}{29}{section.9.5}
-\contentsline {section}{\numberline {9.6}Fill Null}{30}{section.9.6}
-\contentsline {section}{\numberline {9.7}Replace Values}{31}{section.9.7}
-\contentsline {section}{\numberline {9.8}Rename Columns}{31}{section.9.8}
-\contentsline {subsection}{\numberline {9.8.1}Rename all columns}{31}{subsection.9.8.1}
-\contentsline {subsection}{\numberline {9.8.2}Rename one or more columns}{32}{subsection.9.8.2}
-\contentsline {section}{\numberline {9.9}Drop Columns}{33}{section.9.9}
-\contentsline {section}{\numberline {9.10}Filter}{33}{section.9.10}
-\contentsline {section}{\numberline {9.11}With New Column}{34}{section.9.11}
-\contentsline {section}{\numberline {9.12}Join}{37}{section.9.12}
-\contentsline {subsection}{\numberline {9.12.1}Left Join}{37}{subsection.9.12.1}
-\contentsline {subsection}{\numberline {9.12.2}Right Join}{38}{subsection.9.12.2}
-\contentsline {subsection}{\numberline {9.12.3}Inner Join}{39}{subsection.9.12.3}
-\contentsline {subsection}{\numberline {9.12.4}Full Join}{39}{subsection.9.12.4}
-\contentsline {section}{\numberline {9.13}Concat Columns}{40}{section.9.13}
-\contentsline {section}{\numberline {9.14}GroupBy}{41}{section.9.14}
-\contentsline {section}{\numberline {9.15}Pivot}{41}{section.9.15}
-\contentsline {chapter}{\numberline {10}Package Wrapper}{43}{chapter.10}
-\contentsline {section}{\numberline {10.1}Hierarchical Structure}{43}{section.10.1}
-\contentsline {section}{\numberline {10.2}Set Up}{44}{section.10.2}
-\contentsline {section}{\numberline {10.3}ReadMe}{44}{section.10.3}
-\contentsline {chapter}{\numberline {11}Main Reference}{47}{chapter.11}
-\contentsline {chapter}{Bibliography}{49}{chapter*.3}
+\contentsline {section}{\numberline {6.3}Dictionary}{21}{section.6.3}
+\contentsline {chapter}{\numberline {7}\sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}} manipulation}{23}{chapter.7}
+\contentsline {section}{\numberline {7.1}TODO..}{23}{section.7.1}
+\contentsline {chapter}{\numberline {8}\sphinxstyleliteralintitle {\sphinxupquote {rdd.DataFrame}} manipulation}{25}{chapter.8}
+\contentsline {section}{\numberline {8.1}TODO..}{25}{section.8.1}
+\contentsline {chapter}{\numberline {9}\sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}} vs \sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}}}{27}{chapter.9}
+\contentsline {section}{\numberline {9.1}Create DataFrame}{27}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}From List}{27}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}From Dict}{28}{subsection.9.1.2}
+\contentsline {section}{\numberline {9.2}Load DataFrame}{28}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}From DataBase}{28}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}From \sphinxstyleliteralintitle {\sphinxupquote {.csv}}}{29}{subsection.9.2.2}
+\contentsline {subsection}{\numberline {9.2.3}From \sphinxstyleliteralintitle {\sphinxupquote {.json}}}{30}{subsection.9.2.3}
+\contentsline {section}{\numberline {9.3}First \sphinxstyleliteralintitle {\sphinxupquote {n}} Rows}{31}{section.9.3}
+\contentsline {section}{\numberline {9.4}Column Names}{31}{section.9.4}
+\contentsline {section}{\numberline {9.5}Data types}{31}{section.9.5}
+\contentsline {section}{\numberline {9.6}Fill Null}{32}{section.9.6}
+\contentsline {section}{\numberline {9.7}Replace Values}{33}{section.9.7}
+\contentsline {section}{\numberline {9.8}Rename Columns}{33}{section.9.8}
+\contentsline {subsection}{\numberline {9.8.1}Rename all columns}{33}{subsection.9.8.1}
+\contentsline {subsection}{\numberline {9.8.2}Rename one or more columns}{34}{subsection.9.8.2}
+\contentsline {section}{\numberline {9.9}Drop Columns}{35}{section.9.9}
+\contentsline {section}{\numberline {9.10}Filter}{35}{section.9.10}
+\contentsline {section}{\numberline {9.11}With New Column}{36}{section.9.11}
+\contentsline {section}{\numberline {9.12}Join}{39}{section.9.12}
+\contentsline {subsection}{\numberline {9.12.1}Left Join}{39}{subsection.9.12.1}
+\contentsline {subsection}{\numberline {9.12.2}Right Join}{40}{subsection.9.12.2}
+\contentsline {subsection}{\numberline {9.12.3}Inner Join}{41}{subsection.9.12.3}
+\contentsline {subsection}{\numberline {9.12.4}Full Join}{41}{subsection.9.12.4}
+\contentsline {section}{\numberline {9.13}Concat Columns}{42}{section.9.13}
+\contentsline {section}{\numberline {9.14}GroupBy}{43}{section.9.14}
+\contentsline {section}{\numberline {9.15}Pivot}{43}{section.9.15}
+\contentsline {chapter}{\numberline {10}Package Wrapper}{45}{chapter.10}
+\contentsline {section}{\numberline {10.1}Hierarchical Structure}{45}{section.10.1}
+\contentsline {section}{\numberline {10.2}Set Up}{46}{section.10.2}
+\contentsline {section}{\numberline {10.3}ReadMe}{46}{section.10.3}
+\contentsline {chapter}{\numberline {11}Main Reference}{49}{chapter.11}
+\contentsline {chapter}{Bibliography}{51}{chapter*.3}
