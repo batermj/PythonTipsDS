@@ -698,15 +698,11 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 
 \chapter{Data Read and Ingestion with DataBase}
 \label{\detokenize{ingest:data-read-and-ingestion-with-database}}\label{\detokenize{ingest:ingest}}\label{\detokenize{ingest::doc}}
-\begin{sphinxadmonition}{note}{Note:}
-This Chapter {\hyperref[\detokenize{nb:nb}]{\sphinxcrossref{\DUrole{std,std-ref}{Notebooks}}}} is for beginner.  If you have some \sphinxcode{\sphinxupquote{Python}} programming experience, you may skip this chapter.
-\end{sphinxadmonition}
-
 
 \section{Data Ingestion from Local to DataBase}
 \label{\detokenize{ingest:data-ingestion-from-local-to-database}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{}User Information}
+\PYG{c+c1}{\PYGZsh{} User Information}
 \PYG{k}{try}\PYG{p}{:}
     \PYG{n}{login} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{login.txt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{header}\PYG{o}{=}\PYG{n+nb+bp}{None}\PYG{p}{)}
     \PYG{n}{user} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
@@ -715,16 +711,16 @@ This Chapter {\hyperref[\detokenize{nb:nb}]{\sphinxcrossref{\DUrole{std,std-ref}
 \PYG{k}{except}\PYG{p}{:}
     \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Login information is not available!!!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{}Database information}
+\PYG{c+c1}{\PYGZsh{} Database information}
 \PYG{n}{host} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}}\PYG{l+s+s1}{\PYGZsq{}}
 \PYG{n}{db\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{db\PYGZus{}name}\PYG{l+s+s1}{\PYGZsq{}}
 \PYG{n}{table\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{table\PYGZus{}name}\PYG{l+s+s1}{\PYGZsq{}}
 
-\PYG{c+c1}{\PYGZsh{}Setup connection}
+\PYG{c+c1}{\PYGZsh{} Setup connection}
 \PYG{n}{conn} \PYG{o}{=} \PYG{n}{psycopg2}\PYG{o}{.}\PYG{n}{connect}\PYG{p}{(}\PYG{n}{host}\PYG{o}{=}\PYG{n}{host}\PYG{p}{,} \PYG{n}{database}\PYG{o}{=}\PYG{n}{db\PYGZus{}name}\PYG{p}{,} \PYG{n}{user}\PYG{o}{=}\PYG{n}{user}\PYG{p}{,} \PYG{n}{password}\PYG{o}{=}\PYG{n}{pw}\PYG{p}{)}
 \PYG{n}{cur} \PYG{o}{=} \PYG{n}{conn}\PYG{o}{.}\PYG{n}{cursor}\PYG{p}{(}\PYG{p}{)}
 
-\PYG{c+c1}{\PYGZsh{}Creat table in DataBase}
+\PYG{c+c1}{\PYGZsh{} Creat table in DataBase}
 \PYG{n}{conn}\PYG{o}{.}\PYG{n}{commit}\PYG{p}{(}\PYG{p}{)}
 \PYG{n}{query} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
 \PYG{l+s+s2}{    DROP TABLE IF EXISTS \PYGZob{}table\PYGZus{}name\PYGZcb{};}
@@ -763,30 +759,30 @@ This Chapter {\hyperref[\detokenize{nb:nb}]{\sphinxcrossref{\DUrole{std,std-ref}
 \section{Data Read from DataBase to Local}
 \label{\detokenize{ingest:data-read-from-database-to-local}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-    \PYG{c+c1}{\PYGZsh{}User information}
-    \PYG{k}{try}\PYG{p}{:}
-        \PYG{n}{login} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{login.txt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{header}\PYG{o}{=}\PYG{n+nb+bp}{None}\PYG{p}{)}
-        \PYG{n}{user} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
-        \PYG{n}{pw} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
-        \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{User information is ready!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-    \PYG{k}{except}\PYG{p}{:}
-        \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Login information is not available!!!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} User information}
+\PYG{k}{try}\PYG{p}{:}
+    \PYG{n}{login} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}csv}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{login.txt}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{header}\PYG{o}{=}\PYG{n+nb+bp}{None}\PYG{p}{)}
+    \PYG{n}{user} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{pw} \PYG{o}{=} \PYG{n}{login}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{User information is ready!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{except}\PYG{p}{:}
+    \PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Login information is not available!!!}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 
-    \PYG{c+c1}{\PYGZsh{}Database information}
-    \PYG{n}{host} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}}\PYG{l+s+s1}{\PYGZsq{}}
-    \PYG{n}{db\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{db\PYGZus{}name}\PYG{l+s+s1}{\PYGZsq{}}
-    \PYG{n}{table\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{table\PYGZus{}name}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{c+c1}{\PYGZsh{} Database information}
+\PYG{n}{host} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}\PYGZsh{}.\PYGZsh{}\PYGZsh{}}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{db\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{db\PYGZus{}name}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{n}{table\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{table\PYGZus{}name}\PYG{l+s+s1}{\PYGZsq{}}
 
-\PYG{c+c1}{\PYGZsh{}Setup connection}
-    \PYG{n}{conn} \PYG{o}{=} \PYG{n}{psycopg2}\PYG{o}{.}\PYG{n}{connect}\PYG{p}{(}\PYG{n}{host}\PYG{o}{=}\PYG{n}{host}\PYG{p}{,} \PYG{n}{database}\PYG{o}{=}\PYG{n}{db\PYGZus{}name}\PYG{p}{,} \PYG{n}{user}\PYG{o}{=}\PYG{n}{user}\PYG{p}{,} \PYG{n}{password}\PYG{o}{=}\PYG{n}{pw}\PYG{p}{)}
-    \PYG{n}{cur} \PYG{o}{=} \PYG{n}{conn}\PYG{o}{.}\PYG{n}{cursor}\PYG{p}{(}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Setup connection}
+\PYG{n}{conn} \PYG{o}{=} \PYG{n}{psycopg2}\PYG{o}{.}\PYG{n}{connect}\PYG{p}{(}\PYG{n}{host}\PYG{o}{=}\PYG{n}{host}\PYG{p}{,} \PYG{n}{database}\PYG{o}{=}\PYG{n}{db\PYGZus{}name}\PYG{p}{,} \PYG{n}{user}\PYG{o}{=}\PYG{n}{user}\PYG{p}{,} \PYG{n}{password}\PYG{o}{=}\PYG{n}{pw}\PYG{p}{)}
+\PYG{n}{cur} \PYG{o}{=} \PYG{n}{conn}\PYG{o}{.}\PYG{n}{cursor}\PYG{p}{(}\PYG{p}{)}
 
-    \PYG{c+c1}{\PYGZsh{}Read table}
-    \PYG{n}{sql} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
-\PYG{l+s+s2}{          select *}
-\PYG{l+s+s2}{          from \PYGZob{}table\PYGZus{}name\PYGZcb{}}
-\PYG{l+s+s2}{          }\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{table\PYGZus{}name}\PYG{o}{=}\PYG{n}{table\PYGZus{}name}\PYG{p}{)}
-    \PYG{n}{dp} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}sql}\PYG{p}{(}\PYG{n}{sql}\PYG{p}{,} \PYG{n}{conn}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Read table}
+\PYG{n}{sql} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+s2}{      select *}
+\PYG{l+s+s2}{      from \PYGZob{}table\PYGZus{}name\PYGZcb{}}
+\PYG{l+s+s2}{      }\PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{table\PYGZus{}name}\PYG{o}{=}\PYG{n}{table\PYGZus{}name}\PYG{p}{)}
+\PYG{n}{dp} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}sql}\PYG{p}{(}\PYG{n}{sql}\PYG{p}{,} \PYG{n}{conn}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 

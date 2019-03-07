@@ -18,7 +18,7 @@ Data Ingestion from Local to DataBase
 
 .. code-block:: python
 
-	#User Information
+	# User Information
 	try:
 	    login = pd.read_csv(r'login.txt', header=None)
 	    user = login[0][0]
@@ -27,16 +27,16 @@ Data Ingestion from Local to DataBase
 	except:
 	    print('Login information is not available!!!')
 
-	#Database information
+	# Database information
 	host = '##.###.###.##'
 	db_name = 'db_name'
 	table_name = 'table_name'
 
-	#Setup connection
+	# Setup connection
 	conn = psycopg2.connect(host=host, database=db_name, user=user, password=pw)
 	cur = conn.cursor()
 
-	#Creat table in DataBase
+	# Creat table in DataBase
 	conn.commit()
 	query = """
 	    DROP TABLE IF EXISTS {table_name};
@@ -76,7 +76,7 @@ Data Read from DataBase to Local
 
 .. code-block:: python
 
-	#User information
+	# User information
 	try:
 	    login = pd.read_csv(r'login.txt', header=None)
 	    user = login[0][0]
@@ -85,16 +85,16 @@ Data Read from DataBase to Local
 	except:
 	    print('Login information is not available!!!')
 
-	#Database information
+	# Database information
 	host = '##.###.###.##'
 	db_name = 'db_name'
 	table_name = 'table_name'
 
-    #Setup connection
+	# Setup connection
 	conn = psycopg2.connect(host=host, database=db_name, user=user, password=pw)
 	cur = conn.cursor()
 
-	#Read table
+	# Read table
 	sql = """
 	      select *
 	      from {table_name}

@@ -175,13 +175,9 @@
             
   <div class="section" id="data-read-and-ingestion-with-database">
 <span id="ingest"></span><h1>7. Data Read and Ingestion with DataBase<a class="headerlink" href="#data-read-and-ingestion-with-database" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This Chapter <a class="reference internal" href="nb.html#nb"><span class="std std-ref">Notebooks</span></a> is for beginner.  If you have some <code class="docutils literal notranslate"><span class="pre">Python</span></code> programming experience, you may skip this chapter.</p>
-</div>
 <div class="section" id="data-ingestion-from-local-to-database">
 <h2>7.1. Data Ingestion from Local to DataBase<a class="headerlink" href="#data-ingestion-from-local-to-database" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#User Information</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># User Information</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">login</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;login.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">login</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -190,16 +186,16 @@
 <span class="k">except</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Login information is not available!!!&#39;</span><span class="p">)</span>
 
-<span class="c1">#Database information</span>
+<span class="c1"># Database information</span>
 <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;##.###.###.##&#39;</span>
 <span class="n">db_name</span> <span class="o">=</span> <span class="s1">&#39;db_name&#39;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s1">&#39;table_name&#39;</span>
 
-<span class="c1">#Setup connection</span>
+<span class="c1"># Setup connection</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">db_name</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pw</span><span class="p">)</span>
 <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 
-<span class="c1">#Creat table in DataBase</span>
+<span class="c1"># Creat table in DataBase</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    DROP TABLE IF EXISTS {table_name};</span>
@@ -237,30 +233,30 @@
 </div>
 <div class="section" id="data-read-from-database-to-local">
 <h2>7.2. Data Read from DataBase to Local<a class="headerlink" href="#data-read-from-database-to-local" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1">#User information</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">login</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;login.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-        <span class="n">user</span> <span class="o">=</span> <span class="n">login</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">pw</span> <span class="o">=</span> <span class="n">login</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;User information is ready!&#39;</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Login information is not available!!!&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># User information</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">login</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;login.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">login</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pw</span> <span class="o">=</span> <span class="n">login</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;User information is ready!&#39;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Login information is not available!!!&#39;</span><span class="p">)</span>
 
-    <span class="c1">#Database information</span>
-    <span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;##.###.###.##&#39;</span>
-    <span class="n">db_name</span> <span class="o">=</span> <span class="s1">&#39;db_name&#39;</span>
-    <span class="n">table_name</span> <span class="o">=</span> <span class="s1">&#39;table_name&#39;</span>
+<span class="c1"># Database information</span>
+<span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;##.###.###.##&#39;</span>
+<span class="n">db_name</span> <span class="o">=</span> <span class="s1">&#39;db_name&#39;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s1">&#39;table_name&#39;</span>
 
-<span class="c1">#Setup connection</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">db_name</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pw</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="c1"># Setup connection</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">db_name</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pw</span><span class="p">)</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 
-    <span class="c1">#Read table</span>
-    <span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">          select *</span>
-<span class="s2">          from {table_name}</span>
-<span class="s2">          &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="n">table_name</span><span class="p">)</span>
-    <span class="n">dp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="c1"># Read table</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">      select *</span>
+<span class="s2">      from {table_name}</span>
+<span class="s2">      &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="n">table_name</span><span class="p">)</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
