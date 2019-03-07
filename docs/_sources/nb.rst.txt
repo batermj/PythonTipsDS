@@ -16,7 +16,7 @@ Notebooks
 
 	This Chapter :ref:`nb` is for beginner.  If you have alreay know  |nt|, |zp| and |py|, you may skip this chapter.
 
-If you are a Data Scientist, it's not enough to just know |nb|. You should also take a look at |nt| and |zp| notebooks.
+If you are a Data Scientist, it's not enough to just know |nb|. You should also take a look at ``nbviewer``, |nt| and |zp| notebooks.
 
 
 Nteract
@@ -28,6 +28,17 @@ Download from: https://nteract.io/
 
 .. _fig_nt:
 .. figure:: images/nteract.png
+
+Jupyter Notebook Viewer
++++++++++++++++++++++++
+
+If you are a MAC user, you can also install the Jupyter Notebook Viewer --``nbviewer-app`` which is much faster than |nt|.
+
+Download from: https://github.com/tuxu/nbviewer-app
+
+.. _fig_nbviewer:
+.. figure:: images/nbviewer.png
+
 
 
 Apache Zeppelin
