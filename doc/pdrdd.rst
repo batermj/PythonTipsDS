@@ -281,6 +281,53 @@ Data types
 	Sales        float64			 ('Sales', 'double')]
 	dtype: object
 
+Replace Data types
+++++++++++++++++++
+
+.. code-block:: python
+
+	my_list = [('a', 2, 3),
+	           ('b', 5, 6),
+	           ('c', 8, 9),
+	           ('a', 2, 3),
+	           ('b', 5, 6),
+	           ('c', 8, 9)]
+	col_name = ['col1', 'col2', 'col3']
+
+
+	dp = pd.DataFrame(my_list,columns=col_name)
+	ds = spark.createDataFrame(dp)
+
+	dp.dtypes
+
+.. code-block:: python
+
+	col1    object
+	col2     int64
+	col3     int64
+	dtype: object
+
+
+|pyc|
+
+.. code-block:: python
+
+	d = {'col2': 'string','col3':'string'}
+	dp = dp.astype({'col2': 'str','col3':'str'})
+	ds = ds.select(*list(set(ds.columns)-set(d.keys())),
+	               *(col(c[0]).astype(c[1]).alias(c[0]) for c in d.items()))
+
+|comp|
+
+.. code-block:: python
+
+	col1    object
+	col2    object           [('col1', 'string'), ('col2', 'string'), ('col3', 'string')]
+	col3    object
+	dtype: object
+
+
+
 Fill Null
 +++++++++
 
@@ -847,6 +894,43 @@ Pivot
 	                    		+----+----+----+----+
 
 
+Unixtime to Date
+++++++++++++++++
+
+.. code-block:: python
+
+	from datetime import datetime
+
+	my_list = [['a', int("1284101485")], ['b', int("2284101485")],['c', int("3284101485")]]
+	col_name = ['A', 'ts']
+
+	dp = pd.DataFrame(my_list,columns=col_name)
+	ds = spark.createDataFrame(dp)
+
+
+|pyc|
+
+.. code-block:: python
+
+	dp['datetime'] = pd.to_datetime(dp['ts'], unit='s').dt.tz_localize('UTC')
+	dp
+
+	spark.conf.set("spark.sql.session.timeZone", "UTC")
+	from pyspark.sql.types import DateType
+	ds.withColumn('date', F.from_unixtime('ts')).show() #.cast(DateType())
+
+
+|comp|
+
+.. code-block:: python
+
+	                                        	+---+----------+-------------------+
+	                                        	|  A|        ts|               date|
+	   A          ts                  datetime 	+---+----------+-------------------+
+	0  a  1284101485 2010-09-10 06:51:25+00:00 	|  a|1284101485|2010-09-10 06:51:25|
+	1  b  2284101485 2042-05-19 08:38:05+00:00 	|  b|2284101485|2042-05-19 08:38:05|
+	2  c  3284101485 2074-01-25 10:24:45+00:00 	|  c|3284101485|2074-01-25 10:24:45|
+	                                        	+---+----------+-------------------+
 
 
 

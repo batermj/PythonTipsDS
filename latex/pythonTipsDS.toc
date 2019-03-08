@@ -45,25 +45,27 @@
 \contentsline {section}{\numberline {10.3}First \sphinxstyleliteralintitle {\sphinxupquote {n}} Rows}{37}{section.10.3}
 \contentsline {section}{\numberline {10.4}Column Names}{37}{section.10.4}
 \contentsline {section}{\numberline {10.5}Data types}{37}{section.10.5}
-\contentsline {section}{\numberline {10.6}Fill Null}{38}{section.10.6}
-\contentsline {section}{\numberline {10.7}Replace Values}{39}{section.10.7}
-\contentsline {section}{\numberline {10.8}Rename Columns}{39}{section.10.8}
-\contentsline {subsection}{\numberline {10.8.1}Rename all columns}{39}{subsection.10.8.1}
-\contentsline {subsection}{\numberline {10.8.2}Rename one or more columns}{40}{subsection.10.8.2}
-\contentsline {section}{\numberline {10.9}Drop Columns}{41}{section.10.9}
-\contentsline {section}{\numberline {10.10}Filter}{41}{section.10.10}
-\contentsline {section}{\numberline {10.11}With New Column}{42}{section.10.11}
-\contentsline {section}{\numberline {10.12}Join}{45}{section.10.12}
-\contentsline {subsection}{\numberline {10.12.1}Left Join}{45}{subsection.10.12.1}
-\contentsline {subsection}{\numberline {10.12.2}Right Join}{46}{subsection.10.12.2}
-\contentsline {subsection}{\numberline {10.12.3}Inner Join}{47}{subsection.10.12.3}
-\contentsline {subsection}{\numberline {10.12.4}Full Join}{47}{subsection.10.12.4}
-\contentsline {section}{\numberline {10.13}Concat Columns}{48}{section.10.13}
-\contentsline {section}{\numberline {10.14}GroupBy}{49}{section.10.14}
-\contentsline {section}{\numberline {10.15}Pivot}{49}{section.10.15}
-\contentsline {chapter}{\numberline {11}Package Wrapper}{51}{chapter.11}
-\contentsline {section}{\numberline {11.1}Hierarchical Structure}{51}{section.11.1}
-\contentsline {section}{\numberline {11.2}Set Up}{52}{section.11.2}
-\contentsline {section}{\numberline {11.3}ReadMe}{52}{section.11.3}
-\contentsline {chapter}{\numberline {12}Main Reference}{55}{chapter.12}
-\contentsline {chapter}{Bibliography}{57}{chapter*.3}
+\contentsline {section}{\numberline {10.6}Replace Data types}{38}{section.10.6}
+\contentsline {section}{\numberline {10.7}Fill Null}{39}{section.10.7}
+\contentsline {section}{\numberline {10.8}Replace Values}{39}{section.10.8}
+\contentsline {section}{\numberline {10.9}Rename Columns}{40}{section.10.9}
+\contentsline {subsection}{\numberline {10.9.1}Rename all columns}{40}{subsection.10.9.1}
+\contentsline {subsection}{\numberline {10.9.2}Rename one or more columns}{40}{subsection.10.9.2}
+\contentsline {section}{\numberline {10.10}Drop Columns}{41}{section.10.10}
+\contentsline {section}{\numberline {10.11}Filter}{42}{section.10.11}
+\contentsline {section}{\numberline {10.12}With New Column}{43}{section.10.12}
+\contentsline {section}{\numberline {10.13}Join}{46}{section.10.13}
+\contentsline {subsection}{\numberline {10.13.1}Left Join}{46}{subsection.10.13.1}
+\contentsline {subsection}{\numberline {10.13.2}Right Join}{47}{subsection.10.13.2}
+\contentsline {subsection}{\numberline {10.13.3}Inner Join}{47}{subsection.10.13.3}
+\contentsline {subsection}{\numberline {10.13.4}Full Join}{48}{subsection.10.13.4}
+\contentsline {section}{\numberline {10.14}Concat Columns}{49}{section.10.14}
+\contentsline {section}{\numberline {10.15}GroupBy}{49}{section.10.15}
+\contentsline {section}{\numberline {10.16}Pivot}{50}{section.10.16}
+\contentsline {section}{\numberline {10.17}Unixtime to Date}{50}{section.10.17}
+\contentsline {chapter}{\numberline {11}Package Wrapper}{53}{chapter.11}
+\contentsline {section}{\numberline {11.1}Hierarchical Structure}{53}{section.11.1}
+\contentsline {section}{\numberline {11.2}Set Up}{54}{section.11.2}
+\contentsline {section}{\numberline {11.3}ReadMe}{54}{section.11.3}
+\contentsline {chapter}{\numberline {12}Main Reference}{57}{chapter.12}
+\contentsline {chapter}{Bibliography}{59}{chapter*.3}

@@ -16,7 +16,7 @@ Confidential Information
 
 	Be mindful of guarding against harm from others, and stay away from placing harming upon others.
 
-If you are a real Data Scientist, you have to share your code with your colleagues or release your code for Code Review or Quality assurance(QA). You will definitely do not want to have your ``User Information`` in the code. So you can save them in login.txt:
+If you are a real Data Scientist, you have to share your code with your colleagues or release your code for Code Review or Quality assurance(QA). You will definitely do not want to have your ``User Information`` in the code. So you can save them in login.txt in a safe folder:
 
 .. code-block:: rst
 

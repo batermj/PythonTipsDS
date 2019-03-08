@@ -276,9 +276,9 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrb8t.tfm
-OUTPUT pythonTipsDS.toc
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/courier/pcrb8t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrb8r.tfm
+OUTPUT pythonTipsDS.toc
 INPUT logo.png
 INPUT ./logo.png
 INPUT logo.png

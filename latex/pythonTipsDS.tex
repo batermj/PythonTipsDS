@@ -91,7 +91,7 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{March 06, 2019}
+\date{March 07, 2019}
 \release{1.00}
 \author{Wenqiang Feng}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
@@ -191,7 +191,7 @@ I recognize the elegance of Python and use it as one of my main programming lang
 Most of the \sphinxcode{\sphinxupquote{Python}} books or tutorials which emphasize on programming will overwhelme the green hand.
 
 \item {} 
-While most of the \sphinxcode{\sphinxupquote{Python}} books or tutorials \sphinxcode{\sphinxupquote{Data Scientist}} or \sphinxcode{\sphinxupquote{Data Analysis}} didn’t cover some essential skills from the engineer side.
+While most of the \sphinxcode{\sphinxupquote{Python}} books or tutorials for \sphinxcode{\sphinxupquote{Data Scientist}} or \sphinxcode{\sphinxupquote{Data Analysis}} didn’t cover some essential skills from the engineer side.
 
 \end{itemize}
 
@@ -289,7 +289,7 @@ The \sphinxcode{\sphinxupquote{Jupyter Notebook}} (Ipython Notebook) is an open-
 Be mindful of guarding against harm from others, and stay away from placing harming upon others.
 \end{sphinxadmonition}
 
-If you are a real Data Scientist, you have to share your code with your colleagues or release your code for Code Review or Quality assurance(QA). You will definitely do not want to have your \sphinxcode{\sphinxupquote{User Information}} in the code. So you can save them in login.txt:
+If you are a real Data Scientist, you have to share your code with your colleagues or release your code for Code Review or Quality assurance(QA). You will definitely do not want to have your \sphinxcode{\sphinxupquote{User Information}} in the code. So you can save them in login.txt in a safe folder:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 runawayhorse001
@@ -1076,6 +1076,50 @@ Data from: \sphinxurl{http://api.luftdaten.info/static/v1/data.json}
 \end{sphinxVerbatim}
 
 
+\section{Replace Data types}
+\label{\detokenize{pdrdd:replace-data-types}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{a}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{,}
+           \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{)}\PYG{p}{,}
+           \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{c}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{p}{)}\PYG{p}{,}
+           \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{a}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{,}
+           \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{)}\PYG{p}{,}
+           \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{c}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{p}{)}\PYG{p}{]}
+\PYG{n}{col\PYGZus{}name} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+
+
+\PYG{n}{dp} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{,}\PYG{n}{columns}\PYG{o}{=}\PYG{n}{col\PYGZus{}name}\PYG{p}{)}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{spark}\PYG{o}{.}\PYG{n}{createDataFrame}\PYG{p}{(}\PYG{n}{dp}\PYG{p}{)}
+
+\PYG{n}{dp}\PYG{o}{.}\PYG{n}{dtypes}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{col1}    \PYG{n+nb}{object}
+\PYG{n}{col2}     \PYG{n}{int64}
+\PYG{n}{col3}     \PYG{n}{int64}
+\PYG{n}{dtype}\PYG{p}{:} \PYG{n+nb}{object}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{d} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{string}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{string}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}
+\PYG{n}{dp} \PYG{o}{=} \PYG{n}{dp}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{str}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{str}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{ds}\PYG{o}{.}\PYG{n}{select}\PYG{p}{(}\PYG{o}{*}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{ds}\PYG{o}{.}\PYG{n}{columns}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{d}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}
+               \PYG{o}{*}\PYG{p}{(}\PYG{n}{col}\PYG{p}{(}\PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{alias}\PYG{p}{(}\PYG{n}{c}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{c} \PYG{o+ow}{in} \PYG{n}{d}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Comparison:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{col1}    \PYG{n+nb}{object}
+\PYG{n}{col2}    \PYG{n+nb}{object}           \PYG{p}{[}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{string}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{string}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{col3}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{string}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{]}
+\PYG{n}{col3}    \PYG{n+nb}{object}
+\PYG{n}{dtype}\PYG{p}{:} \PYG{n+nb}{object}
+\end{sphinxVerbatim}
+
+
 \section{Fill Null}
 \label{\detokenize{pdrdd:fill-null}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -1629,6 +1673,42 @@ You can also use \sphinxcode{\sphinxupquote{withColumnRenamed}} to rename one co
 \PYG{n}{b}     \PYG{n}{NaN}  \PYG{l+m+mf}{12.0}   \PYG{n}{NaN}           \PYG{o}{\textbar{}}   \PYG{n}{b}\PYG{o}{\textbar{}}\PYG{n}{null}\PYG{o}{\textbar{}}  \PYG{l+m+mi}{12}\PYG{o}{\textbar{}}\PYG{n}{null}\PYG{o}{\textbar{}}
 \PYG{n}{c}     \PYG{n}{NaN}   \PYG{n}{NaN}  \PYG{l+m+mf}{18.0}           \PYG{o}{\textbar{}}   \PYG{n}{a}\PYG{o}{\textbar{}}   \PYG{l+m+mi}{6}\PYG{o}{\textbar{}}\PYG{n}{null}\PYG{o}{\textbar{}}\PYG{n}{null}\PYG{o}{\textbar{}}
                                 \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+\end{sphinxVerbatim}
+
+
+\section{Unixtime to Date}
+\label{\detokenize{pdrdd:unixtime-to-date}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{datetime} \PYG{k+kn}{import} \PYG{n}{datetime}
+
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{a}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{1284101485}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{b}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{2284101485}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{c}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{3284101485}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{]}\PYG{p}{]}
+\PYG{n}{col\PYGZus{}name} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{A}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ts}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+
+\PYG{n}{dp} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{,}\PYG{n}{columns}\PYG{o}{=}\PYG{n}{col\PYGZus{}name}\PYG{p}{)}
+\PYG{n}{ds} \PYG{o}{=} \PYG{n}{spark}\PYG{o}{.}\PYG{n}{createDataFrame}\PYG{p}{(}\PYG{n}{dp}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{dp}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{datetime}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{to\PYGZus{}datetime}\PYG{p}{(}\PYG{n}{dp}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ts}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{unit}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{s}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{o}{.}\PYG{n}{dt}\PYG{o}{.}\PYG{n}{tz\PYGZus{}localize}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{UTC}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{dp}
+
+\PYG{n}{spark}\PYG{o}{.}\PYG{n}{conf}\PYG{o}{.}\PYG{n}{set}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{spark.sql.session.timeZone}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{UTC}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{k+kn}{from} \PYG{n+nn}{pyspark.sql.types} \PYG{k+kn}{import} \PYG{n}{DateType}
+\PYG{n}{ds}\PYG{o}{.}\PYG{n}{withColumn}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{date}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{F}\PYG{o}{.}\PYG{n}{from\PYGZus{}unixtime}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{ts}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{)}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{}.cast(DateType())}
+\end{sphinxVerbatim}
+
+\sphinxcode{\sphinxupquote{:: Comparison:}}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+                                                \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+                                                \PYG{o}{\textbar{}}  \PYG{n}{A}\PYG{o}{\textbar{}}        \PYG{n}{ts}\PYG{o}{\textbar{}}               \PYG{n}{date}\PYG{o}{\textbar{}}
+   \PYG{n}{A}          \PYG{n}{ts}                  \PYG{n}{datetime}      \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
+\PYG{l+m+mi}{0}  \PYG{n}{a}  \PYG{l+m+mi}{1284101485} \PYG{l+m+mi}{2010}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{09}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{10} \PYG{l+m+mo}{06}\PYG{p}{:}\PYG{l+m+mi}{51}\PYG{p}{:}\PYG{l+m+mi}{25}\PYG{o}{+}\PYG{l+m+mo}{00}\PYG{p}{:}\PYG{l+m+mo}{00}      \PYG{o}{\textbar{}}  \PYG{n}{a}\PYG{o}{\textbar{}}\PYG{l+m+mi}{1284101485}\PYG{o}{\textbar{}}\PYG{l+m+mi}{2010}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{09}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{10} \PYG{l+m+mo}{06}\PYG{p}{:}\PYG{l+m+mi}{51}\PYG{p}{:}\PYG{l+m+mi}{25}\PYG{o}{\textbar{}}
+\PYG{l+m+mi}{1}  \PYG{n}{b}  \PYG{l+m+mi}{2284101485} \PYG{l+m+mi}{2042}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{05}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{19} \PYG{l+m+mi}{08}\PYG{p}{:}\PYG{l+m+mi}{38}\PYG{p}{:}\PYG{l+m+mo}{05}\PYG{o}{+}\PYG{l+m+mo}{00}\PYG{p}{:}\PYG{l+m+mo}{00}      \PYG{o}{\textbar{}}  \PYG{n}{b}\PYG{o}{\textbar{}}\PYG{l+m+mi}{2284101485}\PYG{o}{\textbar{}}\PYG{l+m+mi}{2042}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{05}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{19} \PYG{l+m+mi}{08}\PYG{p}{:}\PYG{l+m+mi}{38}\PYG{p}{:}\PYG{l+m+mo}{05}\PYG{o}{\textbar{}}
+\PYG{l+m+mi}{2}  \PYG{n}{c}  \PYG{l+m+mi}{3284101485} \PYG{l+m+mi}{2074}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{01}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{25} \PYG{l+m+mi}{10}\PYG{p}{:}\PYG{l+m+mi}{24}\PYG{p}{:}\PYG{l+m+mi}{45}\PYG{o}{+}\PYG{l+m+mo}{00}\PYG{p}{:}\PYG{l+m+mo}{00}      \PYG{o}{\textbar{}}  \PYG{n}{c}\PYG{o}{\textbar{}}\PYG{l+m+mi}{3284101485}\PYG{o}{\textbar{}}\PYG{l+m+mi}{2074}\PYG{o}{\PYGZhy{}}\PYG{l+m+mo}{01}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{25} \PYG{l+m+mi}{10}\PYG{p}{:}\PYG{l+m+mi}{24}\PYG{p}{:}\PYG{l+m+mi}{45}\PYG{o}{\textbar{}}
+                                                \PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{o}{+}
 \end{sphinxVerbatim}
 
 

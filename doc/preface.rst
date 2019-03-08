@@ -66,7 +66,7 @@ by |py| at the first using. After starting working in industry, I have to use |p
 I recognize the elegance of Python and use it as one of my main programming language. But I foud that:
 
 * Most of the |py| books or tutorials which emphasize on programming will overwhelme the green hand. 
-* While most of the |py| books or tutorials |ds| or |da| didn't cover some essential skills from the engineer side.
+* While most of the |py| books or tutorials for |ds| or |da| didn't cover some essential skills from the engineer side.
 
 So I want to keep some of my valuable tips which are heavily applied in my daily work. 
 
