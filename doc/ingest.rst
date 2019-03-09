@@ -70,6 +70,13 @@ Data Ingestion from Local to DataBase
 	cur.copy_expert(sql=copy_sql, file=csv_io)
 	conn.commit()
 
+.. note::
+
+   You can also use ``copy_to`` to copy the dataframe from local memory to GP
+
+   .. code-block:: python
+   
+		cur.copy_to(df, table_name)
 
 Data Read from DataBase to Local  
 ++++++++++++++++++++++++++++++++

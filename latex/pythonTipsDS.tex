@@ -91,7 +91,7 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{March 07, 2019}
+\date{March 08, 2019}
 \release{1.00}
 \author{Wenqiang Feng}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
@@ -767,6 +767,14 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 \PYG{n}{cur}\PYG{o}{.}\PYG{n}{copy\PYGZus{}expert}\PYG{p}{(}\PYG{n}{sql}\PYG{o}{=}\PYG{n}{copy\PYGZus{}sql}\PYG{p}{,} \PYG{n+nb}{file}\PYG{o}{=}\PYG{n}{csv\PYGZus{}io}\PYG{p}{)}
 \PYG{n}{conn}\PYG{o}{.}\PYG{n}{commit}\PYG{p}{(}\PYG{p}{)}
 \end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+You can also use \sphinxcode{\sphinxupquote{copy\_to}} to copy the dataframe from local memory to GP
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{cur}\PYG{o}{.}\PYG{n}{copy\PYGZus{}to}\PYG{p}{(}\PYG{n}{df}\PYG{p}{,} \PYG{n}{table\PYGZus{}name}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{sphinxadmonition}
 
 
 \section{Data Read from DataBase to Local}
