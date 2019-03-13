@@ -15,7 +15,7 @@ y<-c(9.37, 10.18, 9.16, 11.60, 10.33)
 
 theta<-0 ; delta<-2 
 
-theta.star<-rnorm(1,theta,sqrt(delta))
+rnorm(1,theta,sqrt(delta))
 
 dnorm(y,theta.star,sqrt(s2),log=TRUE)
 

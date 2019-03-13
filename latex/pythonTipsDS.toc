@@ -1,71 +1,71 @@
 \babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}Preface}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}About}{3}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}About this tutorial}{3}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.1}About this note}{3}{subsection.1.1.1}
 \contentsline {subsection}{\numberline {1.1.2}About the authors}{3}{subsection.1.1.2}
-\contentsline {section}{\numberline {1.2}Motivation for this tutorial}{4}{section.1.2}
-\contentsline {section}{\numberline {1.3}Feedback and suggestions}{5}{section.1.3}
-\contentsline {chapter}{\numberline {2}Python Installation}{7}{chapter.2}
-\contentsline {chapter}{\numberline {3}Notebooks}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}Nteract}{9}{section.3.1}
-\contentsline {section}{\numberline {3.2}Jupyter Notebook Viewer}{9}{section.3.2}
-\contentsline {section}{\numberline {3.3}Apache Zeppelin}{9}{section.3.3}
-\contentsline {section}{\numberline {3.4}Jupyter Notebook}{13}{section.3.4}
-\contentsline {chapter}{\numberline {4}Confidential Information}{15}{chapter.4}
-\contentsline {chapter}{\numberline {5}Primer Functions}{17}{chapter.5}
-\contentsline {section}{\numberline {5.1}\sphinxstyleliteralintitle {\sphinxupquote {*}}}{17}{section.5.1}
-\contentsline {section}{\numberline {5.2}\sphinxstyleliteralintitle {\sphinxupquote {range}}}{17}{section.5.2}
-\contentsline {section}{\numberline {5.3}\sphinxstyleliteralintitle {\sphinxupquote {random}}}{18}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}\sphinxstyleliteralintitle {\sphinxupquote {random.random}}}{18}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}\sphinxstyleliteralintitle {\sphinxupquote {np.random}}}{18}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}\sphinxstyleliteralintitle {\sphinxupquote {round}}}{19}{section.5.4}
-\contentsline {section}{\numberline {5.5}TODO..}{19}{section.5.5}
-\contentsline {chapter}{\numberline {6}Data Structures}{21}{chapter.6}
-\contentsline {section}{\numberline {6.1}List}{21}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Create list}{21}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}Unpack list}{22}{subsection.6.1.2}
-\contentsline {subsection}{\numberline {6.1.3}Methods of list objects}{22}{subsection.6.1.3}
-\contentsline {section}{\numberline {6.2}Tuple}{22}{section.6.2}
-\contentsline {section}{\numberline {6.3}Dictionary}{23}{section.6.3}
-\contentsline {chapter}{\numberline {7}Data Read and Ingestion with DataBase}{25}{chapter.7}
-\contentsline {section}{\numberline {7.1}Data Ingestion from Local to DataBase}{25}{section.7.1}
-\contentsline {section}{\numberline {7.2}Data Read from DataBase to Local}{26}{section.7.2}
-\contentsline {chapter}{\numberline {8}\sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}} manipulation}{29}{chapter.8}
-\contentsline {section}{\numberline {8.1}TODO..}{29}{section.8.1}
-\contentsline {chapter}{\numberline {9}\sphinxstyleliteralintitle {\sphinxupquote {rdd.DataFrame}} manipulation}{31}{chapter.9}
-\contentsline {section}{\numberline {9.1}TODO..}{31}{section.9.1}
-\contentsline {chapter}{\numberline {10}\sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}} vs \sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}}}{33}{chapter.10}
-\contentsline {section}{\numberline {10.1}Create DataFrame}{33}{section.10.1}
-\contentsline {subsection}{\numberline {10.1.1}From List}{33}{subsection.10.1.1}
-\contentsline {subsection}{\numberline {10.1.2}From Dict}{34}{subsection.10.1.2}
-\contentsline {section}{\numberline {10.2}Load DataFrame}{34}{section.10.2}
-\contentsline {subsection}{\numberline {10.2.1}From DataBase}{34}{subsection.10.2.1}
-\contentsline {subsection}{\numberline {10.2.2}From \sphinxstyleliteralintitle {\sphinxupquote {.csv}}}{35}{subsection.10.2.2}
-\contentsline {subsection}{\numberline {10.2.3}From \sphinxstyleliteralintitle {\sphinxupquote {.json}}}{36}{subsection.10.2.3}
-\contentsline {section}{\numberline {10.3}First \sphinxstyleliteralintitle {\sphinxupquote {n}} Rows}{37}{section.10.3}
-\contentsline {section}{\numberline {10.4}Column Names}{37}{section.10.4}
-\contentsline {section}{\numberline {10.5}Data types}{37}{section.10.5}
-\contentsline {section}{\numberline {10.6}Replace Data types}{38}{section.10.6}
-\contentsline {section}{\numberline {10.7}Fill Null}{39}{section.10.7}
-\contentsline {section}{\numberline {10.8}Replace Values}{39}{section.10.8}
-\contentsline {section}{\numberline {10.9}Rename Columns}{40}{section.10.9}
-\contentsline {subsection}{\numberline {10.9.1}Rename all columns}{40}{subsection.10.9.1}
-\contentsline {subsection}{\numberline {10.9.2}Rename one or more columns}{40}{subsection.10.9.2}
-\contentsline {section}{\numberline {10.10}Drop Columns}{41}{section.10.10}
-\contentsline {section}{\numberline {10.11}Filter}{42}{section.10.11}
-\contentsline {section}{\numberline {10.12}With New Column}{43}{section.10.12}
-\contentsline {section}{\numberline {10.13}Join}{46}{section.10.13}
-\contentsline {subsection}{\numberline {10.13.1}Left Join}{46}{subsection.10.13.1}
-\contentsline {subsection}{\numberline {10.13.2}Right Join}{47}{subsection.10.13.2}
-\contentsline {subsection}{\numberline {10.13.3}Inner Join}{47}{subsection.10.13.3}
-\contentsline {subsection}{\numberline {10.13.4}Full Join}{48}{subsection.10.13.4}
-\contentsline {section}{\numberline {10.14}Concat Columns}{49}{section.10.14}
-\contentsline {section}{\numberline {10.15}GroupBy}{49}{section.10.15}
-\contentsline {section}{\numberline {10.16}Pivot}{50}{section.10.16}
-\contentsline {section}{\numberline {10.17}Unixtime to Date}{50}{section.10.17}
-\contentsline {chapter}{\numberline {11}Package Wrapper}{53}{chapter.11}
-\contentsline {section}{\numberline {11.1}Hierarchical Structure}{53}{section.11.1}
-\contentsline {section}{\numberline {11.2}Set Up}{54}{section.11.2}
-\contentsline {section}{\numberline {11.3}ReadMe}{54}{section.11.3}
-\contentsline {chapter}{\numberline {12}Main Reference}{57}{chapter.12}
-\contentsline {chapter}{Bibliography}{59}{chapter*.3}
+\contentsline {section}{\numberline {1.2}Motivation for this note}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Feedback and suggestions}{4}{section.1.3}
+\contentsline {chapter}{\numberline {2}Python Installation}{5}{chapter.2}
+\contentsline {chapter}{\numberline {3}Notebooks}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Nteract}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}Jupyter Notebook Viewer}{7}{section.3.2}
+\contentsline {section}{\numberline {3.3}Apache Zeppelin}{7}{section.3.3}
+\contentsline {section}{\numberline {3.4}Jupyter Notebook}{11}{section.3.4}
+\contentsline {chapter}{\numberline {4}Confidential Information}{13}{chapter.4}
+\contentsline {chapter}{\numberline {5}Primer Functions}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}\sphinxstyleliteralintitle {\sphinxupquote {*}}}{15}{section.5.1}
+\contentsline {section}{\numberline {5.2}\sphinxstyleliteralintitle {\sphinxupquote {range}}}{15}{section.5.2}
+\contentsline {section}{\numberline {5.3}\sphinxstyleliteralintitle {\sphinxupquote {random}}}{16}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}\sphinxstyleliteralintitle {\sphinxupquote {random.random}}}{16}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}\sphinxstyleliteralintitle {\sphinxupquote {np.random}}}{16}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}\sphinxstyleliteralintitle {\sphinxupquote {round}}}{17}{section.5.4}
+\contentsline {section}{\numberline {5.5}TODO..}{17}{section.5.5}
+\contentsline {chapter}{\numberline {6}Data Structures}{19}{chapter.6}
+\contentsline {section}{\numberline {6.1}List}{19}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Create list}{19}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Unpack list}{20}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Methods of list objects}{20}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Tuple}{20}{section.6.2}
+\contentsline {section}{\numberline {6.3}Dictionary}{21}{section.6.3}
+\contentsline {chapter}{\numberline {7}Data Read and Ingestion with DataBase}{23}{chapter.7}
+\contentsline {section}{\numberline {7.1}Data Ingestion from Local to DataBase}{23}{section.7.1}
+\contentsline {section}{\numberline {7.2}Data Read from DataBase to Local}{24}{section.7.2}
+\contentsline {chapter}{\numberline {8}\sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}} manipulation}{27}{chapter.8}
+\contentsline {section}{\numberline {8.1}TODO..}{27}{section.8.1}
+\contentsline {chapter}{\numberline {9}\sphinxstyleliteralintitle {\sphinxupquote {rdd.DataFrame}} manipulation}{29}{chapter.9}
+\contentsline {section}{\numberline {9.1}TODO..}{29}{section.9.1}
+\contentsline {chapter}{\numberline {10}\sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}} vs \sphinxstyleliteralintitle {\sphinxupquote {pd.DataFrame}}}{31}{chapter.10}
+\contentsline {section}{\numberline {10.1}Create DataFrame}{31}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}From List}{31}{subsection.10.1.1}
+\contentsline {subsection}{\numberline {10.1.2}From Dict}{32}{subsection.10.1.2}
+\contentsline {section}{\numberline {10.2}Load DataFrame}{32}{section.10.2}
+\contentsline {subsection}{\numberline {10.2.1}From DataBase}{32}{subsection.10.2.1}
+\contentsline {subsection}{\numberline {10.2.2}From \sphinxstyleliteralintitle {\sphinxupquote {.csv}}}{33}{subsection.10.2.2}
+\contentsline {subsection}{\numberline {10.2.3}From \sphinxstyleliteralintitle {\sphinxupquote {.json}}}{34}{subsection.10.2.3}
+\contentsline {section}{\numberline {10.3}First \sphinxstyleliteralintitle {\sphinxupquote {n}} Rows}{35}{section.10.3}
+\contentsline {section}{\numberline {10.4}Column Names}{35}{section.10.4}
+\contentsline {section}{\numberline {10.5}Data types}{35}{section.10.5}
+\contentsline {section}{\numberline {10.6}Replace Data types}{36}{section.10.6}
+\contentsline {section}{\numberline {10.7}Fill Null}{37}{section.10.7}
+\contentsline {section}{\numberline {10.8}Replace Values}{37}{section.10.8}
+\contentsline {section}{\numberline {10.9}Rename Columns}{38}{section.10.9}
+\contentsline {subsection}{\numberline {10.9.1}Rename all columns}{38}{subsection.10.9.1}
+\contentsline {subsection}{\numberline {10.9.2}Rename one or more columns}{38}{subsection.10.9.2}
+\contentsline {section}{\numberline {10.10}Drop Columns}{39}{section.10.10}
+\contentsline {section}{\numberline {10.11}Filter}{40}{section.10.11}
+\contentsline {section}{\numberline {10.12}With New Column}{41}{section.10.12}
+\contentsline {section}{\numberline {10.13}Join}{44}{section.10.13}
+\contentsline {subsection}{\numberline {10.13.1}Left Join}{44}{subsection.10.13.1}
+\contentsline {subsection}{\numberline {10.13.2}Right Join}{45}{subsection.10.13.2}
+\contentsline {subsection}{\numberline {10.13.3}Inner Join}{45}{subsection.10.13.3}
+\contentsline {subsection}{\numberline {10.13.4}Full Join}{46}{subsection.10.13.4}
+\contentsline {section}{\numberline {10.14}Concat Columns}{47}{section.10.14}
+\contentsline {section}{\numberline {10.15}GroupBy}{47}{section.10.15}
+\contentsline {section}{\numberline {10.16}Pivot}{48}{section.10.16}
+\contentsline {section}{\numberline {10.17}Unixtime to Date}{48}{section.10.17}
+\contentsline {chapter}{\numberline {11}Package Wrapper}{51}{chapter.11}
+\contentsline {section}{\numberline {11.1}Hierarchical Structure}{51}{section.11.1}
+\contentsline {section}{\numberline {11.2}Set Up}{52}{section.11.2}
+\contentsline {section}{\numberline {11.3}ReadMe}{52}{section.11.3}
+\contentsline {chapter}{\numberline {12}Main Reference}{55}{chapter.12}
+\contentsline {chapter}{Bibliography}{57}{chapter*.3}

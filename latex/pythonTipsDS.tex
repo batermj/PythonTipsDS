@@ -91,7 +91,7 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{March 08, 2019}
+\date{March 13, 2019}
 \release{1.00}
 \author{Wenqiang Feng}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
@@ -129,19 +129,23 @@ The palest ink is better than the best memory. \textendash{} old Chinese proverb
 \section{About}
 \label{\detokenize{preface:about}}
 
-\subsection{About this tutorial}
-\label{\detokenize{preface:about-this-tutorial}}
-This document is a summary of my valueable experiences in using \sphinxcode{\sphinxupquote{Python}} for \sphinxcode{\sphinxupquote{Data Scientist}} daily work. The PDF version can be downloaded from \sphinxhref{sphinxgithub.pdf}{HERE}. \sphinxstylestrong{You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.}
+\subsection{About this note}
+\label{\detokenize{preface:about-this-note}}
+This document is a summary of our valueable experiences in using \sphinxcode{\sphinxupquote{Python}}
+for \sphinxcode{\sphinxupquote{Data Scientist}} daily work. The PDF version can be downloaded from \sphinxhref{sphinxgithub.pdf}{HERE}.
 
-In this repository, I try to use the detailed \sphinxcode{\sphinxupquote{Data Scientist}} related demo code and
-examples to share some useful python tips for Data Scientist work. If you find your work wasn’t cited in this note, please feel free to let me know.
+\sphinxstylestrong{You may download and distribute it. Please be aware, however, that the note contains typos as well as inaccurate or incorrect description.}
 
-Although I am by no means a python programming and Data Scientist expert,
-I decided that it would be useful for me to share what I learned
-about Python in the form of easy tutorials with detailed example.
-I hope those tutorials will be a valuable tool for your studies.
+In this repository, we try to use the detailed \sphinxcode{\sphinxupquote{Data Scientist}} related demo code and
+examples to share some useful python tips for Data Scientist work. If you
+find your work wasn’t cited in this note, please feel free to let me know.
 
-The tutorials assume that the reader has a preliminary knowledge of \sphinxcode{\sphinxupquote{python}} programing, \sphinxcode{\sphinxupquote{LaTex}} and \sphinxcode{\sphinxupquote{Linux}}. And this document is generated automatically by using \sphinxhref{http://sphinx.pocoo.org}{sphinx}.
+Although we are by no means a python programming and Data Scientist expert,
+We decided that it would be useful for us to share what we learned
+about Python in the form of easy note with detailed example.
+We hope those notes will be a valuable tool for your studies.
+
+The notes assume that the reader has a preliminary knowledge of \sphinxcode{\sphinxupquote{python}} programing, \sphinxcode{\sphinxupquote{LaTex}} and \sphinxcode{\sphinxupquote{Linux}}. And this document is generated automatically by using \sphinxhref{http://sphinx.pocoo.org}{sphinx}.
 
 
 \subsection{About the authors}
@@ -164,24 +168,32 @@ Email: \sphinxhref{mailto:von198@gmail.com}{von198@gmail.com}
 \end{itemize}
 
 \item {} 
-\sphinxstylestrong{Biography}
+\sphinxstylestrong{Xu Gao}
+\begin{itemize}
+\item {} 
+Data Scientist/Quantitative Analyst and PhD in Statistics
 
-Wenqiang Feng is Data Scientist within DST’s Applied Analytics Group. Dr. Feng’s responsibilities include providing DST clients with access to cutting-edge skills and technologies, including Big Data analytic solutions, advanced analytic and data enhancement techniques and modeling.
+\item {} 
+Statistics, University of California, Irvine
 
-Dr. Feng has deep analytic expertise in data mining, analytic systems, machine learning algorithms, business intelligence, and applying Big Data tools to strategically solve industry problems in a cross-functional business. Before joining DST, Dr. Feng was an IMA Data Science Fellow at The Institute for Mathematics and its Applications (IMA) at the University of Minnesota. While there, he helped startup companies make marketing decisions based on deep predictive analytics.
+\item {} 
+Webpage: \sphinxurl{https://sites.google.com/view/xugao}
 
-Dr. Feng graduated from University of Tennessee, Knoxville, with Ph.D. in Computational Mathematics and Master’s degree in Statistics. He also holds Master’s degree in Computational Mathematics from Missouri University of Science and Technology (MST) and Master’s degree in Applied Mathematics from the University of Science and Technology of China (USTC).
+\item {} 
+Email: \sphinxhref{mailto:duncangao@gmail.com}{duncangao@gmail.com}, \sphinxhref{mailto:xgao2@uci.edu}{xgao2@uci.edu}
+
+\end{itemize}
 
 \item {} 
 \sphinxstylestrong{Declaration}
 
-The work of Wenqiang Feng was supported by the IMA, while working at IMA. However, any opinion, finding, and conclusions or recommendations expressed in this material are those of the author and do not necessarily reflect the views of the IMA, UTK and DST.
+The work of Wenqiang Feng was supported by the IMA, while working at IMA. However, any opinion, finding, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the IMA, UTK, UCI, DST and Google.
 
 \end{itemize}
 
 
-\section{Motivation for this tutorial}
-\label{\detokenize{preface:motivation-for-this-tutorial}}
+\section{Motivation for this note}
+\label{\detokenize{preface:motivation-for-this-note}}
 No matter you like it or not, Python has been one of the most popular programming languages.
 I have been using \sphinxcode{\sphinxupquote{Python}} for almost 4 years. Frankly speaking, I wasn’t impressed and attracted
 by \sphinxcode{\sphinxupquote{Python}} at the first using. After starting working in industry, I have to use \sphinxcode{\sphinxupquote{Python}}. Graduately
@@ -201,7 +213,7 @@ So I want to keep some of my valuable tips which are heavily applied in my daily
 \section{Feedback and suggestions}
 \label{\detokenize{preface:feedback-and-suggestions}}
 Your comments and suggestions are highly appreciated. I am more than happy to receive
-corrections, suggestions or feedbacks through email (Wenqiang Feng: \sphinxhref{mailto:von198@gmail.com}{von198@gmail.com}) for improvements.
+corrections, suggestions or feedbacks through email (Wenqiang Feng: \sphinxhref{mailto:von198@gmail.com}{von198@gmail.com}, XuGao: \sphinxhref{mailto:duncangao@gmail.com}{duncangao@gmail.com}) for improvements.
 
 
 \chapter{Python Installation}

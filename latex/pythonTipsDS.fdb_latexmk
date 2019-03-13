@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex pythonTipsDS.idx"] 1551282069 "pythonTipsDS.idx" "pythonTipsDS.ind" "pythonTipsDS" 1552101360
-  "pythonTipsDS.idx" 1552101345 0 d41d8cd98f00b204e9800998ecf8427e ""
+["makeindex pythonTipsDS.idx"] 1551282069 "pythonTipsDS.idx" "pythonTipsDS.ind" "pythonTipsDS" 1552509980
+  "pythonTipsDS.idx" 1552509977 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "pythonTipsDS.ind"
   "pythonTipsDS.ilg"
-["pdflatex"] 1552101344 "pythonTipsDS.tex" "pythonTipsDS.pdf" "pythonTipsDS" 1552101360
+["pdflatex"] 1552509977 "pythonTipsDS.tex" "pythonTipsDS.pdf" "pythonTipsDS" 1552509980
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrb8r.tfm" 1480098688 1292 3059476c50a24578715759f22652f3d0 ""
@@ -173,21 +173,21 @@
   "nbviewer.png" 1551927845 1192527 e49e8266a2d6faa562224e2c22194e0f ""
   "needspace.sty" 1551282050 852 0e34dbb72efc69fa07602405ad95585e ""
   "nteract.png" 1551458485 651592 da1a947fac4036e2fb6c132494e939cb ""
-  "pythonTipsDS.aux" 1552101347 16866 4bf9055f7e242f00c4ff94fbfe9d9807 ""
+  "pythonTipsDS.aux" 1552509980 16842 510ab94f42de5e49cb5e12a116819307 ""
   "pythonTipsDS.ind" 1551282070 0 d41d8cd98f00b204e9800998ecf8427e "makeindex pythonTipsDS.idx"
-  "pythonTipsDS.out" 1552101347 8912 d4f68114747e8e0b2ae1fc0cc867f830 ""
-  "pythonTipsDS.tex" 1552101344 164357 c36c29fe41cb16104546c55e6f05639c ""
-  "pythonTipsDS.toc" 1552101347 5971 658067440293d2b35268c7e0c8230c12 ""
+  "pythonTipsDS.out" 1552509980 8872 f506651383d8d80ac99aa46401fd5e27 ""
+  "pythonTipsDS.tex" 1552509973 163636 57ac854107f4df98ca7df213704d7be1 ""
+  "pythonTipsDS.toc" 1552509980 5963 a060424fb5b631b3ab2a2f1210275ef5 ""
   "shal.png" 1551735236 138374 dd5449a7c9f7ce9b138e665ca0589344 ""
   "sphinx.sty" 1549203133 76220 63a32157b97240a297c69d4d077e82ab ""
-  "sphinxhighlight.sty" 1552101359 8137 38a433148fcb7611515a989ff1750dd5 ""
+  "sphinxhighlight.sty" 1552509972 8137 38a433148fcb7611515a989ff1750dd5 ""
   "sphinxmanual.cls" 1549203133 3606 fe67088d27cb5a0826fd3cdce3caff30 ""
   "sphinxmulticell.sty" 1549075244 14618 0defbdc8536ad2e67f1eac6a1431bc55 ""
   "zep.png" 1551292186 272768 a82e9edd317fba0535554a4a4bddf6ad ""
   (generated)
-  "pythonTipsDS.idx"
-  "pythonTipsDS.pdf"
   "pythonTipsDS.out"
-  "pythonTipsDS.aux"
-  "pythonTipsDS.toc"
   "pythonTipsDS.log"
+  "pythonTipsDS.pdf"
+  "pythonTipsDS.aux"
+  "pythonTipsDS.idx"
+  "pythonTipsDS.toc"
