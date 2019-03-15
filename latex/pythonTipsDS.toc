@@ -63,7 +63,7 @@
 \contentsline {section}{\numberline {10.15}GroupBy}{47}{section.10.15}
 \contentsline {section}{\numberline {10.16}Pivot}{48}{section.10.16}
 \contentsline {section}{\numberline {10.17}Unixtime to Date}{48}{section.10.17}
-\contentsline {chapter}{\numberline {11}kaggle competition}{51}{chapter.11}
+\contentsline {chapter}{\numberline {11}Kaggle Competitions}{51}{chapter.11}
 \contentsline {section}{\numberline {11.1}TODO..}{51}{section.11.1}
 \contentsline {chapter}{\numberline {12}Package Wrapper}{53}{chapter.12}
 \contentsline {section}{\numberline {12.1}Hierarchical Structure}{53}{section.12.1}
