@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>11. Package Wrapper &mdash; Python Tips for Data Scientist 1.00 documentation</title>
+  <title>12. Package Wrapper &mdash; Python Tips for Data Scientist 1.00 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="12. Main Reference" href="reference.html" />
-    <link rel="prev" title="10. pd.DataFrame vs pd.DataFrame" href="pdrdd.html" /> 
+    <link rel="next" title="13. Main Reference" href="reference.html" />
+    <link rel="prev" title="11. kaggle competition" href="kaggle.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,13 +101,14 @@
 <li class="toctree-l1"><a class="reference internal" href="pd.html">8. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rdd.html">9. <code class="docutils literal notranslate"><span class="pre">rdd.DataFrame</span></code> manipulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pdrdd.html">10. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Package Wrapper</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#hierarchical-structure">11.1. Hierarchical Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-up">11.2. Set Up</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#readme">11.3. ReadMe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kaggle.html">11. kaggle competition</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">12. Package Wrapper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hierarchical-structure">12.1. Hierarchical Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up">12.2. Set Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#readme">12.3. ReadMe</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">12. Main Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">13. Main Reference</a></li>
 </ul>
 
             
@@ -153,7 +154,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>11. Package Wrapper</li>
+      <li>12. Package Wrapper</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -175,12 +176,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="package-wrapper">
-<span id="pack"></span><h1>11. Package Wrapper<a class="headerlink" href="#package-wrapper" title="Permalink to this headline">¶</a></h1>
+<span id="pack"></span><h1>12. Package Wrapper<a class="headerlink" href="#package-wrapper" title="Permalink to this headline">¶</a></h1>
 <p>It’s super easy to wrap your own package in Python. I packed some functions which I frequently
 used in my daily work. You can download and install it from <a class="reference external" href="https://github.com/runawayhorse001/PySparkTools">My PySpark Package</a>. The hierarchical
 structure and the directory structure of this package are as follows.</p>
 <div class="section" id="hierarchical-structure">
-<h2>11.1. Hierarchical Structure<a class="headerlink" href="#hierarchical-structure" title="Permalink to this headline">¶</a></h2>
+<h2>12.1. Hierarchical Structure<a class="headerlink" href="#hierarchical-structure" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PySparkTools/
 ├── __init__.py
 ├── PySparkTools
@@ -204,7 +205,7 @@ structure and the directory structure of this package are as follows.</p>
 <p>From the above hierarchical structure, you will find that you have to have <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> in each directory. I will explain the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file with the example below:</p>
 </div>
 <div class="section" id="set-up">
-<h2>11.2. Set Up<a class="headerlink" href="#set-up" title="Permalink to this headline">¶</a></h2>
+<h2>12.2. Set Up<a class="headerlink" href="#set-up" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_packages</span>
 
 <span class="k">try</span><span class="p">:</span>
@@ -233,7 +234,7 @@ structure and the directory structure of this package are as follows.</p>
 </div>
 </div>
 <div class="section" id="readme">
-<h2>11.3. ReadMe<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h2>
+<h2>12.3. ReadMe<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># PySparkTools</span>
 
 This is my PySpark Tools. If you want to colne and install it, you can use
@@ -270,10 +271,10 @@ python test1.py
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="reference.html" class="btn btn-neutral float-right" title="12. Main Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="reference.html" class="btn btn-neutral float-right" title="13. Main Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pdrdd.html" class="btn btn-neutral float-left" title="10. pd.DataFrame vs pd.DataFrame" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="kaggle.html" class="btn btn-neutral float-left" title="11. kaggle competition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -282,9 +283,9 @@ python test1.py
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Wenqiang Feng
+        &copy; Copyright 2019, Wenqiang Feng and Xu Gao
       <span class="lastupdated">
-        Last updated on Mar 13, 2019.
+        Last updated on Mar 15, 2019.
       </span>
 
     </p>

@@ -77,7 +77,7 @@ master_doc = 'index'
 
 # General substitutions.
 project = 'Python Tips for Data Scientist'
-copyright = '2019, Wenqiang Feng'
+copyright = '2019, Wenqiang Feng and Xu Gao'
 
 # The default replacements for |version| and |release|, also used in various
 # other places throughout the built documents.
@@ -277,7 +277,7 @@ latex_elements = {
 # [howto/manual]).
 latex_documents = [
   ('index', 'pythonTipsDS.tex', project,
-   'Wenqiang Feng', 'manual'),
+   'Wenqiang Feng and Xu Gao', 'manual'),
 ]
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.

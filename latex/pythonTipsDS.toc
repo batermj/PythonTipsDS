@@ -63,9 +63,11 @@
 \contentsline {section}{\numberline {10.15}GroupBy}{47}{section.10.15}
 \contentsline {section}{\numberline {10.16}Pivot}{48}{section.10.16}
 \contentsline {section}{\numberline {10.17}Unixtime to Date}{48}{section.10.17}
-\contentsline {chapter}{\numberline {11}Package Wrapper}{51}{chapter.11}
-\contentsline {section}{\numberline {11.1}Hierarchical Structure}{51}{section.11.1}
-\contentsline {section}{\numberline {11.2}Set Up}{52}{section.11.2}
-\contentsline {section}{\numberline {11.3}ReadMe}{52}{section.11.3}
-\contentsline {chapter}{\numberline {12}Main Reference}{55}{chapter.12}
-\contentsline {chapter}{Bibliography}{57}{chapter*.3}
+\contentsline {chapter}{\numberline {11}kaggle competition}{51}{chapter.11}
+\contentsline {section}{\numberline {11.1}TODO..}{51}{section.11.1}
+\contentsline {chapter}{\numberline {12}Package Wrapper}{53}{chapter.12}
+\contentsline {section}{\numberline {12.1}Hierarchical Structure}{53}{section.12.1}
+\contentsline {section}{\numberline {12.2}Set Up}{54}{section.12.2}
+\contentsline {section}{\numberline {12.3}ReadMe}{54}{section.12.3}
+\contentsline {chapter}{\numberline {13}Main Reference}{57}{chapter.13}
+\contentsline {chapter}{Bibliography}{59}{chapter*.3}
