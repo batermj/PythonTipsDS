@@ -1,5 +1,7 @@
 This is makeindex, version 2.15 [TeX Live 2018] (kpathsea + Thai support).
 Scanning style file ./python.ist.......done (7 attributes redefined, 0 ignored).
-Scanning input file pythonTipsDS.idx...done (0 entries accepted, 0 rejected).
-Nothing written in pythonTipsDS.ind.
+Scanning input file pythonTipsDS.idx....done (4 entries accepted, 0 rejected).
+Sorting entries....done (9 comparisons).
+Generating output file pythonTipsDS.ind....done (19 lines written, 0 warnings).
+Output written in pythonTipsDS.ind.
 Transcript written in pythonTipsDS.ilg.

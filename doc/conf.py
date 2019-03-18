@@ -31,8 +31,8 @@ from __future__ import absolute_import, print_function, division
 import os
 import sys
 
-theano_path = os.path.join(os.path.dirname(__file__), os.pardir)
-sys.path.append(os.path.abspath(theano_path))
+pkg_path = os.path.abspath('..')
+sys.path.insert(0, pkg_path)
 import versioneer
 
 # General configuration
@@ -242,21 +242,22 @@ def linkcode_resolve(domain, info):
         import inspect
         import os
         fn = inspect.getsourcefile(obj)
-        fn = os.path.relpath(fn, start=os.path.dirname(theano.__file__))
+        fn = os.path.relpath(fn, start=pkg_path)
         source, lineno = inspect.getsourcelines(obj)
         return fn, lineno, lineno + len(source) - 1
 
     if domain != 'py' or not info['module']:
         return None
     try:
-        filename = 'theano/%s#L%d-L%d' % find_source()
+        filename = '%s#L%d-L%d' % find_source()
     except Exception:
         filename = info['module'].replace('.', '/') + '.py'
     import subprocess
-    tag = subprocess.Popen(['git', 'rev-parse', 'HEAD'],
-                           stdout=subprocess.PIPE,
-                           universal_newlines=True).communicate()[0][:-1]
-    return "https://github.com/runawayhorse001/%s/%s" % (tag, filename)
+    # tag = subprocess.Popen(['git', 'rev-parse', 'HEAD'],
+    #                        stdout=subprocess.PIPE,
+    #                        universal_newlines=True).communicate()[0][:-1]
+    # https://github.com/runawayhorse001/PythonTipsDS/blob/master/statspy/basics.py
+    return "https://github.com/runawayhorse001/PythonTipsDS/blob/master/%s" % (filename)
 
 # Options for LaTeX output
 # ------------------------

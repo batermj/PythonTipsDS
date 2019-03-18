@@ -27,5 +27,6 @@ Contents
    pdrdd
    kaggle
    pack
+   api
    reference
 
