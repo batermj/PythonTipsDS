@@ -4,7 +4,7 @@
 API Book
 ========
 
-A good ``API`` book will save a lot of time for the user. The Sphinx provide an awesome auto ``API`` book generator. The followings are my statistics python library: ``statspy`` API demo book:
+If you developed an amazing library or tool, you need to teach the users how to use it. Now a ``API`` book is necessary and a good ``API`` book will save a lot of time for the users. The Sphinx provides an awesome auto ``API`` book generator. The followings are my statistics python library: ``statspy`` API demo book:
 
 ``rnorm``
 +++++++++

@@ -67,8 +67,9 @@
 \contentsline {section}{\numberline {11.1}TODO..}{51}{section.11.1}
 \contentsline {chapter}{\numberline {12}Package Wrapper}{53}{chapter.12}
 \contentsline {section}{\numberline {12.1}Hierarchical Structure}{53}{section.12.1}
-\contentsline {section}{\numberline {12.2}Set Up}{54}{section.12.2}
-\contentsline {section}{\numberline {12.3}ReadMe}{54}{section.12.3}
+\contentsline {section}{\numberline {12.2}Set Up}{53}{section.12.2}
+\contentsline {section}{\numberline {12.3}Requirements}{54}{section.12.3}
+\contentsline {section}{\numberline {12.4}ReadMe}{54}{section.12.4}
 \contentsline {chapter}{\numberline {13}API Book}{57}{chapter.13}
 \contentsline {section}{\numberline {13.1}\sphinxstyleliteralintitle {\sphinxupquote {rnorm}}}{57}{section.13.1}
 \contentsline {section}{\numberline {13.2}\sphinxstyleliteralintitle {\sphinxupquote {dnorm}}}{57}{section.13.2}

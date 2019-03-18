@@ -6,35 +6,29 @@ Package Wrapper
 ===============
 
 It's super easy to wrap your own package in Python. I packed some functions which I frequently 
-used in my daily work. You can download and install it from `My PySpark Package`_. The hierarchical 
+used in my daily work. You can download and install it from `My ststspy library`_. The hierarchical 
 structure and the directory structure of this package are as follows. 
  
- 
-
 Hierarchical Structure
 ++++++++++++++++++++++
 
 
 .. code-block:: bash
 
-	PySparkTools/
-	├── __init__.py
-	├── PySparkTools
-	│   ├── __init__.py
-	│   ├── Manipulation
-	│   │   ├── DataManipulation.py
-	│   │   └── __init__.py
-	│   └── Visualization
-	│       ├── __init__.py
-	│       ├── PyPlots.py
-	│       └── PyPlots.pyc
 	├── README.md
+	├── __init__.py
 	├── requirements.txt
 	├── setup.py
+	├── statspy
+	│   ├── __init__.py
+	│   ├── basics.py
+	│   └── tests.py
 	└── test
-	    ├── spark-warehouse
-	    ├── test1.py
-	    └── test2.py
+	    ├── nb
+	    │   └── t.test.ipynb
+	    └── test1.py
+
+	3 directories, 9 files
 
 
 From the above hierarchical structure, you will find that you have to have ``__init__.py`` in each directory. I will explain the ``__init__.py`` file with the example below:
@@ -58,43 +52,63 @@ Set Up
 	except IOError:
 	    requirements = []
 
-	setup(name='PySParkTools',
-		  install_requires=requirements,
+	setup(name='statspy',
+	      install_requires=requirements,
 	      version='1.0',
-	      description='Python Spark Tools',
+	      description='Statistics python library',
 	      author='Wenqiang Feng',
 	      author_email='von198@gmail.com',
-	      url='https://github.com/runawayhorse001/PySparkTools',
+	      url='git@github.com:runawayhorse001/statspy.git',
 	      packages=find_packages(),
 	      long_description=long_description
 	     )
+
+Requirements
+++++++++++++
+
+.. code-block:: rst
+
+	pandas
+	numpy
+	scipy
+	patsy
+	matplotlib
+
+
 
 ReadMe
 ++++++
 
 .. code-block:: bash
 
-	# PySparkTools
+	# StatsPy
 
-	This is my PySpark Tools. If you want to colne and install it, you can use 
+	This is my statistics python library repositories.
+	The ``API`` can be found at: https://runawayhorse001.github.io/statspy. 
+	If you want to colne and install it, you can use 
 
 	- clone
 
 	```{bash}
-	git clone git@github.com:runawayhorse001/PySparkTools.git
+	git clone git@github.com:runawayhorse001/statspy.git
 	```
 	- install 
 
 	```{bash}
-	cd PySparkTools
+	cd statspy
 	pip install -r requirements.txt 
 	python setup.py install
+	```
+	- uninstall 
+
+	```{bash}
+	pip uninstall statspy
 	```
 
 	- test 
 
 	```{bash}
-	cd PySparkTools/test
+	cd statspy/test
 	python test1.py
 	```
 
@@ -102,4 +116,6 @@ ReadMe
 
 
 
-.. _My PySpark Package: https://github.com/runawayhorse001/PySparkTools
+
+
+.. _My ststspy library: https://runawayhorse001.github.io/statspy/

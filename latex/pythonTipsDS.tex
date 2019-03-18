@@ -1746,31 +1746,27 @@ practice makes perfect.
 \chapter{Package Wrapper}
 \label{\detokenize{pack:package-wrapper}}\label{\detokenize{pack:pack}}\label{\detokenize{pack::doc}}
 It’s super easy to wrap your own package in Python. I packed some functions which I frequently
-used in my daily work. You can download and install it from \sphinxhref{https://github.com/runawayhorse001/PySparkTools}{My PySpark Package}. The hierarchical
+used in my daily work. You can download and install it from \sphinxhref{https://runawayhorse001.github.io/statspy/}{My ststspy library}. The hierarchical
 structure and the directory structure of this package are as follows.
 
 
 \section{Hierarchical Structure}
 \label{\detokenize{pack:hierarchical-structure}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-PySparkTools/
-├── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
-├── PySparkTools
-│   ├── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
-│   ├── Manipulation
-│   │   ├── DataManipulation.py
-│   │   └── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
-│   └── Visualization
-│       ├── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
-│       ├── PyPlots.py
-│       └── PyPlots.pyc
 ├── README.md
+├── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
 ├── requirements.txt
 ├── setup.py
+├── statspy
+│   ├── \PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py
+│   ├── basics.py
+│   └── tests.py
 └── \PYG{n+nb}{test}
-    ├── spark\PYGZhy{}warehouse
-    ├── test1.py
-    └── test2.py
+    ├── nb
+    │   └── t.test.ipynb
+    └── test1.py
+
+\PYG{l+m}{3} directories, \PYG{l+m}{9} files
 \end{sphinxVerbatim}
 
 From the above hierarchical structure, you will find that you have to have \sphinxcode{\sphinxupquote{\_\_init\_\_.py}} in each directory. I will explain the \sphinxcode{\sphinxupquote{\_\_init\_\_.py}} file with the example below:
@@ -1793,43 +1789,61 @@ From the above hierarchical structure, you will find that you have to have \sphi
 \PYG{k}{except} \PYG{n+ne}{IOError}\PYG{p}{:}
     \PYG{n}{requirements} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
 
-\PYG{n}{setup}\PYG{p}{(}\PYG{n}{name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{PySParkTools}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
-          \PYG{n}{install\PYGZus{}requires}\PYG{o}{=}\PYG{n}{requirements}\PYG{p}{,}
+\PYG{n}{setup}\PYG{p}{(}\PYG{n}{name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{statspy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+      \PYG{n}{install\PYGZus{}requires}\PYG{o}{=}\PYG{n}{requirements}\PYG{p}{,}
       \PYG{n}{version}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{1.0}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
-      \PYG{n}{description}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Python Spark Tools}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+      \PYG{n}{description}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Statistics python library}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
       \PYG{n}{author}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Wenqiang Feng}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
       \PYG{n}{author\PYGZus{}email}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{von198@gmail.com}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
-      \PYG{n}{url}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{https://github.com/runawayhorse001/PySparkTools}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+      \PYG{n}{url}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{git@github.com:runawayhorse001/statspy.git}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
       \PYG{n}{packages}\PYG{o}{=}\PYG{n}{find\PYGZus{}packages}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}
       \PYG{n}{long\PYGZus{}description}\PYG{o}{=}\PYG{n}{long\PYGZus{}description}
      \PYG{p}{)}
 \end{sphinxVerbatim}
 
 
+\section{Requirements}
+\label{\detokenize{pack:requirements}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pandas
+numpy
+scipy
+patsy
+matplotlib
+\end{sphinxVerbatim}
+
+
 \section{ReadMe}
 \label{\detokenize{pack:readme}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{c+c1}{\PYGZsh{} PySparkTools}
+\PYG{c+c1}{\PYGZsh{} StatsPy}
 
-This is my PySpark Tools. If you want to colne and install it, you can use
+This is my statistics python library repositories.
+The \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}API\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`} can be found at: https://runawayhorse001.github.io/statspy.
+If you want to colne and install it, you can use
 
 \PYGZhy{} clone
 
 \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{o}{\PYGZob{}}bash\PYG{o}{\PYGZcb{}}
-git clone git@github.com:runawayhorse001/PySparkTools.git
+git clone git@github.com:runawayhorse001/statspy.git
 \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}
 \PYGZhy{} install
 
 \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{o}{\PYGZob{}}bash\PYG{o}{\PYGZcb{}}
-\PYG{n+nb}{cd} PySparkTools
+\PYG{n+nb}{cd} statspy
 pip install \PYGZhy{}r requirements.txt
 python setup.py install
+\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}
+\PYGZhy{} uninstall
+
+\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{o}{\PYGZob{}}bash\PYG{o}{\PYGZcb{}}
+pip uninstall statspy
 \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}
 
 \PYGZhy{} \PYG{n+nb}{test}
 
 \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{o}{\PYGZob{}}bash\PYG{o}{\PYGZcb{}}
-\PYG{n+nb}{cd} PySparkTools/test
+\PYG{n+nb}{cd} statspy/test
 python test1.py
 \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}
 \end{sphinxVerbatim}
@@ -1837,7 +1851,7 @@ python test1.py
 
 \chapter{API Book}
 \label{\detokenize{api:api-book}}\label{\detokenize{api:api}}\label{\detokenize{api::doc}}
-A good \sphinxcode{\sphinxupquote{API}} book will save a lot of time for the user. The Sphinx provide an awesome auto \sphinxcode{\sphinxupquote{API}} book generator. The followings are my statistics python library: \sphinxcode{\sphinxupquote{statspy}} API demo book:
+If you developed an amazing library or tool, you need to teach the users how to use it. Now a \sphinxcode{\sphinxupquote{API}} book is necessary and a good \sphinxcode{\sphinxupquote{API}} book will save a lot of time for the users. The Sphinx provides an awesome auto \sphinxcode{\sphinxupquote{API}} book generator. The followings are my statistics python library: \sphinxcode{\sphinxupquote{statspy}} API demo book:
 
 
 \section{\sphinxstyleliteralintitle{\sphinxupquote{rnorm}}}
