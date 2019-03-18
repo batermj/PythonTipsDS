@@ -71,10 +71,12 @@
 \contentsline {section}{\numberline {12.3}Requirements}{54}{section.12.3}
 \contentsline {section}{\numberline {12.4}ReadMe}{54}{section.12.4}
 \contentsline {chapter}{\numberline {13}API Book}{57}{chapter.13}
-\contentsline {section}{\numberline {13.1}\sphinxstyleliteralintitle {\sphinxupquote {rnorm}}}{57}{section.13.1}
-\contentsline {section}{\numberline {13.2}\sphinxstyleliteralintitle {\sphinxupquote {dnorm}}}{57}{section.13.2}
-\contentsline {section}{\numberline {13.3}\sphinxstyleliteralintitle {\sphinxupquote {runif}}}{58}{section.13.3}
-\contentsline {section}{\numberline {13.4}\sphinxstyleliteralintitle {\sphinxupquote {T-test}}}{58}{section.13.4}
+\contentsline {section}{\numberline {13.1}Basics Module}{57}{section.13.1}
+\contentsline {subsection}{\numberline {13.1.1}\sphinxstyleliteralintitle {\sphinxupquote {rnorm}}}{57}{subsection.13.1.1}
+\contentsline {subsection}{\numberline {13.1.2}\sphinxstyleliteralintitle {\sphinxupquote {dnorm}}}{57}{subsection.13.1.2}
+\contentsline {subsection}{\numberline {13.1.3}\sphinxstyleliteralintitle {\sphinxupquote {runif}}}{58}{subsection.13.1.3}
+\contentsline {section}{\numberline {13.2}Tests Module}{58}{section.13.2}
+\contentsline {subsection}{\numberline {13.2.1}\sphinxstyleliteralintitle {\sphinxupquote {T-test}}}{58}{subsection.13.2.1}
 \contentsline {chapter}{\numberline {14}Main Reference}{61}{chapter.14}
 \contentsline {chapter}{Bibliography}{63}{chapter*.5}
 \contentsline {chapter}{Python Module Index}{65}{section*.6}
