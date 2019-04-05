@@ -91,11 +91,11 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{March 18, 2019}
-\release{1.00}
+\date{March 28, 2019}
+\release{}
 \author{Wenqiang Feng and Xu Gao}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
-\renewcommand{\releasename}{Release}
+\renewcommand{\releasename}{}
 \makeindex
 \begin{document}
 
@@ -718,6 +718,63 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 
 \section{Dictionary}
 \label{\detokenize{struct:dictionary}}
+
+\section{One line if statement}
+\label{\detokenize{struct:one-line-if-statement}}
+
+\subsection{1. With filter}
+\label{\detokenize{struct:with-filter}}
+\sphinxcode{\sphinxupquote{::syntax:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{[} \PYG{n}{EXP} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{seq} \PYG{k}{if} \PYG{n}{COND} \PYG{p}{]}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\subsection{2. Without filter}
+\label{\detokenize{struct:without-filter}}
+\sphinxcode{\sphinxupquote{::syntax:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{[} \PYG{n}{EXP} \PYG{k}{if} \PYG{n}{COND} \PYG{n}{RESUT} \PYG{k}{else}  \PYG{n}{RESUT} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{seq}\PYG{p}{]}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Python Code:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+\end{quote}
+
 \sphinxcite{reference:vanderplas2016} \sphinxcite{reference:mckinney2013} \sphinxcite{reference:georg2018}
 
 

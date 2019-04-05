@@ -27,6 +27,9 @@
 \contentsline {subsection}{\numberline {6.1.3}Methods of list objects}{20}{subsection.6.1.3}
 \contentsline {section}{\numberline {6.2}Tuple}{20}{section.6.2}
 \contentsline {section}{\numberline {6.3}Dictionary}{21}{section.6.3}
+\contentsline {section}{\numberline {6.4}One line if statement}{21}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}1. With filter}{21}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}2. Without filter}{22}{subsection.6.4.2}
 \contentsline {chapter}{\numberline {7}Data Read and Ingestion with DataBase}{23}{chapter.7}
 \contentsline {section}{\numberline {7.1}Data Ingestion from Local to DataBase}{23}{section.7.1}
 \contentsline {section}{\numberline {7.2}Data Read from DataBase to Local}{24}{section.7.2}

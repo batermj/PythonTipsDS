@@ -9,6 +9,7 @@ Data Structures
 .. |pyc| replace:: ``:: Python Code:``
 .. |out| replace:: ``:: Ouput:``
 .. |eg| replace:: ``:: Example:``
+.. |syn| replace:: ``::syntax:``
 
 
 .. note::
@@ -128,4 +129,49 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 
 Dictionary
 ++++++++++
+
+One line if statement
++++++++++++++++++++++
+
+1. With filter
+--------------
+
+|syn|
+
+	.. code-block:: python
+
+		[ EXP for x in seq if COND ]
+
+
+|pyc|
+
+	.. code-block:: python
+
+
+
+|out|
+
+	.. code-block:: python
+
+
+2. Without filter
+-----------------
+
+|syn|
+
+	.. code-block:: python
+
+		[ EXP if COND RESUT else  RESUT for x in seq]
+
+
+|pyc|
+
+	.. code-block:: python
+
+
+
+|out|
+
+	.. code-block:: python
+
 [VanderPlas2016]_ [McKinney2013]_ [Georg2018]_
