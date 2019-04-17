@@ -60,6 +60,7 @@ Data Ingestion from Local to DataBase
 	# Write dataframe to memory as csv
 	csv_io = io.StringIO()
 	df.to_csv(csv_io, sep='\t', header=True, index=False)
+	csv_io.seek(0)
 
 	# Copy the dataframe in memory to GP
 	conn.commit()

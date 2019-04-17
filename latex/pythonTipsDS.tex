@@ -91,7 +91,7 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{March 28, 2019}
+\date{April 17, 2019}
 \release{}
 \author{Wenqiang Feng and Xu Gao}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
@@ -181,6 +181,23 @@ Webpage: \sphinxurl{https://sites.google.com/view/xugao}
 
 \item {} 
 Email: \sphinxhref{mailto:duncangao@gmail.com}{duncangao@gmail.com}, \sphinxhref{mailto:xgao2@uci.edu}{xgao2@uci.edu}
+
+\end{itemize}
+
+\item {} 
+\sphinxstylestrong{Upendra Madam}
+\begin{itemize}
+\item {} 
+Senior Data Engineer
+
+\item {} 
+Computer and Information Sciences
+
+\item {} 
+University of Texas, Arlington
+
+\item {} 
+Email: \sphinxhref{mailto:upendra1991@gmail.com}{upendra1991@gmail.com}
 
 \end{itemize}
 
@@ -826,6 +843,7 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 \PYG{c+c1}{\PYGZsh{} Write dataframe to memory as csv}
 \PYG{n}{csv\PYGZus{}io} \PYG{o}{=} \PYG{n}{io}\PYG{o}{.}\PYG{n}{StringIO}\PYG{p}{(}\PYG{p}{)}
 \PYG{n}{df}\PYG{o}{.}\PYG{n}{to\PYGZus{}csv}\PYG{p}{(}\PYG{n}{csv\PYGZus{}io}\PYG{p}{,} \PYG{n}{sep}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{header}\PYG{o}{=}\PYG{n+nb+bp}{True}\PYG{p}{,} \PYG{n}{index}\PYG{o}{=}\PYG{n+nb+bp}{False}\PYG{p}{)}
+\PYG{n}{csv\PYGZus{}io}\PYG{o}{.}\PYG{n}{seek}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
 
 \PYG{c+c1}{\PYGZsh{} Copy the dataframe in memory to GP}
 \PYG{n}{conn}\PYG{o}{.}\PYG{n}{commit}\PYG{p}{(}\PYG{p}{)}
