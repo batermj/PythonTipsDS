@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>13. API Book &mdash; Python Tips for Data Scientist  documentation</title>
+  <title>14. API Book &mdash; Python Tips for Data Scientist  documentation</title>
   
 
   
@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="14. Main Reference" href="reference.html" />
-    <link rel="prev" title="12. Package Wrapper" href="pack.html" /> 
+    <link rel="next" title="15. Main Reference" href="reference.html" />
+    <link rel="prev" title="13. Publish Package to PyPI" href="pypi.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,20 +99,21 @@
 <li class="toctree-l1"><a class="reference internal" href="pdrdd.html">10. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="kaggle.html">11. Kaggle Competitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pack.html">12. Package Wrapper</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">13. API Book</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basics-module">13.1. Basics Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-statspy.basics">13.1.1. <code class="docutils literal notranslate"><span class="pre">rnorm</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dnorm">13.1.2. <code class="docutils literal notranslate"><span class="pre">dnorm</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#runif">13.1.3. <code class="docutils literal notranslate"><span class="pre">runif</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="pypi.html">13. Publish Package to PyPI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">14. API Book</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics-module">14.1. Basics Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-statspy.basics">14.1.1. <code class="docutils literal notranslate"><span class="pre">rnorm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dnorm">14.1.2. <code class="docutils literal notranslate"><span class="pre">dnorm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#runif">14.1.3. <code class="docutils literal notranslate"><span class="pre">runif</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#tests-module">13.2. Tests Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-statspy.tests">13.2.1. <code class="docutils literal notranslate"><span class="pre">T-test</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests-module">14.2. Tests Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-statspy.tests">14.2.1. <code class="docutils literal notranslate"><span class="pre">T-test</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">14. Main Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">15. Main Reference</a></li>
 </ul>
 
             
@@ -158,7 +159,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>13. API Book</li>
+      <li>14. API Book</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -180,12 +181,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="api-book">
-<span id="api"></span><h1>13. API Book<a class="headerlink" href="#api-book" title="Permalink to this headline">¶</a></h1>
+<span id="api"></span><h1>14. API Book<a class="headerlink" href="#api-book" title="Permalink to this headline">¶</a></h1>
 <p>If you developed an amazing library or tool, you need to teach the users how to use it. Now a <code class="docutils literal notranslate"><span class="pre">API</span></code> book is necessary and a good <code class="docutils literal notranslate"><span class="pre">API</span></code> book will save a lot of time for the users. The Sphinx provides an awesome auto <code class="docutils literal notranslate"><span class="pre">API</span></code> book generator. The followings are my statistics python library: <code class="docutils literal notranslate"><span class="pre">statspy</span></code> API demo book:</p>
 <div class="section" id="basics-module">
-<h2>13.1. Basics Module<a class="headerlink" href="#basics-module" title="Permalink to this headline">¶</a></h2>
+<h2>14.1. Basics Module<a class="headerlink" href="#basics-module" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-statspy.basics">
-<span id="rnorm"></span><h3>13.1.1. <code class="docutils literal notranslate"><span class="pre">rnorm</span></code><a class="headerlink" href="#module-statspy.basics" title="Permalink to this headline">¶</a></h3>
+<span id="rnorm"></span><h3>14.1.1. <code class="docutils literal notranslate"><span class="pre">rnorm</span></code><a class="headerlink" href="#module-statspy.basics" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="statspy.basics.rnorm">
 <code class="descclassname">statspy.basics.</code><code class="descname">rnorm</code><span class="sig-paren">(</span><em>n</em>, <em>mean=0</em>, <em>sd=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PythonTipsDS/blob/master/statspy/basics.py#L4-L18"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#statspy.basics.rnorm" title="Permalink to this definition">¶</a></dt>
@@ -218,7 +219,7 @@ same functions as rnorm in r: <code class="docutils literal notranslate"><span c
 
 </div>
 <div class="section" id="dnorm">
-<h3>13.1.2. <code class="docutils literal notranslate"><span class="pre">dnorm</span></code><a class="headerlink" href="#dnorm" title="Permalink to this headline">¶</a></h3>
+<h3>14.1.2. <code class="docutils literal notranslate"><span class="pre">dnorm</span></code><a class="headerlink" href="#dnorm" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
 <code class="descclassname">statspy.basics.</code><code class="descname">dnorm</code><span class="sig-paren">(</span><em>x</em>, <em>mean=0</em>, <em>sd=1</em>, <em>log=False</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PythonTipsDS/blob/master/statspy/basics.py#L20-L37"><span class="viewcode-link">[source]</span></a></dt>
@@ -251,7 +252,7 @@ same functions as rnorm in r: <code class="docutils literal notranslate"><span c
 
 </div>
 <div class="section" id="runif">
-<h3>13.1.3. <code class="docutils literal notranslate"><span class="pre">runif</span></code><a class="headerlink" href="#runif" title="Permalink to this headline">¶</a></h3>
+<h3>14.1.3. <code class="docutils literal notranslate"><span class="pre">runif</span></code><a class="headerlink" href="#runif" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt>
 <code class="descclassname">statspy.basics.</code><code class="descname">runif</code><span class="sig-paren">(</span><em>n</em>, <em>min=0</em>, <em>max=1</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PythonTipsDS/blob/master/statspy/basics.py#L39-L52"><span class="viewcode-link">[source]</span></a></dt>
@@ -284,9 +285,9 @@ same functions as rnorm in r: <code class="docutils literal notranslate"><span c
 </div>
 </div>
 <div class="section" id="tests-module">
-<h2>13.2. Tests Module<a class="headerlink" href="#tests-module" title="Permalink to this headline">¶</a></h2>
+<h2>14.2. Tests Module<a class="headerlink" href="#tests-module" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-statspy.tests">
-<span id="t-test"></span><h3>13.2.1. <code class="docutils literal notranslate"><span class="pre">T-test</span></code><a class="headerlink" href="#module-statspy.tests" title="Permalink to this headline">¶</a></h3>
+<span id="t-test"></span><h3>14.2.1. <code class="docutils literal notranslate"><span class="pre">T-test</span></code><a class="headerlink" href="#module-statspy.tests" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="statspy.tests.t_test">
 <code class="descclassname">statspy.tests.</code><code class="descname">t_test</code><span class="sig-paren">(</span><em>x</em>, <em>y=None</em>, <em>mu=0.0</em>, <em>conf_level=0.95</em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/runawayhorse001/PythonTipsDS/blob/master/statspy/tests.py#L5-L62"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#statspy.tests.t_test" title="Permalink to this definition">¶</a></dt>
@@ -335,10 +336,10 @@ same functions as rnorm in r: <code class="docutils literal notranslate"><span c
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="reference.html" class="btn btn-neutral float-right" title="14. Main Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="reference.html" class="btn btn-neutral float-right" title="15. Main Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pack.html" class="btn btn-neutral float-left" title="12. Package Wrapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pypi.html" class="btn btn-neutral float-left" title="13. Publish Package to PyPI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -349,7 +350,7 @@ same functions as rnorm in r: <code class="docutils literal notranslate"><span c
     <p>
         &copy; Copyright 2019, Wenqiang Feng, Xu Gao and Upendra Madam
       <span class="lastupdated">
-        Last updated on Apr 17, 2019.
+        Last updated on Apr 30, 2019.
       </span>
 
     </p>

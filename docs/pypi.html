@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python Module Index &mdash; Python Tips for Data Scientist  documentation</title>
+  <title>13. Publish Package to PyPI &mdash; Python Tips for Data Scientist  documentation</title>
   
 
   
@@ -38,9 +38,8 @@
   <link rel="stylesheet" href="_static/fix_rtd.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
- 
-
-
+    <link rel="next" title="14. API Book" href="api.html" />
+    <link rel="prev" title="12. Package Wrapper" href="pack.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,7 +86,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="preface.html">1. Preface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Python Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nb.html">3. Notebooks</a></li>
@@ -100,7 +99,13 @@
 <li class="toctree-l1"><a class="reference internal" href="pdrdd.html">10. <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> vs <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="kaggle.html">11. Kaggle Competitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pack.html">12. Package Wrapper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pypi.html">13. Publish Package to PyPI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">13. Publish Package to PyPI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#register-pypi-account">13.1. Register PyPI account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-twine">13.2. Install <code class="docutils literal notranslate"><span class="pre">twine</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-your-package">13.3. Build Your Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload-your-package">13.4. Upload Your Package</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">14. API Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">15. Main Reference</a></li>
 </ul>
@@ -148,10 +153,16 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Python Module Index</li>
+      <li>13. Publish Package to PyPI</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/runawayhorse001/PythonTipsDS/blob/master/doc/pypi.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
         
       </li>
     
@@ -163,40 +174,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-   <h1>Python Module Index</h1>
-
-   <div class="modindex-jumpbox">
-   <a href="#cap-s"><strong>s</strong></a>
-   </div>
-
-   <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-s"><td></td><td>
-       <strong>s</strong></td><td></td></tr>
-     <tr>
-       <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-       <td>
-       <code class="xref">statspy</code></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api.html#module-statspy.basics"><code class="xref">statspy.basics</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="api.html#module-statspy.tests"><code class="xref">statspy.tests</code></a></td><td>
-       <em></em></td></tr>
-   </table>
+  <div class="section" id="publish-package-to-pypi">
+<span id="pypi"></span><h1>13. Publish Package to PyPI<a class="headerlink" href="#publish-package-to-pypi" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter, you’ll learn how to upload your own package to PyPI.</p>
+<div class="section" id="register-pypi-account">
+<h2>13.1. Register PyPI account<a class="headerlink" href="#register-pypi-account" title="Permalink to this headline">¶</a></h2>
+<p>If you do not have a PyPI accout, you need to register an account at <a class="reference external" href="https://pypi.org/account/register">https://pypi.org/account/register</a> .</p>
+</div>
+<div class="section" id="install-twine">
+<h2>13.2. Install <code class="docutils literal notranslate"><span class="pre">twine</span></code><a class="headerlink" href="#install-twine" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install twine
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-your-package">
+<h2>13.3. Build Your Package<a class="headerlink" href="#build-your-package" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">sdist</span> <span class="n">bdist_wheel</span>
+</pre></div>
+</div>
+<p>Then you will get a new folder <code class="docutils literal notranslate"><span class="pre">dist</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
+├── PyAudit-1.0-py3-none-any.whl
+├── PyAudit-1.0-py3.6.egg
+└── PyAudit-1.0.tar.gz
+</pre></div>
+</div>
+</div>
+<div class="section" id="upload-your-package">
+<h2>13.4. Upload Your Package<a class="headerlink" href="#upload-your-package" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine upload dist/*
+</pre></div>
+</div>
+<p>During the uploading processing, you need to provide your PyPI account <code class="docutils literal notranslate"><span class="pre">username</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Enter your username: runawayhorse001
+Enter your password:
+</pre></div>
+</div>
+</div>
+</div>
 
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="14. API Book" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pack.html" class="btn btn-neutral float-left" title="12. Package Wrapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

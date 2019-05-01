@@ -73,14 +73,19 @@
 \contentsline {section}{\numberline {12.2}Set Up}{55}{section.12.2}
 \contentsline {section}{\numberline {12.3}Requirements}{56}{section.12.3}
 \contentsline {section}{\numberline {12.4}ReadMe}{56}{section.12.4}
-\contentsline {chapter}{\numberline {13}API Book}{59}{chapter.13}
-\contentsline {section}{\numberline {13.1}Basics Module}{59}{section.13.1}
-\contentsline {subsection}{\numberline {13.1.1}\sphinxstyleliteralintitle {\sphinxupquote {rnorm}}}{59}{subsection.13.1.1}
-\contentsline {subsection}{\numberline {13.1.2}\sphinxstyleliteralintitle {\sphinxupquote {dnorm}}}{59}{subsection.13.1.2}
-\contentsline {subsection}{\numberline {13.1.3}\sphinxstyleliteralintitle {\sphinxupquote {runif}}}{60}{subsection.13.1.3}
-\contentsline {section}{\numberline {13.2}Tests Module}{60}{section.13.2}
-\contentsline {subsection}{\numberline {13.2.1}\sphinxstyleliteralintitle {\sphinxupquote {T-test}}}{60}{subsection.13.2.1}
-\contentsline {chapter}{\numberline {14}Main Reference}{63}{chapter.14}
-\contentsline {chapter}{Bibliography}{65}{chapter*.5}
-\contentsline {chapter}{Python Module Index}{67}{section*.6}
-\contentsline {chapter}{Index}{69}{section*.7}
+\contentsline {chapter}{\numberline {13}Publish Package to PyPI}{59}{chapter.13}
+\contentsline {section}{\numberline {13.1}Register PyPI account}{59}{section.13.1}
+\contentsline {section}{\numberline {13.2}Install \sphinxstyleliteralintitle {\sphinxupquote {twine}}}{59}{section.13.2}
+\contentsline {section}{\numberline {13.3}Build Your Package}{59}{section.13.3}
+\contentsline {section}{\numberline {13.4}Upload Your Package}{60}{section.13.4}
+\contentsline {chapter}{\numberline {14}API Book}{61}{chapter.14}
+\contentsline {section}{\numberline {14.1}Basics Module}{61}{section.14.1}
+\contentsline {subsection}{\numberline {14.1.1}\sphinxstyleliteralintitle {\sphinxupquote {rnorm}}}{61}{subsection.14.1.1}
+\contentsline {subsection}{\numberline {14.1.2}\sphinxstyleliteralintitle {\sphinxupquote {dnorm}}}{61}{subsection.14.1.2}
+\contentsline {subsection}{\numberline {14.1.3}\sphinxstyleliteralintitle {\sphinxupquote {runif}}}{62}{subsection.14.1.3}
+\contentsline {section}{\numberline {14.2}Tests Module}{62}{section.14.2}
+\contentsline {subsection}{\numberline {14.2.1}\sphinxstyleliteralintitle {\sphinxupquote {T-test}}}{62}{subsection.14.2.1}
+\contentsline {chapter}{\numberline {15}Main Reference}{65}{chapter.15}
+\contentsline {chapter}{Bibliography}{67}{chapter*.5}
+\contentsline {chapter}{Python Module Index}{69}{section*.6}
+\contentsline {chapter}{Index}{71}{section*.7}

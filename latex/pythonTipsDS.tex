@@ -91,7 +91,7 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{April 17, 2019}
+\date{April 30, 2019}
 \release{}
 \author{Wenqiang Feng, Xu Gao and Upendra Madam}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
@@ -1921,6 +1921,53 @@ pip uninstall statspy
 \PYG{n+nb}{cd} statspy/test
 python test1.py
 \PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}\PYG{l+s+sb}{{}`}
+\end{sphinxVerbatim}
+
+
+\chapter{Publish Package to PyPI}
+\label{\detokenize{pypi:publish-package-to-pypi}}\label{\detokenize{pypi:pypi}}\label{\detokenize{pypi::doc}}
+In this chapter, you’ll learn how to upload your own package to PyPI.
+
+
+\section{Register PyPI account}
+\label{\detokenize{pypi:register-pypi-account}}
+If you do not have a PyPI accout, you need to register an account at \sphinxurl{https://pypi.org/account/register} .
+
+
+\section{Install \sphinxstyleliteralintitle{\sphinxupquote{twine}}}
+\label{\detokenize{pypi:install-twine}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pip install twine
+\end{sphinxVerbatim}
+
+
+\section{Build Your Package}
+\label{\detokenize{pypi:build-your-package}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{python} \PYG{n}{setup}\PYG{o}{.}\PYG{n}{py} \PYG{n}{sdist} \PYG{n}{bdist\PYGZus{}wheel}
+\end{sphinxVerbatim}
+
+Then you will get a new folder \sphinxcode{\sphinxupquote{dist}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+.
+├── PyAudit\PYGZhy{}1.0\PYGZhy{}py3\PYGZhy{}none\PYGZhy{}any.whl
+├── PyAudit\PYGZhy{}1.0\PYGZhy{}py3.6.egg
+└── PyAudit\PYGZhy{}1.0.tar.gz
+\end{sphinxVerbatim}
+
+
+\section{Upload Your Package}
+\label{\detokenize{pypi:upload-your-package}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+twine upload dist/*
+\end{sphinxVerbatim}
+
+During the uploading processing, you need to provide your PyPI account \sphinxcode{\sphinxupquote{username}} and \sphinxcode{\sphinxupquote{password}}:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Enter your username: runawayhorse001
+Enter your password:
 \end{sphinxVerbatim}
 
 

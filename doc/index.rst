@@ -27,6 +27,7 @@ Contents
    pdrdd
    kaggle
    pack
+   pypi
    api
    reference
 

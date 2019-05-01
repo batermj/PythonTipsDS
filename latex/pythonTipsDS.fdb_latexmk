@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex pythonTipsDS.idx"] 1555515738 "pythonTipsDS.idx" "pythonTipsDS.ind" "pythonTipsDS" 1555520080
-  "pythonTipsDS.idx" 1555520080 420 452c8b6066fb8747d1429ce207681309 ""
+["makeindex pythonTipsDS.idx"] 1556679219 "pythonTipsDS.idx" "pythonTipsDS.ind" "pythonTipsDS" 1556679222
+  "pythonTipsDS.idx" 1556679222 420 c601075be724adf8a806e1d3f0397668 ""
   (generated)
   "pythonTipsDS.ind"
   "pythonTipsDS.ilg"
-["pdflatex"] 1555520077 "pythonTipsDS.tex" "pythonTipsDS.pdf" "pythonTipsDS" 1555520080
+["pdflatex"] 1556679219 "pythonTipsDS.tex" "pythonTipsDS.pdf" "pythonTipsDS" 1556679222
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrb8r.tfm" 1480098688 1292 3059476c50a24578715759f22652f3d0 ""
@@ -170,21 +170,21 @@
   "nbviewer.png" 1551927845 1192527 e49e8266a2d6faa562224e2c22194e0f ""
   "needspace.sty" 1551282050 852 0e34dbb72efc69fa07602405ad95585e ""
   "nteract.png" 1551458485 651592 da1a947fac4036e2fb6c132494e939cb ""
-  "pythonTipsDS.aux" 1555520080 20384 aab19cd8895ed8ac3a1710e8579413da ""
-  "pythonTipsDS.ind" 1555515738 568 d6151c32a4be9ff7930d822d3ea2607f "makeindex pythonTipsDS.idx"
-  "pythonTipsDS.out" 1555520080 10589 133179858d89081ca646590b90392f32 ""
-  "pythonTipsDS.tex" 1555520076 172139 ed195cc8576a38ef2d564fb6523bd05e ""
-  "pythonTipsDS.toc" 1555520080 7250 cdb2373af3b0c47490579ab2266ec861 ""
+  "pythonTipsDS.aux" 1556679222 21601 6fb220914fd731f21a9525b6df64a59f ""
+  "pythonTipsDS.ind" 1556679219 568 0842f3bbe181322deaab5e5e7065ac2f "makeindex pythonTipsDS.idx"
+  "pythonTipsDS.out" 1556679222 11362 f8f158118c014b51692dccc5a373e67d ""
+  "pythonTipsDS.tex" 1556679215 173717 2b57c676e34aeb9888da95495aef1a00 ""
+  "pythonTipsDS.toc" 1556679222 7696 ac4e12644d814b2c364a000fa9ca5ee4 ""
   "shal.png" 1551735236 138374 dd5449a7c9f7ce9b138e665ca0589344 ""
   "sphinx.sty" 1549203133 76220 63a32157b97240a297c69d4d077e82ab ""
-  "sphinxhighlight.sty" 1555520076 8137 38a433148fcb7611515a989ff1750dd5 ""
+  "sphinxhighlight.sty" 1556679215 8137 38a433148fcb7611515a989ff1750dd5 ""
   "sphinxmanual.cls" 1549203133 3606 fe67088d27cb5a0826fd3cdce3caff30 ""
   "sphinxmulticell.sty" 1549075244 14618 0defbdc8536ad2e67f1eac6a1431bc55 ""
   "zep.png" 1551292186 272768 a82e9edd317fba0535554a4a4bddf6ad ""
   (generated)
   "pythonTipsDS.out"
   "pythonTipsDS.pdf"
-  "pythonTipsDS.log"
+  "pythonTipsDS.aux"
   "pythonTipsDS.idx"
   "pythonTipsDS.toc"
-  "pythonTipsDS.aux"
+  "pythonTipsDS.log"
