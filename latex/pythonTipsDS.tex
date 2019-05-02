@@ -91,7 +91,7 @@
 
 
 \title{Python Tips for Data Scientist}
-\date{April 30, 2019}
+\date{May 02, 2019}
 \release{}
 \author{Wenqiang Feng, Xu Gao and Upendra Madam}
 \newcommand{\sphinxlogo}{\sphinxincludegraphics{logo.png}\par}
@@ -145,7 +145,7 @@ We decided that it would be useful for us to share what we learned
 about Python in the form of easy note with detailed example.
 We hope those notes will be a valuable tool for your studies.
 
-The notes assume that the reader has a preliminary knowledge of \sphinxcode{\sphinxupquote{python}} programing, \sphinxcode{\sphinxupquote{LaTex}} and \sphinxcode{\sphinxupquote{Linux}}. And this document is generated automatically by using \sphinxhref{http://sphinx.pocoo.org}{sphinx}.
+The notes assume that the reader has a preliminary knowledge of \sphinxcode{\sphinxupquote{python}} programing, \sphinxcode{\sphinxupquote{LaTex}} and \sphinxcode{\sphinxupquote{Linux}}. And this document is generated automatically by using \sphinxhref{http://sphinx.pocoo.org}{sphinx}. More details can be found at \sphinxcite{reference:georg2018}.
 
 
 \subsection{About the authors}
@@ -562,7 +562,7 @@ This Chapter {\hyperref[\detokenize{struct:struct}]{\sphinxcrossref{\DUrole{std,
 
 \section{List}
 \label{\detokenize{struct:list}}
-\sphinxcode{\sphinxupquote{List}} is one of data sctructures which is heavily using in my daily work.
+\sphinxcode{\sphinxupquote{list}} is one of data sctructures which is heavily using in my daily work.
 
 
 \subsection{Create list}
@@ -626,6 +626,23 @@ optimal number of the clusters.
 
 \subsection{Unpack list}
 \label{\detokenize{struct:unpack-list}}
+\sphinxcode{\sphinxupquote{:: Example:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{num} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{,}\PYG{l+m+mi}{9}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{]}
+\PYG{k}{print}\PYG{p}{(}\PYG{o}{*}\PYG{n}{num}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{l+m+mi}{1} \PYG{l+m+mi}{2} \PYG{l+m+mi}{3} \PYG{l+m+mi}{4} \PYG{l+m+mi}{5} \PYG{l+m+mi}{6} \PYG{l+m+mi}{7} \PYG{l+m+mi}{8} \PYG{l+m+mi}{9} \PYG{l+m+mi}{10}
+\end{sphinxVerbatim}
+\end{quote}
+
 
 \subsection{Methods of list objects}
 \label{\detokenize{struct:methods-of-list-objects}}
@@ -735,17 +752,176 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 
 \section{Dictionary}
 \label{\detokenize{struct:dictionary}}
+\sphinxcode{\sphinxupquote{dict}} is one of another data sctructures which is heavily using in my daily work. I heavily applied the \sphinxcode{\sphinxupquote{dict}} in my \sphinxcode{\sphinxupquote{PyAudit}} package, more details can be found at \sphinxhref{https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py\#L251-L340}{PyAudit}.
 
-\section{One line if statement}
-\label{\detokenize{struct:one-line-if-statement}}
 
-\subsection{1. With filter}
+\subsection{Create \sphinxstyleliteralintitle{\sphinxupquote{dict}} from lists}
+\label{\detokenize{struct:create-dict-from-lists}}
+\sphinxcode{\sphinxupquote{:: Example:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{col\PYGZus{}names} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+\PYG{n}{col\PYGZus{}values} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Michael}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{30}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Male}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Honda}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{]}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{n}{d} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{n}{key}\PYG{p}{:} \PYG{n}{value} \PYG{k}{for} \PYG{n}{key}\PYG{p}{,} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{n}{col\PYGZus{}names}\PYG{p}{,} \PYG{n}{col\PYGZus{}values}\PYG{p}{)}\PYG{p}{\PYGZcb{}}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k+kn}{as} \PYG{n+nn}{pd}
+
+\PYG{n}{df} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{df}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Michael}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{30}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Male}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Honda}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+      \PYG{n}{name} \PYG{n}{Age}   \PYG{n}{Sex}    \PYG{n}{Car}
+\PYG{l+m+mi}{0}  \PYG{n}{Michael}  \PYG{l+m+mi}{30}  \PYG{n}{Male}  \PYG{n}{Honda}
+\PYG{l+m+mi}{1}  \PYG{n}{Michael}  \PYG{l+m+mi}{30}  \PYG{n}{Male}  \PYG{n}{Tesla}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\subsection{\sphinxstyleliteralintitle{\sphinxupquote{dict.get()}}}
+\label{\detokenize{struct:dict-get}}
+When \sphinxcode{\sphinxupquote{get()}} is called, Python checks if the specified key exists in the dict. If it does, then \sphinxcode{\sphinxupquote{get()}} returns the value of that key. If the key does not exist, then \sphinxcode{\sphinxupquote{get()}} returns the value specified in the second argument to \sphinxcode{\sphinxupquote{get()}}. A good application of \sphinxcode{\sphinxupquote{get()}} can be found at {\hyperref[\detokenize{struct:update-keys-dict}]{\sphinxcrossref{\DUrole{std,std-ref}{Update Keys in Dict}}}}.
+
+\sphinxcode{\sphinxupquote{:: Example:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{data1} \PYG{o}{=} \PYG{n}{d}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{name}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{best}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{data2} \PYG{o}{=} \PYG{n}{d}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{names}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{George}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{data1}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Michael}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{data2}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} George}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{Michael}
+\PYG{n}{George}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\subsection{Looping Techniques}
+\label{\detokenize{struct:looping-techniques}}
+\sphinxcode{\sphinxupquote{:: Example:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{print}\PYG{p}{(}\PYG{p}{[}\PYG{p}{(}\PYG{n}{key}\PYG{p}{,} \PYG{n}{val}\PYG{p}{)} \PYG{k}{for} \PYG{n}{key}\PYG{p}{,} \PYG{n}{val} \PYG{o+ow}{in} \PYG{n}{d}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{[}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Michael}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{30}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Male}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,} \PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Honda}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}\PYG{p}{]}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\subsection{Update Values in Dict}
+\label{\detokenize{struct:update-values-in-dict}}\begin{enumerate}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumi{\theenumi .}
+\makeatletter\def\p@enumii{\p@enumi \theenumi .}\makeatother
+\item {} 
+Replace values in dict
+\begin{quote}
+
+\sphinxcode{\sphinxupquote{:: Example:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{replace} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla S}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)}
+\PYG{n}{d}\PYG{o}{.}\PYG{n}{update}\PYG{p}{(}\PYG{n}{replace}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Michael}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{30}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Male}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Honda}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Michael}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{30}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Male}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla S}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+\end{sphinxVerbatim}
+\end{quote}
+\end{quote}
+
+\item {} 
+Add key and values in dict
+\begin{quote}
+
+\sphinxcode{\sphinxupquote{:: Example:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} add key and values in dict}
+\PYG{n}{added} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Kid}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tom}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Jim}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)}
+\PYG{n}{d}\PYG{o}{.}\PYG{n}{update}\PYG{p}{(}\PYG{n}{added}\PYG{p}{)}
+\PYG{k}{print}\PYG{p}{(}\PYG{n}{d}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Michael}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{30}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Male}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla S}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Michael}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{30}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Male}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla S}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Kid}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tom}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Jim}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+\end{sphinxVerbatim}
+\end{quote}
+\end{quote}
+
+\end{enumerate}
+
+
+\subsection{Update Keys in Dict}
+\label{\detokenize{struct:update-keys-in-dict}}\label{\detokenize{struct:update-keys-dict}}
+\sphinxcode{\sphinxupquote{:: Example:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} update keys in dict}
+\PYG{n}{mapping} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Cars}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Kid}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Kids}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{\PYGZsh{}}
+\PYG{k}{print}\PYG{p}{(}\PYG{p}{\PYGZob{}}\PYG{n}{mapping}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{n}{key}\PYG{p}{,} \PYG{n}{key}\PYG{p}{)}\PYG{p}{:} \PYG{n}{val} \PYG{k}{for} \PYG{n}{key}\PYG{p}{,} \PYG{n}{val} \PYG{o+ow}{in} \PYG{n}{d}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+\end{quote}
+
+\sphinxcode{\sphinxupquote{:: Ouput:}}
+\begin{quote}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Michael}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{30}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Male}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Car}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla S}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Kid}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tom}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Jim}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{name}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Michael}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Age}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{30}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Sex}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Male}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Cars}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla S}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tesla X}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Kids}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tom}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Jim}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{\PYGZcb{}}
+\end{sphinxVerbatim}
+\end{quote}
+
+
+\section{One line if-else statement}
+\label{\detokenize{struct:one-line-if-else-statement}}
+
+\subsection{With filter}
 \label{\detokenize{struct:with-filter}}
 \sphinxcode{\sphinxupquote{::syntax:}}
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{p}{[} \PYG{n}{EXP} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{seq} \PYG{k}{if} \PYG{n}{COND} \PYG{p}{]}
+\PYG{p}{[} \PYG{n}{RESUT} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{seq} \PYG{k}{if} \PYG{n}{COND} \PYG{p}{]}
 \end{sphinxVerbatim}
 \end{quote}
 
@@ -753,7 +929,9 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{num} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{,}\PYG{l+m+mi}{9}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{]}
 
+\PYG{p}{[}\PYG{n}{x} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{num} \PYG{k}{if} \PYG{n}{x}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{2} \PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{]}
 \end{sphinxVerbatim}
 \end{quote}
 
@@ -761,18 +939,18 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-
+\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{]}
 \end{sphinxVerbatim}
 \end{quote}
 
 
-\subsection{2. Without filter}
+\subsection{Without filter}
 \label{\detokenize{struct:without-filter}}
 \sphinxcode{\sphinxupquote{::syntax:}}
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{p}{[} \PYG{n}{EXP} \PYG{k}{if} \PYG{n}{COND} \PYG{n}{RESUT} \PYG{k}{else}  \PYG{n}{RESUT} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{seq}\PYG{p}{]}
+\PYG{p}{[} \PYG{n}{RESUT1} \PYG{k}{if} \PYG{n}{COND1}  \PYG{k}{else} \PYG{n}{RESUT2} \PYG{k}{if} \PYG{n}{COND2} \PYG{k}{else} \PYG{n}{RESUT3} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{seq}\PYG{p}{]}
 \end{sphinxVerbatim}
 \end{quote}
 
@@ -780,7 +958,9 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{num} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{,}\PYG{l+m+mi}{9}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{]}
 
+\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Low}\PYG{l+s+s1}{\PYGZsq{}} \PYG{k}{if} \PYG{l+m+mi}{1}\PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{n}{x} \PYG{o}{\PYGZlt{}}\PYG{o}{=}\PYG{l+m+mi}{3} \PYG{k}{else} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Median}\PYG{l+s+s1}{\PYGZsq{}} \PYG{k}{if} \PYG{l+m+mi}{3}\PYG{o}{\PYGZlt{}}\PYG{n}{x}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{8} \PYG{k}{else} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{High}\PYG{l+s+s1}{\PYGZsq{}} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{num}\PYG{p}{]}
 \end{sphinxVerbatim}
 \end{quote}
 
@@ -788,11 +968,20 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 \begin{quote}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-
+\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Low}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+ \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Low}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+ \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Low}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+ \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Median}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+ \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Median}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+ \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Median}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+ \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Median}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+ \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{High}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+ \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{High}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+ \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{High}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
 \end{sphinxVerbatim}
 \end{quote}
 
-\sphinxcite{reference:vanderplas2016} \sphinxcite{reference:mckinney2013} \sphinxcite{reference:georg2018}
+\sphinxcite{reference:vanderplas2016} \sphinxcite{reference:mckinney2013}
 
 
 \chapter{Data Read and Ingestion with DataBase}
@@ -1870,9 +2059,18 @@ From the above hierarchical structure, you will find that you have to have \sphi
       \PYG{n}{description}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Statistics python library}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
       \PYG{n}{author}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Wenqiang Feng}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
       \PYG{n}{author\PYGZus{}email}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{von198@gmail.com}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+      \PYG{n}{license}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{MIT}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
       \PYG{n}{url}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{git@github.com:runawayhorse001/statspy.git}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
       \PYG{n}{packages}\PYG{o}{=}\PYG{n}{find\PYGZus{}packages}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}
-      \PYG{n}{long\PYGZus{}description}\PYG{o}{=}\PYG{n}{long\PYGZus{}description}
+      \PYG{n}{long\PYGZus{}description}\PYG{o}{=}\PYG{n}{long\PYGZus{}description}\PYG{p}{,}
+      \PYG{n}{long\PYGZus{}description\PYGZus{}content\PYGZus{}type}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{text/markdown}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+      \PYG{n}{classifiers}\PYG{o}{=}\PYG{p}{[}
+        \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{License :: OSI Approved :: MIT License}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+        \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Programming Language :: Python}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+        \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Programming Language :: Python :: 2}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+        \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Programming Language :: Python :: 3}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+      \PYG{p}{]}\PYG{p}{,}
+      \PYG{n}{include\PYGZus{}package\PYGZus{}data}\PYG{o}{=}\PYG{n+nb+bp}{True}
      \PYG{p}{)}
 \end{sphinxVerbatim}
 
@@ -1968,6 +2166,15 @@ During the uploading processing, you need to provide your PyPI account \sphinxco
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 Enter your username: runawayhorse001
 Enter your password:
+\end{sphinxVerbatim}
+
+
+\section{Package at PyPI}
+\label{\detokenize{pypi:package-at-pypi}}
+Here is my \sphinxcode{\sphinxupquote{PyAudit}} package at {[}PyPI{]}(\sphinxurl{https://pypi.org/project/PyAudit}). You can install \sphinxcode{\sphinxupquote{PyAudit}} using:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+pip install PyAudit
 \end{sphinxVerbatim}
 
 

@@ -19,7 +19,7 @@ Data Structures
 List
 ++++
 
-``List`` is one of data sctructures which is heavily using in my daily work. 
+``list`` is one of data sctructures which is heavily using in my daily work. 
 
 Create list
 -----------
@@ -70,6 +70,20 @@ optimal number of the clusters.
 
 Unpack list
 -----------
+
+|eg|
+
+	.. code-block:: python
+
+		num = [1,2,3,4,5,6,7,8,9,10]
+		print(*num)
+
+|out|
+
+	.. code-block:: python
+
+		1 2 3 4 5 6 7 8 9 10
+
 
 Methods of list objects
 -----------------------
@@ -130,48 +144,197 @@ A tuple is an assortment of data, separated by commas, which makes it similar to
 Dictionary
 ++++++++++
 
-One line if statement
-+++++++++++++++++++++
+``dict`` is one of another data sctructures which is heavily using in my daily work. I heavily applied the ``dict`` in my ``PyAudit`` package, more details can be found at `PyAudit`_. 
 
-1. With filter
+Create ``dict`` from lists
+--------------------------
+
+|eg|
+
+	.. code-block:: python
+
+		col_names = ['name','Age', 'Sex', 'Car']
+		col_values = ['Michael', '30', 'Male', ['Honda','Tesla']]
+		# 
+		d = {key: value for key, value in zip(col_names, col_values)}
+		print(d)
+		#
+		import pandas as pd
+
+		df = pd.DataFrame(d)
+		print(df)
+
+|out|
+
+	.. code-block:: python
+
+		{'name': 'Michael', 'Age': '30', 'Sex': 'Male', 'Car': ['Honda', 'Tesla']}
+		      name Age   Sex    Car
+		0  Michael  30  Male  Honda
+		1  Michael  30  Male  Tesla
+
+``dict.get()``
+--------------
+
+When ``get()`` is called, Python checks if the specified key exists in the dict. If it does, then ``get()`` returns the value of that key. If the key does not exist, then ``get()`` returns the value specified in the second argument to ``get()``. A good application of ``get()`` can be found at :ref:`update_keys_dict`.
+
+|eg|
+
+	.. code-block:: python
+
+		data1 = d.get("name", "best")
+		data2 = d.get("names", "George")
+		print(data1)  # Michael
+		print(data2)  # George
+
+|out|
+
+	.. code-block:: python
+
+		Michael
+		George
+
+
+Looping Techniques
+------------------
+
+|eg|
+
+	.. code-block:: python
+
+		print([(key, val) for key, val in d.items()])
+
+|out|
+
+	.. code-block:: python
+
+		[('name', 'Michael'), ('Age', '30'), ('Sex', 'Male'), ('Car', ['Honda', 'Tesla'])]
+
+
+Update Values in Dict
+---------------------
+
+1. Replace values in dict
+
+	|eg|
+
+		.. code-block:: python
+
+			replace = {'Car': ['Tesla S', 'Tesla X']}
+			print(d)
+			d.update(replace)
+			print(d)
+
+	|out|
+
+		.. code-block:: python
+
+			{'name': 'Michael', 'Age': '30', 'Sex': 'Male', 'Car': ['Honda', 'Tesla']}
+			{'name': 'Michael', 'Age': '30', 'Sex': 'Male', 'Car': ['Tesla S', 'Tesla X']}
+
+2. Add key and values in dict
+
+	|eg|
+
+		.. code-block:: python
+
+			# add key and values in dict
+			added = {'Kid': ['Tom', 'Jim']}
+			print(d)
+			d.update(added)
+			print(d)
+
+	|out|
+
+		.. code-block:: python
+
+			{'name': 'Michael', 'Age': '30', 'Sex': 'Male', 'Car': ['Tesla S', 'Tesla X']}
+			{'name': 'Michael', 'Age': '30', 'Sex': 'Male', 'Car': ['Tesla S', 'Tesla X'], 'Kid': ['Tom', 'Jim']}
+
+.. _update_keys_dict:
+
+Update Keys in Dict
+-------------------
+
+|eg|
+
+	.. code-block:: python
+
+		# update keys in dict
+		mapping = {'Car': 'Cars', 'Kid': 'Kids'}
+		#
+		print({mapping.get(key, key): val for key, val in d.items()})
+
+|out|
+
+	.. code-block:: python
+
+		{'name': 'Michael', 'Age': '30', 'Sex': 'Male', 'Car': ['Tesla S', 'Tesla X'], 'Kid': ['Tom', 'Jim']}
+		{'name': 'Michael', 'Age': '30', 'Sex': 'Male', 'Cars': ['Tesla S', 'Tesla X'], 'Kids': ['Tom', 'Jim']}
+
+
+One line if-else statement
+++++++++++++++++++++++++++
+
+With filter
+-----------
+
+|syn|
+
+	.. code-block:: python
+
+		[ RESUT for x in seq if COND ]
+
+
+|pyc|
+
+	.. code-block:: python
+
+		num = [1,2,3,4,5,6,7,8,9,10]
+
+		[x for x in num if x%2 ==0]
+
+|out|
+
+	.. code-block:: python
+
+		[2, 4, 6, 8, 10]
+
+
+Without filter
 --------------
 
 |syn|
 
 	.. code-block:: python
 
-		[ EXP for x in seq if COND ]
+		[ RESUT1 if COND1  else RESUT2 if COND2 else RESUT3 for x in seq]
 
 
 |pyc|
 
 	.. code-block:: python
 
+		num = [1,2,3,4,5,6,7,8,9,10]
 
-
-|out|
-
-	.. code-block:: python
-
-
-2. Without filter
------------------
-
-|syn|
-
-	.. code-block:: python
-
-		[ EXP if COND RESUT else  RESUT for x in seq]
-
-
-|pyc|
-
-	.. code-block:: python
-
-
+		['Low' if 1<= x <=3 else 'Median' if 3<x<8 else 'High' for x in num]
 
 |out|
 
 	.. code-block:: python
 
-[VanderPlas2016]_ [McKinney2013]_ [Georg2018]_
+		['Low',
+		 'Low',
+		 'Low',
+		 'Median',
+		 'Median',
+		 'Median',
+		 'Median',
+		 'High',
+		 'High',
+		 'High']	
+
+[VanderPlas2016]_ [McKinney2013]_ 
+
+
+.. _PyAudit: https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L251-L340

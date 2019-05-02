@@ -100,10 +100,17 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#tuple">6.2. Tuple</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dictionary">6.3. Dictionary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#one-line-if-statement">6.4. One line if statement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#with-filter">6.4.1. 1. With filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#without-filter">6.4.2. 2. Without filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dictionary">6.3. Dictionary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-dict-from-lists">6.3.1. Create <code class="docutils literal notranslate"><span class="pre">dict</span></code> from lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dict-get">6.3.2. <code class="docutils literal notranslate"><span class="pre">dict.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#looping-techniques">6.3.3. Looping Techniques</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-values-in-dict">6.3.4. Update Values in Dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-keys-in-dict">6.3.5. Update Keys in Dict</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#one-line-if-else-statement">6.4. One line if-else statement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#with-filter">6.4.1. With filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#without-filter">6.4.2. Without filter</a></li>
 </ul>
 </li>
 </ul>
@@ -191,7 +198,7 @@
 </div>
 <div class="section" id="list">
 <h2>6.1. List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">List</span></code> is one of data sctructures which is heavily using in my daily work.</p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code> is one of data sctructures which is heavily using in my daily work.</p>
 <div class="section" id="create-list">
 <h3>6.1.1. Create list<a class="headerlink" href="#create-list" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
@@ -238,6 +245,19 @@ optimal number of the clusters.</p>
 </div>
 <div class="section" id="unpack-list">
 <h3>6.1.2. Unpack list<a class="headerlink" href="#unpack-list" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Example:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="o">*</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="methods-of-list-objects">
 <h3>6.1.3. Methods of list objects<a class="headerlink" href="#methods-of-list-objects" title="Permalink to this headline">¶</a></h3>
@@ -318,51 +338,192 @@ optimal number of the clusters.</p>
 </div>
 <div class="section" id="dictionary">
 <h2>6.3. Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="one-line-if-statement">
-<h2>6.4. One line if statement<a class="headerlink" href="#one-line-if-statement" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="with-filter">
-<h3>6.4.1. 1. With filter<a class="headerlink" href="#with-filter" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">::syntax:</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">dict</span></code> is one of another data sctructures which is heavily using in my daily work. I heavily applied the <code class="docutils literal notranslate"><span class="pre">dict</span></code> in my <code class="docutils literal notranslate"><span class="pre">PyAudit</span></code> package, more details can be found at <a class="reference external" href="https://github.com/runawayhorse001/PyAudit/blob/master/PyAudit/basics.py#L251-L340">PyAudit</a>.</p>
+<div class="section" id="create-dict-from-lists">
+<h3>6.3.1. Create <code class="docutils literal notranslate"><span class="pre">dict</span></code> from lists<a class="headerlink" href="#create-dict-from-lists" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Example:</span></code></p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="n">EXP</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">seq</span> <span class="k">if</span> <span class="n">COND</span> <span class="p">]</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
-<blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Car&#39;</span><span class="p">]</span>
+<span class="n">col_values</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Honda&#39;</span><span class="p">,</span><span class="s1">&#39;Tesla&#39;</span><span class="p">]]</span>
+<span class="c1">#</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">col_names</span><span class="p">,</span> <span class="n">col_values</span><span class="p">)}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Car&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Honda&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla&#39;</span><span class="p">]}</span>
+      <span class="n">name</span> <span class="n">Age</span>   <span class="n">Sex</span>    <span class="n">Car</span>
+<span class="mi">0</span>  <span class="n">Michael</span>  <span class="mi">30</span>  <span class="n">Male</span>  <span class="n">Honda</span>
+<span class="mi">1</span>  <span class="n">Michael</span>  <span class="mi">30</span>  <span class="n">Male</span>  <span class="n">Tesla</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="dict-get">
+<h3>6.3.2. <code class="docutils literal notranslate"><span class="pre">dict.get()</span></code><a class="headerlink" href="#dict-get" title="Permalink to this headline">¶</a></h3>
+<p>When <code class="docutils literal notranslate"><span class="pre">get()</span></code> is called, Python checks if the specified key exists in the dict. If it does, then <code class="docutils literal notranslate"><span class="pre">get()</span></code> returns the value of that key. If the key does not exist, then <code class="docutils literal notranslate"><span class="pre">get()</span></code> returns the value specified in the second argument to <code class="docutils literal notranslate"><span class="pre">get()</span></code>. A good application of <code class="docutils literal notranslate"><span class="pre">get()</span></code> can be found at <a class="reference internal" href="#update-keys-dict"><span class="std std-ref">Update Keys in Dict</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Example:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="s2">&quot;George&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>  <span class="c1"># Michael</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>  <span class="c1"># George</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Michael</span>
+<span class="n">George</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="looping-techniques">
+<h3>6.3.3. Looping Techniques<a class="headerlink" href="#looping-techniques" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Example:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">([(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Michael&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;30&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Male&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Car&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Honda&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla&#39;</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="update-values-in-dict">
+<h3>6.3.4. Update Values in Dict<a class="headerlink" href="#update-values-in-dict" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Replace values in dict</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Example:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">replace</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Car&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tesla S&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla X&#39;</span><span class="p">]}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">replace</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Car&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Honda&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla&#39;</span><span class="p">]}</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Car&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tesla S&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla X&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p class="first">Add key and values in dict</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Example:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># add key and values in dict</span>
+<span class="n">added</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Kid&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Jim&#39;</span><span class="p">]}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">added</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Car&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tesla S&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla X&#39;</span><span class="p">]}</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Car&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tesla S&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla X&#39;</span><span class="p">],</span> <span class="s1">&#39;Kid&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Jim&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="update-keys-in-dict">
+<span id="update-keys-dict"></span><h3>6.3.5. Update Keys in Dict<a class="headerlink" href="#update-keys-in-dict" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Example:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># update keys in dict</span>
+<span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Car&#39;</span><span class="p">:</span> <span class="s1">&#39;Cars&#39;</span><span class="p">,</span> <span class="s1">&#39;Kid&#39;</span><span class="p">:</span> <span class="s1">&#39;Kids&#39;</span><span class="p">}</span>
+<span class="c1">#</span>
+<span class="k">print</span><span class="p">({</span><span class="n">mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span> <span class="n">val</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Car&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tesla S&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla X&#39;</span><span class="p">],</span> <span class="s1">&#39;Kid&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Jim&#39;</span><span class="p">]}</span>
+<span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Cars&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tesla S&#39;</span><span class="p">,</span> <span class="s1">&#39;Tesla X&#39;</span><span class="p">],</span> <span class="s1">&#39;Kids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Jim&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="one-line-if-else-statement">
+<h2>6.4. One line if-else statement<a class="headerlink" href="#one-line-if-else-statement" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="with-filter">
+<h3>6.4.1. With filter<a class="headerlink" href="#with-filter" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">::syntax:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="n">RESUT</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">seq</span> <span class="k">if</span> <span class="n">COND</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">num</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div></blockquote>
 </div>
 <div class="section" id="without-filter">
-<h3>6.4.2. 2. Without filter<a class="headerlink" href="#without-filter" title="Permalink to this headline">¶</a></h3>
+<h3>6.4.2. Without filter<a class="headerlink" href="#without-filter" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">::syntax:</span></code></p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="n">EXP</span> <span class="k">if</span> <span class="n">COND</span> <span class="n">RESUT</span> <span class="k">else</span>  <span class="n">RESUT</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">]</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="n">RESUT1</span> <span class="k">if</span> <span class="n">COND1</span>  <span class="k">else</span> <span class="n">RESUT2</span> <span class="k">if</span> <span class="n">COND2</span> <span class="k">else</span> <span class="n">RESUT3</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">]</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Python</span> <span class="pre">Code:</span></code></p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="p">[</span><span class="s1">&#39;Low&#39;</span> <span class="k">if</span> <span class="mi">1</span><span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span><span class="mi">3</span> <span class="k">else</span> <span class="s1">&#39;Median&#39;</span> <span class="k">if</span> <span class="mi">3</span><span class="o">&lt;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">8</span> <span class="k">else</span> <span class="s1">&#39;High&#39;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">num</span><span class="p">]</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">::</span> <span class="pre">Ouput:</span></code></p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Low&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Low&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Median&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Median&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Median&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Median&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;High&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;High&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;High&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p><a class="reference internal" href="reference.html#vanderplas2016" id="id2">[VanderPlas2016]</a> <a class="reference internal" href="reference.html#mckinney2013" id="id3">[McKinney2013]</a> <a class="reference internal" href="reference.html#georg2018" id="id4">[Georg2018]</a></p>
+<p><a class="reference internal" href="reference.html#vanderplas2016" id="id2">[VanderPlas2016]</a> <a class="reference internal" href="reference.html#mckinney2013" id="id3">[McKinney2013]</a></p>
 </div>
 </div>
 </div>
@@ -389,7 +550,7 @@ optimal number of the clusters.</p>
     <p>
         &copy; Copyright 2019, Wenqiang Feng, Xu Gao and Upendra Madam
       <span class="lastupdated">
-        Last updated on Apr 30, 2019.
+        Last updated on May 02, 2019.
       </span>
 
     </p>

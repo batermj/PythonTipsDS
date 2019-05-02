@@ -33,7 +33,7 @@ We decided that it would be useful for us to share what we learned
 about Python in the form of easy note with detailed example. 
 We hope those notes will be a valuable tool for your studies.
 
-The notes assume that the reader has a preliminary knowledge of ``python`` programing, ``LaTex`` and ``Linux``. And this document is generated automatically by using `sphinx`_.
+The notes assume that the reader has a preliminary knowledge of ``python`` programing, ``LaTex`` and ``Linux``. And this document is generated automatically by using `sphinx`_. More details can be found at [Georg2018]_.
 
 .. _sphinx: http://sphinx.pocoo.org
 

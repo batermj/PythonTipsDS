@@ -51,6 +51,14 @@ During the uploading processing, you need to provide your PyPI account ``usernam
 	Enter your username: runawayhorse001
 	Enter your password:
 
+Package at PyPI
++++++++++++++++
+
+Here is my ``PyAudit`` package at [PyPI](https://pypi.org/project/PyAudit). You can install ``PyAudit`` using:
+
+.. code-block:: bash
+
+    pip install PyAudit
 
 
 

@@ -58,9 +58,18 @@ Set Up
 	      description='Statistics python library',
 	      author='Wenqiang Feng',
 	      author_email='von198@gmail.com',
+	      license="MIT",
 	      url='git@github.com:runawayhorse001/statspy.git',
 	      packages=find_packages(),
-	      long_description=long_description
+	      long_description=long_description,
+	      long_description_content_type="text/markdown",
+	      classifiers=[
+	        "License :: OSI Approved :: MIT License",
+	        "Programming Language :: Python",
+	        "Programming Language :: Python :: 2",
+	        "Programming Language :: Python :: 3",
+	      ],
+	      include_package_data=True	      
 	     )
 
 Requirements
